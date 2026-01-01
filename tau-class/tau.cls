@@ -2,7 +2,7 @@
 % --------------------------------------------------------
 % Tau
 % LaTeX Class
-% Version 2.4.3 (01/09/2024)
+% Version 2.4.4 (28/02/2025)
 %
 % Author: 
 % Guillermo Jimenez (memo.notess1@gmail.com)
@@ -32,10 +32,10 @@
 %----------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{tau-class/tau}[2024/09/01 Tau LaTeX class]
+\ProvidesClass{tau-class/tau}[2025/02/28 Tau LaTeX class]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax
-\LoadClass[twocolumn]{extarticle}
+\LoadClass{extarticle}
 \AtEndOfClass{\RequirePackage{microtype}}
 
 %----------------------------------------------------------
@@ -137,6 +137,9 @@
 \usepackage[notextcomp]{stix2}
 \RequirePackage[scaled]{helvet}
 \renewcommand{\ttdefault}{lmtt}
+% \renewcommand{\ttdefault}{zi4}
+% \renewcommand{\ttdefault}{txtt}
+% \renewcommand{\ttdefault}{cmtl}
 
 %----------------------------------------------------------
 % URLs STYLE
@@ -160,7 +163,7 @@
 \setlist{noitemsep}
 
 %----------------------------------------------------------
-% GRAPHICS PATH 
+% PREDEFINED LENGTHS
 %----------------------------------------------------------
 
 \setlength{\columnsep}{15pt}
@@ -395,7 +398,7 @@
 
 % Table
 \captionsetup*[table]{labelfont={small,bf,sf},textfont={small},skip=10pt,position=below,labelsep=period} % Change it to "above" if you prefer the caption above the table.
-\newcommand{\tabletext}[1]{{\setlength{\leftskip}{9pt}\fontsize{7}{9}\vskip2pt\selectfont#1}}
+\newcommand{\tabletext}[1]{{\setlength{\leftskip}{9pt}\fontsize{7}{9}\vskip2pt\itshape\selectfont#1}}
 
 \captionsetup[lstlisting]{font=small, labelfont={bf,sf}, belowskip=3pt, position=below, textfont=small, labelsep=period}
 \renewcommand\lstlistingname{\captioncodelanguage}
@@ -412,12 +415,13 @@
 \definecolor{taucodestring}{RGB}{122, 36, 47}
 \definecolor{taugray}{RGB}{0.5,0.5,0.5}
 \definecolor{tauredmatlab}{RGB}{199, 78, 0}
+\definecolor{taublue}{RGB}{43, 43, 255}
 
 % General
 \lstdefinestyle{taucoding}{
     backgroundcolor=\color{taucodeback},   
     commentstyle=\color{taucodecomment},
-    keywordstyle=\color{taucodekey},
+    keywordstyle=\bfseries\color{taucodekey},
     numberstyle=\tiny\color{taugray},
     stringstyle=\color{taucodestring},
     basicstyle=\footnotesize\ttfamily,
@@ -434,17 +438,23 @@
     tabsize=2,
     aboveskip=12pt,
     belowskip=8pt,
-    xleftmargin=10pt,				% 0pt
+    xleftmargin=12pt,				% 0pt
+    xrightmargin=3pt,
     rulecolor=\color{taugray},
-    frame=single
-}
-
-% Matlab
-\lstset{
-    language=Matlab,
-    rulecolor=\color{taugray},
-    emph=[1]{for,end,break},
-    emphstyle=[1]\color{tauredmatlab},
+    frame=single,
+    columns=fullflexible,
+    postbreak=\mbox{\small\textcolor{taugray}{$\hookrightarrow$}\space},
+    literate=
+        {0}{{\textcolor{taublue}{0}}}{1}
+        {1}{{\textcolor{taublue}{1}}}{1}
+        {2}{{\textcolor{taublue}{2}}}{1}
+        {3}{{\textcolor{taublue}{3}}}{1}
+        {4}{{\textcolor{taublue}{4}}}{1}
+        {5}{{\textcolor{taublue}{5}}}{1}
+        {6}{{\textcolor{taublue}{6}}}{1}
+        {7}{{\textcolor{taublue}{7}}}{1}
+        {8}{{\textcolor{taublue}{8}}}{1}
+        {9}{{\textcolor{taublue}{9}}}{1}
 }
 
 \lstset{style=taucoding}
