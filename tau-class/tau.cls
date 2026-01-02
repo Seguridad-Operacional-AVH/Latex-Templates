@@ -1,8 +1,13 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % --------------------------------------------------------
-% Tau
-% LaTeX Class
-% Version 2.4.4 (28/02/2025)
+%  _____                      _               
+% |_   _|_ _ _   _        ___| | __ _ ___ ___ 
+%   | |/ _` | | | |_____ / __| |/ _` / __/ __|
+%   | | (_| | |_| |_____| (__| | (_| \__ \__ \
+%   |_|\__,_|\__,_|      \___|_|\__,_|___/___/
+%
+% LaTeX2e Class
+% Version 2.5.0 (01/01/2026)
 %
 % Author: 
 % Guillermo Jimenez (memo.notess1@gmail.com)
@@ -12,93 +17,98 @@
 % --------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % --------------------------------------------------------
+% Github Repository:
+% https://github.com/MemoJimenez/Tau-class
+% --------------------------------------------------------
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% --------------------------------------------------------
 % You may modify 'tau.cls' file according to your
-% needs and preferences. This LaTeX class file defines 
+% needs and preferences. This LaTeX2e class file defines 
 % the document layout and behavior.
 % --------------------------------------------------------
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% --------------------------------------------------------
-%                        WARNING!
-% --------------------------------------------------------
-% It is important to proceed with caution and ensure that 
-% any modifications made are compatible with LaTeX 
-% syntax and conventions to avoid errors or unexpected 
-% behavior in the document compilation process.
-% --------------------------------------------------------
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %----------------------------------------------------------
-% CLASS CONFIGURATION
+% Class configuration
 %----------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{tau-class/tau}[2025/02/28 Tau LaTeX class]
+\ProvidesClass{tau-class/tau}[01/01/2026 Tau LaTeX2e class]
 \DeclareOption*{\PassOptionsToClass{\CurrentOption}{extarticle}}
 \ProcessOptions\relax
 \LoadClass{extarticle}
 \AtEndOfClass{\RequirePackage{microtype}}
 
 %----------------------------------------------------------
-% REQUIRED PACKAGES
+% Required packages
 %----------------------------------------------------------
 
-\RequirePackage[utf8]{inputenc}
 \RequirePackage{etoolbox}
+\RequirePackage{ragged2e}
+\RequirePackage{array} 
 \RequirePackage[framemethod=tikz]{mdframed}
-\RequirePackage{titling}
-\RequirePackage{lettrine}
-\RequirePackage[switch]{lineno}
-\RequirePackage[bottom,hang,flushmargin,ragged]{footmisc}
-\RequirePackage{fancyhdr}
 \RequirePackage{xifthen}
 \RequirePackage{adjustbox}
-\RequirePackage{adforn}
-\RequirePackage{lastpage}
-\RequirePackage[explicit]{titlesec}
-\RequirePackage{booktabs}
-\RequirePackage{array} 
-\RequirePackage{caption}
-\RequirePackage{setspace}
 \RequirePackage{iflang}
-\RequirePackage{listings}
-\RequirePackage{lipsum}
-\RequirePackage{fontawesome5}    % For icons
-\RequirePackage{chemfig}         % Chemical structures
-\RequirePackage{circuitikz}      % Circuits schematics
-\RequirePackage{supertabular}
-\RequirePackage{matlab-prettifier}
-\RequirePackage{listings}
-\RequirePackage{csquotes}
-\RequirePackage{ragged2e}
-\RequirePackage{subcaption}
-\RequirePackage{stfloats} 
-% \RequirePackage{pbalance} 
+\RequirePackage{fontawesome} 
+\RequirePackage{balance}
 
 %----------------------------------------------------------
-% TAU CUSTOM PACKAGES (location/name)
+% Tau custom packages (location/name)
 %----------------------------------------------------------
 
 \RequirePackage{tau-class/tauenvs}
 \RequirePackage{tau-class/taubabel}
 
 %----------------------------------------------------------
-% PACKAGES FOR FIGURES
+% Optional-, extra- packages
 %----------------------------------------------------------
 
-\usepackage{graphicx}
+% \RequirePackage[switch]{lineno}
+% \RequirePackage{adforn}
+% \RequirePackage{fontawesome5} 
+% \RequirePackage{chemfig}      
+% \RequirePackage{circuitikz} 
+% \RequirePackage{matlab-prettifier}
+% \RequirePackage{longtable}
+% \RequirePackage{supertabular}
+% \RequirePackage{setspace}
+% \RequirePackage{lipsum}
+% \RequirePackage{pbalance} 
+% \RequirePackage{afterpage}
+% \RequirePackage{sidecap}
+
+%----------------------------------------------------------
+% Fonts
+%----------------------------------------------------------
+
+\usepackage[T1]{fontenc}
+\usepackage[notextcomp]{stix2}
+\usepackage{FiraSans}
+\usepackage[scaled=0.85]{FiraMono}
+
+%----------------------------------------------------------
+% Figures
+%----------------------------------------------------------
+
+\RequirePackage{graphicx}
 \RequirePackage{here}
-\graphicspath{{figures/}{./}} 
+\RequirePackage{float}
+\RequirePackage{stfloats} 
 
 %----------------------------------------------------------
-% PACKAGES FOR TABLES
+% Tables
 %----------------------------------------------------------
 
-\usepackage{adjustbox}
+\RequirePackage{adjustbox}
 \RequirePackage{colortbl}
-\RequirePackage{tcolorbox}
+\RequirePackage{booktabs}
+\RequirePackage[most,many]{tcolorbox}
+\AtBeginEnvironment{tabular}{\small\sffamily}
+\newcommand{\tabletext}[1]{{\fontsize{7}{9}\vskip2pt\sffamily\itshape\selectfont#1}}
 
 %----------------------------------------------------------
-% GEOMETRY PACKAGE SETUP
+% Geometry setup
 %----------------------------------------------------------
 
 \RequirePackage[
@@ -106,43 +116,34 @@
     right=1.25cm,
     top=2cm,
     bottom=2cm,
-    headsep=0.75cm
+    headsep=0.75cm,
+    % showframe
 ]{geometry}
 
 %----------------------------------------------------------
-% MATH PACKAGES
+% Equation above/below skip
 %----------------------------------------------------------
 
-%!TEX In case of using another font that is not stix2 uncomment 'amssymb'
-
-\RequirePackage{amsmath}
-\RequirePackage{amsfonts}
-\RequirePackage{mathtools}
-% \RequirePackage{amssymb}
-
-% Equation skip value
-\newlength{\eqskip}\setlength{\eqskip}{8pt}
+\newlength{\eqskip}\setlength{\eqskip}{9pt}
 \expandafter\def\expandafter\normalsize\expandafter{%
-    \normalsize%
-    \setlength\abovedisplayskip{\eqskip}%
-    \setlength\belowdisplayskip{\eqskip}%
-    \setlength\abovedisplayshortskip{\eqskip-\baselineskip}%
-    \setlength\belowdisplayshortskip{\eqskip}%
+	\normalsize%
+	\setlength\abovedisplayskip{\eqskip-\baselineskip}%
+	\setlength\belowdisplayskip{\eqskip-\baselineskip}%
+	\setlength\abovedisplayshortskip{\eqskip-\baselineskip}%
+	\setlength\belowdisplayshortskip{\eqskip}%
 }
 
 %----------------------------------------------------------
-% FONTS
+% Color template
 %----------------------------------------------------------
 
-\usepackage[notextcomp]{stix2}
-\RequirePackage[scaled]{helvet}
-\renewcommand{\ttdefault}{lmtt}
-% \renewcommand{\ttdefault}{zi4}
-% \renewcommand{\ttdefault}{txtt}
-% \renewcommand{\ttdefault}{cmtl}
+\RequirePackage{xcolor}
+\definecolor{taucolor}{rgb}{0.0,0.2,0.4}       % Blue
+% \definecolor{taucolor}{rgb}{0.12, 0.3, 0.17}   % Green
+% \definecolor{taucolor}{rgb}{0.4, 0.26, 0.13}   % Brown
 
 %----------------------------------------------------------
-% URLs STYLE
+% URLs style
 %----------------------------------------------------------
 
 \RequirePackage{url}
@@ -150,81 +151,95 @@
 \renewcommand\UrlFont{\selectfont}
 
 %----------------------------------------------------------
+% Hyperref setup
+%----------------------------------------------------------
 
 \RequirePackage[colorlinks=true,allcolors=taucolor]{hyperref}
 \RequirePackage{cleveref}
 \RequirePackage{bookmark}
 
+% New commands for figure-, table-, code- cross references
+\newcommand{\figref}[1]{\hyperref[#1]{\figlabel~\ref*{#1}}}
+\newcommand{\figsref}[1]{\hyperref[#1]{\figslabel~\ref*{#1}}}
+\newcommand{\tabref}[1]{\hyperref[#1]{\tablabel~\ref*{#1}}}
+\newcommand{\coderef}[1]{\hyperref[#1]{\captionlabelcode~\ref*{#1}}}
+\newcommand{\equref}[1]{\hyperref[#1]{\eqlabel~\ref*{#1}}}
+
 %----------------------------------------------------------
-% ITEMS
+% Items
 %----------------------------------------------------------
 
 \RequirePackage{enumitem}
 \setlist{noitemsep}
 
 %----------------------------------------------------------
-% PREDEFINED LENGTHS
+% Header and footer (first page)
 %----------------------------------------------------------
 
-\setlength{\columnsep}{15pt}
-
-%----------------------------------------------------------
-% FIRST PAGE, HEADER AND FOOTER
-%----------------------------------------------------------
-
-% New commands
-\newcommand{\footerfont}{\normalfont\sffamily\fontsize{7}{9}\selectfont}
-\newcommand{\institution}[1]{\def\@institution{#1}}
-\newcommand{\footinfo}[1]{\def\@footinfo{#1}}
-\newcommand{\leadauthor}[1]{\def\@leadauthor{#1}}
-\newcommand{\course}[1]{\def\@course{#1}}
-\newcommand{\theday}[1]{\def\@theday{#1}}
+\RequirePackage[bottom,hang,flushmargin,ragged]{footmisc}
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
 \pagestyle{fancy}
 
-% Number style
-\pagenumbering{arabic} % Roman
+% Footer commands
+\newcommand{\footerfont}{\normalfont\sffamily\fontsize{8}{9}\selectfont}
+\newcommand{\organization}[1]{\def\@organization{#1}}
+\newcommand{\footinfo}[1]{\def\@footinfo{#1}}
+\newcommand{\leadauthor}[1]{\def\@leadauthor{#1}}
+\newcommand{\theday}[1]{\def\@theday{#1}}
 
 % First page style
 \fancypagestyle{firststyle}{
-    \fancyfoot[R]{
-        {\ifx\@institution\undefined\else\footerfont\@institution\hspace{10pt}\fi}
-        {\ifx\@theday\undefined\else\footerfont\bfseries\@theday\hspace{10pt}\fi}
-        {\ifx\@footinfo\undefined\else\footerfont\@footinfo\hspace{10pt}\fi}
-        \footerfont\textbf{\thepage\textendash\pageref{LastPage}}
-    }
-    \fancyfoot[L]{\ifx\@course\undefined\else\footerfont\@course\fi}
+    \fancyhead[L]{}
     \fancyhead[C]{}
     \fancyhead[R]{}
-    \fancyhead[L]{}
+    \fancyfoot[C]{}
+    \fancyfoot[L]{}
+    \fancyfoot[R]{
+        {\ifx\@organization\undefined\else\footerfont\@organization\hspace{10pt}\fi}
+        {\ifx\@theday\undefined\else\footerfont\bfseries\@theday\hspace{10pt}\fi}
+        {\ifx\@footinfo\undefined\else\footerfont\@footinfo\hspace{10pt}\fi}
+        \footerfont\textbf{\thepage}/\pageref{LastPage}
+    }
 }
+
+%----------------------------------------------------------
+% Header and footer
+%----------------------------------------------------------
 
 % Fancy head
 \fancyhead[C]{}
-\fancyhead[RE]{\footerfont\itshape\@title}
-\fancyhead[RO]{}
-\fancyhead[LO]{\footerfont\itshape\@title}
-\fancyhead[LE]{}
+\fancyhead[RE,LO]{\footerfont\@title}
+\fancyhead[RO,LE]{}
 
 % Fancy foot
 \fancyfoot[C]{}
-\fancyfoot[LE]{\footerfont\textbf{\thepage}\hspace{10pt}\ifx\@course\undefined\else\@course\fi}
-\fancyfoot[RO]{\footerfont\ifx\@course\undefined\else\@course\hspace{10pt}\fi\textbf{\thepage}}
-\fancyfoot[RE,LO]{\footerfont\ifx\@leadauthor\undefined\else\itshape\@leadauthor\fi}
+\fancyfoot[RE,LO]{\ifx\@leadauthor\undefined\else\footerfont\@leadauthor\fi}
+\fancyfoot[RO]{
+    {\ifx\@organization\undefined\else\footerfont\@organization\hspace{10pt}\fi}
+    {\ifx\@theday\undefined\else\footerfont\bfseries\@theday\hspace{10pt}\fi}
+    {\ifx\@footinfo\undefined\else\footerfont\@footinfo\hspace{10pt}\fi}
+    \footerfont\bfseries\thepage
+}
+\fancyfoot[LE]{
+    {\footerfont\textbf{\thepage}}
+    {\ifx\@footinfo\undefined\else\footerfont\hspace{10pt}\@footinfo\fi}
+}
 
 % Head and foot rule
-\renewcommand{\headrulewidth}{0pt}      % No header rule
-\renewcommand{\footrulewidth}{0pt}      % No footer rule
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
 
 %----------------------------------------------------------
-% TAU START ~ LETTRINE
+% Taustart (lettrine)
 %----------------------------------------------------------
 
 \RequirePackage{lettrine}
-\newcommand{\dropcapfont}{\color{taucolor}\bfseries\fontsize{26pt}{28pt}\selectfont}
+\newcommand{\dropcapfont}{\color{taucolor}\bfseries}
 \newcommand{\taustart}[1]{\lettrine[lines=2,lraise=0,findent=2pt, nindent=0em]{{\dropcapfont{#1}}}{}}
 
 %----------------------------------------------------------
-% ABSTRACT STYLE
+% Abstract style
 %----------------------------------------------------------
 
 % Abstract font
@@ -239,6 +254,7 @@
 % Keyword text font 
 \newcommand{\keywordsfonttext}{\selectfont\itshape\sffamily\small}
 
+% Abstract definition
 \def\xabstract{abstract}
 \long\def\abstract#1\end#2{\def\two{#2}\ifx\two\xabstract 
     \long\gdef\theabstract{\ignorespaces#1}
@@ -256,68 +272,98 @@
 	\vskip3pt
         \hspace*{1em}{\absfont\abstractname---}\abstextfont\theabstract
     }
-    \@ifundefined{@keywords}{\vskip15pt}{
-        \vskip6pt
+    \@ifundefined{@keywords}{\vskip0pt}{
+        \vskip5pt
         \noindent
         \parbox{\dimexpr\linewidth}{
     	{
             \hspace*{1em}{\keywordsfont\keywordname\ignorespaces}{\keywordsfonttext\@keywords}
     	}
         }
-        \vskip12pt
+        \vskip5pt
     } 
 }
 
 %----------------------------------------------------------
-% TITLE STYLE
+% Title style
 %----------------------------------------------------------
 
-% New commands
-\newcommand{\journalname}[1]{\def\@journalname{#1}}
-\newcommand{\professor}[1]{\def\@professor{#1}}
-\newcommand{\titlepos}{\RaggedRight}
+\RequirePackage{titling}
+\RequirePackage[explicit]{titlesec}
+
+% Title commands
+\newcommand{\dates}[1]{\def\@dates{#1}}
+\newcommand{\doctype}[1]{\def\@doctype{#1}}
 \newcommand{\titlefont}{\bfseries\color{taucolor}\fontsize{18}{22}\sffamily\selectfont}
-\newcommand{\authorfont}{\normalsize\sffamily}
-\newcommand{\professorfont}{\fontsize{7pt}{8pt}\selectfont}
 
 \renewcommand{\@maketitle}{
-    {\ifx\@journalname\undefined\vskip-18pt\else\vskip-25pt\RaggedRight\sffamily\bfseries\fontsize{8}{14}\@journalname\par\fi}
-    {\titlepos\titlefont\@title\par\vskip8pt}
-    {\authorfont\titlepos\@author\par\vskip8pt}
-    {\ifx\@professor\undefined\vskip14pt\else\professorfont\titlepos\@professor\par\vskip22pt\fi}
+    \bgroup
+        {\ifx\@doctype\undefined\vskip-20pt\else\vskip-22pt\RaggedRight\sffamily\bfseries\@doctype\par\fi}
+        {\RaggedRight\titlefont\@title\par\vskip8pt}
+        {\normalsize\sffamily\RaggedRight\@author\par\vskip8pt}
+        {\ifx\@dates\undefined\vskip14pt\else\fontsize{7pt}{8pt}\RaggedRight\sffamily\selectfont\@dates\par\vskip20pt\fi}
+    \egroup
 }
 
 %----------------------------------------------------------
-% AFFILIATION SETUP
+% Thanks-, docinfo-, custom setup
 %----------------------------------------------------------
 
-\RequirePackage{authblk} % For custom environment affiliation
+\newcommand{\docinfo}[1]{\def\@docinfo{#1}}
+\let\@docinfo\@empty
 
-\setlength{\affilsep}{9pt}
-\renewcommand\Authfont{\normalfont\sffamily\bfseries\fontsize{9}{11}}
-\renewcommand\Affilfont{\normalfont\itshape\fontsize{7.5}{9}}
+\appto{\maketitle}{%
+  \tauabstract
+  %
+  \ifx\@docinfo\@empty
+    % Do nothing
+  \else
+    \insert\footins{%
+      \ifx\@thanks\@empty
+        \vskip0pt
+      \else
+        \vskip8pt
+      \fi
+      \footnotesize
+      \parindent=0em
+      \hangindent=0pt
+      \hangafter=0
+      \@docinfo\par
+    }%
+  \fi
+}
+
+%----------------------------------------------------------
+% Affiliation setup
+%----------------------------------------------------------
+
+\RequirePackage{authblk}
+
+\setlength{\affilsep}{10pt}
+\renewcommand\Authfont{\normalfont\sffamily\fontsize{9}{11}}
+\renewcommand\Affilfont{\sffamily\itshape\fontsize{7.5}{9}\selectfont}
+% \renewcommand\AB@affilnote[1]{\textsuperscript{\sffamily#1}}
 % \renewcommand\AB@affilsepx{; \protect\Affilfont}
-\renewcommand\Authands{\ignorespaces\andlanguage}
+
 \renewcommand\Authand{\ignorespaces\andlanguage}
+\renewcommand\Authands{\ignorespaces\andlanguage}
 
 %----------------------------------------------------------
-% SECTION STYLE
+% Section-, subsection-, subsubsection-, paragraph-, style
 %----------------------------------------------------------
-
-\setcounter{secnumdepth}{5}
 
 \titleformat{\section}
     {\color{taucolor}\sffamily\large\bfseries}
     {\thesection.}
     {0.5em}
-    {#1}
+    {\MakeUppercase{#1}}
     []
   
 \titleformat{name=\section,numberless}
     {\color{taucolor}\sffamily\large\bfseries}
     {}
     {0em}
-    {#1}
+    {\MakeUppercase{#1}}
     []  
   
 \titleformat{\subsection}[block] % You may change it to "runin"
@@ -341,17 +387,17 @@
     {#1} 
   
 \titlespacing*{\section}{0pc}{3ex \@plus4pt \@minus3pt}{5pt}
-\titlespacing*{\subsection}{0pc}{2.5ex \@plus3pt \@minus2pt}{2pt}
-\titlespacing*{\subsubsection}{0pc}{2ex \@plus2.5pt \@minus1.5pt}{2pt}
-\titlespacing*{\paragraph}{0pc}{1.5ex \@plus2pt \@minus1pt}{12pt}
+% \titlespacing*{\subsection}{0pc}{2.5ex \@plus3pt \@minus2pt}{3pt}
+% \titlespacing*{\subsubsection}{0pc}{2ex \@plus2.5pt \@minus1.5pt}{2pt}
+% \titlespacing*{\paragraph}{0pc}{1.5ex \@plus2pt \@minus1pt}{12pt}
 
 %----------------------------------------------------------
-% TABLE OF CONTENTS
+% Table of Contents
 %----------------------------------------------------------
 
 \newlength{\tocsep} 
-\setlength\tocsep{1.5pc} % Sets the indentation of the sections in the table of contents
-\setcounter{tocdepth}{5} % Three levels in the table of contents section: sections, subsections and subsubsections
+% Sets the indentation of the sections in the table of contents
+\setlength\tocsep{1.5pc} 
 
 \RequirePackage{titletoc}
 \contentsmargin{0cm}
@@ -376,97 +422,125 @@
     {}
     {}
     [\ \textbullet\ ]
-
-%----------------------------------------------------------
-% FOOTNOTE STYLE
-%----------------------------------------------------------
-
-\definecolor{black50}{gray}{0.5}
-\renewcommand*{\footnotelayout}{\normalfont\fontsize{6}{8}}
-\renewcommand{\footnoterule}{
-    \kern -3pt
-    {\color{black50} \hrule width 72pt height 0.25pt}
-    \kern 2.5pt
-}
 	
 %----------------------------------------------------------
-% FIGURE-, TABLE-, LISTINGS- CAPTION STYLE
+% Figure-, Table-, Listings/Minted- caption style
 %----------------------------------------------------------
+
+\RequirePackage{caption}
+\RequirePackage{subcaption}
 
 % Figure
 \captionsetup[figure]{format=plain, labelsep=period, textfont={small}, justification=centering, labelfont={small,bf,sf}}
 
 % Table
-\captionsetup*[table]{labelfont={small,bf,sf},textfont={small},skip=10pt,position=below,labelsep=period} % Change it to "above" if you prefer the caption above the table.
-\newcommand{\tabletext}[1]{{\setlength{\leftskip}{9pt}\fontsize{7}{9}\vskip2pt\itshape\selectfont#1}}
+\captionsetup*[table]{labelfont={small,bf,sf},textfont={small},position=below,aboveskip=0pt,labelsep=period}
 
-\captionsetup[lstlisting]{font=small, labelfont={bf,sf}, belowskip=3pt, position=below, textfont=small, labelsep=period}
-\renewcommand\lstlistingname{\captioncodelanguage}
-\renewcommand\lstlistlistingname{\captioncodelanguage}
+% Listings and minted
+\captionsetup[lstlisting]{font=small, labelfont={bf,sf}, aboveskip=0pt, belowskip=9pt, position=below, textfont=small, labelsep=period}
+\renewcommand\lstlistingname{\captionlabelcode}
+\renewcommand\lstlistlistingname{\captionlabelcode}
 
 %----------------------------------------------------------
-% LISTINGS STYLE
+% Listings style
 %----------------------------------------------------------
 
-% Defined colors for listings environment
+\RequirePackage{listings}
+\newenvironment{code}{\captionsetup{type=lstlisting}}{}
+
+% Defined colors for listings environment 
+
+% Lovelace-like listings style
 \definecolor{taucodeback}{RGB}{248, 248, 248}  
-\definecolor{taucodecomment}{RGB}{1, 136, 0}
-\definecolor{taucodekey}{RGB}{53, 53, 128}
-\definecolor{taucodestring}{RGB}{122, 36, 47}
-\definecolor{taugray}{RGB}{0.5,0.5,0.5}
-\definecolor{tauredmatlab}{RGB}{199, 78, 0}
-\definecolor{taublue}{RGB}{43, 43, 255}
+\definecolor{taucodecomment}{RGB}{135, 135, 135}
+\definecolor{taucodekey}{RGB}{41, 56, 176}
+\definecolor{taucodestring}{RGB}{184, 56, 56}
+\definecolor{taugray}{RGB}{0.5, 0.5, 0.5}
 
-% General
+% Tango-like listings style
+% \definecolor{taucodeback}{RGB}{248, 248, 248}  
+% \definecolor{taucodecomment}{RGB}{1, 136, 0}
+% \definecolor{taucodekey}{RGB}{53, 53, 128}
+% \definecolor{taucodestring}{RGB}{122, 36, 47}
+% \definecolor{taugray}{RGB}{0.5, 0.5, 0.5}
+
+% Listings style
 \lstdefinestyle{taucoding}{
-    backgroundcolor=\color{taucodeback},   
-    commentstyle=\color{taucodecomment},
-    keywordstyle=\bfseries\color{taucodekey},
-    numberstyle=\tiny\color{taugray},
-    stringstyle=\color{taucodestring},
-    basicstyle=\footnotesize\ttfamily,
-    breakatwhitespace=false,        
-    basicstyle=\small\ttfamily,
-    breaklines=true,                 
-    captionpos=b,                    
-    keepspaces=true,                 
-    numbers=left,				 	% if "none" change the values  
-    numbersep=8pt,    				% 0pt              
-    showspaces=false,                
-    showstringspaces=false,
-    showtabs=false,                  
-    tabsize=2,
-    aboveskip=12pt,
-    belowskip=8pt,
-    xleftmargin=12pt,				% 0pt
-    xrightmargin=3pt,
-    rulecolor=\color{taugray},
-    frame=single,
-    columns=fullflexible,
-    postbreak=\mbox{\small\textcolor{taugray}{$\hookrightarrow$}\space},
-    literate=
-        {0}{{\textcolor{taublue}{0}}}{1}
-        {1}{{\textcolor{taublue}{1}}}{1}
-        {2}{{\textcolor{taublue}{2}}}{1}
-        {3}{{\textcolor{taublue}{3}}}{1}
-        {4}{{\textcolor{taublue}{4}}}{1}
-        {5}{{\textcolor{taublue}{5}}}{1}
-        {6}{{\textcolor{taublue}{6}}}{1}
-        {7}{{\textcolor{taublue}{7}}}{1}
-        {8}{{\textcolor{taublue}{8}}}{1}
-        {9}{{\textcolor{taublue}{9}}}{1}
+	backgroundcolor=\color{taucodeback},   
+	commentstyle=\color{taucodecomment},
+	keywordstyle=\color{taucodekey},
+	numberstyle=\tiny\color{taugray},
+	stringstyle=\color{taucodestring},
+	basicstyle=\small\ttfamily, % \linespread{1.15}
+	breakatwhitespace=false,        
+	breaklines=true,                 
+	captionpos=b,                    
+	keepspaces=true,                 
+	numbers=none,		 
+	numbersep=0pt,    	              
+	showspaces=false,                
+	showstringspaces=false,
+	showtabs=false,                  
+	tabsize=2,
+	aboveskip=12pt,
+	belowskip=7pt,
+	xrightmargin=3pt,
+	xleftmargin=3.8pt,	   
+	columns=fullflexible,
+	rulecolor=\color{taugray},
+	frame=single,
+	postbreak=\mbox{\small\textcolor{taugray}{$\hookrightarrow$}\space}
 }
 
 \lstset{style=taucoding}
 
 %----------------------------------------------------------
-% BIBLATEX
+% Minted setup
 %----------------------------------------------------------
 
+\usepackage{minted}
+\usemintedstyle{lovelace} % lovelace, tango, stata-light
+\renewcommand{\theFancyVerbLine}{\scriptsize\textcolor{black}{\arabic{FancyVerbLine}}}
+\definecolor{codeback}{RGB}{248, 248, 248} 
+\setminted{
+	frame=single,
+	breaklines,
+	numbersep=5pt,
+	fontsize=\small,
+	bgcolor=codeback,
+}
+
+%----------------------------------------------------------
+% Inlinecode definition
+%----------------------------------------------------------
+
+\NewDocumentCommand{\inlinecode}{v}{%
+  \tcbox[
+	boxrule=0.4pt,          
+	arc=1pt,                
+	colback=gray!15,        
+	colframe=gray!30,        
+	coltext=taucolor,         
+	left=1pt, right=1pt,    
+	top=1pt, bottom=1pt,      
+	boxsep=0pt,             
+	fontupper=\ttfamily\small,
+	valign=center,
+    nobeforeafter,
+    box align=base
+  ]{#1}%
+}
+
+%----------------------------------------------------------
+% BibLaTeX
+%----------------------------------------------------------
+
+\RequirePackage{csquotes}
 \RequirePackage[
-    backend=biber,
-    style=ieee,
-    sorting=ynt
+	backend=biber,
+	style=ieee,
+	sorting=ynt,
+	citestyle=numeric-comp
 ]{biblatex}
 
 \addbibresource{tau.bib}

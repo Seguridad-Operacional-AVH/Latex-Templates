@@ -1,4 +1,4 @@
-# Tau ~ Version 2.4.4
+# Tau ~ Version 2.5.0
 
 ## Description
 
@@ -148,5 +148,28 @@ Feel free to reach out — I’d be happy to help, collaborate, or fix the issue
 4. The lstset for matlab language was removed for better integration.
 5. The tabletext command will now display the text in italics.
 6. Line numbers and ToC are disabled by default.
+
+### Version 2.5.0 (01/01/2026)
+
+A new year brings major improvements and new features to tau-class!
+
+1. The 'journalname' command has been renamed to 'doctype' for improved clarity and semantic consistency.
+2. The 'professor' command has been deleted and changed it to the 'dates' command.
+3. The 'course' command has been removed due to structural changes in the footer layout.
+4. New cross-reference commands have been implemented for figures, tables, code listings, and equations, with hyperlinks applied to both the label and the reference number. Additional commands are also provided in 'taubabel.sty' to configure the label language and style.
+5. A new block called via the 'docinfo' command has been introduced. This block provides greater control over supplementary document data. This block is anchored at the bottom of the first column and works in conjunction with the 'thanks' command.
+6. The abstract, keywords, and the new docinfo block are now generated automatically by \maketitle, thanks to the use of 'appto'. As a result, it is no longer necessary to place '\tauabstract' at the beginning of the document.
+7. All section titles are now displayed in uppercase to ensure visual consistency across the document.
+8. The footer design has been changed, returning to a similar design used in version 1.0.0 (01/03/2024).
+9. All environments now feature a more modern design, while preserving their original visual identity.
+10. The minted package has been added to provide enhanced code formatting and improved syntax highlighting.
+11. The configuration of the listings package has been refined. It remains a fully supported alternative to minted.
+12. A new command has been introduced for inline code formatting. This command provides a visual style distinct from both normal text and traditional verbatim, improving readability and presentation.
+13. The 'numeric-comp' option has been enabled so that multiple references can appear in the same bracket.
+14. The 'tauenvs.sty' package has been fully rewrote to optimize performance and improve environment styling.
+15. All packages are now organized into clearly defined sections within 'tau.cls'. Packages not required for the core template have been commented out and moved to 'Optional-, extra- packages' section, helping to reduce compilation time.
+16. The default 'sffamily' font has been changed from Helvetica to Fira Sans, providing a more modern and flexible appearance across the entire template.
+17. The font used for code has been updated to Fira Mono, a widely adopted monospaced typeface in programming, improving readability and visual consistency.
+18. The class source code has been optimized and cleaned up to enhance maintainability and provide better user experience.
 
 #### Enjoy writing with tau-class :D
