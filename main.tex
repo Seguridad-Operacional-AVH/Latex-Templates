@@ -1,406 +1,2650 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% --------------------------------------------------------
-%  _____           
-% |_   _|_ _ _   _ 
-%   | |/ _` | | | |
-%   | | (_| | |_| |
-%   |_|\__,_|\__,_|
-%
-% LaTeX2e Template
-% Version 2.5.0 (01/01/2026)
-%
-% Author: 
-% Guillermo Jimenez (memo.notess1@gmail.com)
-% 
-% License:
-% Creative Commons CC BY 4.0
-% --------------------------------------------------------
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% --------------------------------------------------------
-% Github Repository:
-% https://github.com/MemoJimenez/Tau-class
-% --------------------------------------------------------
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Header: Here are all packages used and some additional definitions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\documentclass[9pt,a4paper,twocolumn,twoside]{tau-class/tau}
-\usepackage[english]{babel}
+\documentclass[11pt,a4paper]{article}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage[onehalfspacing]{setspace}
+\usepackage{graphicx} 
+\usepackage[breaklinks=true,colorlinks=true,linkcolor=blue,urlcolor=blue,citecolor=blue]{hyperref} % f. Referenzen
+\usepackage{amsmath,amsthm,amssymb} % Mathematik Umgebung 
+\usepackage{icomma} % Intelligentes Komma, das den richtigen Abstand zwischen Dezimalzahlen als auch in Formeln wählt.
+\usepackage[T1]{fontenc}    % andere Schriftsatzkodierung für richtige Silbentrennung bei Umlauten
+\usepackage[locale = US,space-before-unit=true,per-mode = symbol]{siunitx} % Bessere Einheiten
+\usepackage{placeins} % Definiert den Befehl “\FloatBarrier”, der die Ausgabe der davor eingebundenen Bilder erzwingt, befor der Text weiter geht. (Mit vorsicht zu verwenden)
+\usepackage[natbib,abbreviate=true,doi=false,style=numeric-comp,giveninits=true,sorting=none]{biblatex} % Modernes Paket zur Erzeugung von Bibliografien (benötigt biber!)
 
-% Spanish babel recomendation
-% \usepackage[spanish,es-nodecimaldot,es-noindentfirst]{babel} 
+\addbibresource{MyBibliography.bib} % Ort der .bib Datei, die die Datenbank für Literatur/Referenzen enthält.
 
-%----------------------------------------------------------
-% Title & Authors/Affiliations
-%----------------------------------------------------------
+\graphicspath{{Images/}}
 
-\doctype{Documentation Template}
-\title{Writing a research article or lab report with tau-class}
+% Rename "Contents" to Spanish
+\renewcommand{\contentsname}{Tabla de Contenidos}
+\newcommand{\docversion}{1.0}
+\newcommand{\docdate}{\today}
+\newcommand{\fleet}{A32s}
+\usepackage{fontspec}
+\setmainfont{RedHatDisplay}[
+UprightFont = *-Regular,
+ItalicFont  = *-Italic,
+BoldFont    = *-Bold,
+BoldItalicFont = *-BoldItalic
+]
 
-%----------------------------------------------------------
+\usepackage{fancyhdr, float}
+\pagestyle{fancy}
+\setlength{\headheight}{14pt}
 
-\author[a,1]{Author One\thanks{\href{mailto:author.one@institute.org}{author.one@institute.org} (A. One)}}
-\author[b,2]{Author Two}
-\author[c,3]{Author Three}
+\fancyhf{}
+\fancyhead[L]{\small\textit{Documento Confidencial}}
+\fancyhead[C]{AVH}
+\fancyhead[R]{\small Versión \docversion}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
 
-%----------------------------------------------------------
+\newcommand{\categoria}[1]{%
+	\subsubsection*{Categoría: #1}%
+	\addcontentsline{toc}{subsubsection}{Categoría: #1}%
+}
+\usepackage{longtable}
 
-\affil[a]{Affiliation One}
-\affil[b]{Affiliation Two}
-\affil[c]{Affiliation Three}
 
-%----------------------------------------------------------
-% Document-, Footer- information
-%----------------------------------------------------------
 
-\dates{This manuscript was compiled on \today}
-
-\docinfo{This document class was prepared on Overleaf and compiled with pdf\LaTeX{}. No errors were found during the compilation process. Tau-class supports external editors, though additional setup may be required.} 
-
-%----------------------------------------------------------
-
-\footinfo{Tau-class (v.2.5)}
-\theday{\today}
-\organization{\LaTeX\ Template}
-\leadauthor{A. One et al.}
-
-%----------------------------------------------------------
-% ABSTRACT AND KEYWORDS
-%----------------------------------------------------------
-
-\begin{abstract}    
-    Tau-class was designed for creating professional \LaTeX{} documents, including research articles, technical reports, and academic documentation. It enhances the writing experience through intuitive custom environments, multilingual support, and refined typography. The class integrates Fira Sans for headings and highlighted elements, Fira Mono for code listings, and STIX2 for body text, ensuring consistent styling across tables, figures, equations, listings, and captions. \textit{New or updated features are marked with an asterisk (*)}.
-\end{abstract}
-
-    % Tau ($\tau$) is a specially designed document class for creating professional and well-structured research articles, technical reports, and academic documentation. Tau enhances the writing experience through intuitive custom environments, multilingual support, and refined typography powered by Fira Sans for headings and distinctive elements, Fira Modo for listings, and STIX2 for body text, providing consistent and professional styling for elements such as tables, figures, equations, code listings, and captions. \textit{New/Updated features will show a (*) in their title.}
-
-%----------------------------------------------------------
-
-\keywords{tau-class, research article, lab report, academic writing}
-
-%----------------------------------------------------------
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \begin{document}
-		
-    \maketitle 
-    \thispagestyle{firststyle}
-    
-%----------------------------------------------------------
-
-\section{Tau Class}
-
-    \taustart{T}au-class is specially designed for research articles, technical/lab reports, and academic documentation. This guide will help you understand the features and proper use of the template, enabling you to efficiently structure and format your documents with clarity and precision.
-
-    This class includes the following files in the tau-class folder:
+	%
+	\title{\includegraphics[width=8cm]{Logo_CompletoVertical_Rojo.png} \\ Información Tecnica FDM - ERGOSS SARA \\ \vspace{0.3cm} \fleet}
+	\author{Juan Pablo Montoya\thanks{Email: \href{mailto:juanpablo.montoya@avianca.com}{juanpablo.montoya@avianca.com}}, 
+		Nicolas Hernando Maldonado\thanks{Email: \href{mailto:nicolas.maldonado@avianca.comt}{nicolas.maldonado@avianca.com}}\\SegOps AVH}
+	\date{\vspace{0.3cm} Versión \docversion \\ \vspace{0.3cm} Fecha de la última actualización: \docdate}
+	\maketitle	\vfill
+	\renewcommand\abstractname{Importante}
+	\section*{\abstractname}
+	\textit{La información contenida en este documento es de carácter estrictamente confidencial y de uso exclusivo para personal autorizado. Queda terminantemente prohibida la reproducción, distribución, divulgación o comunicación de este documento, sus capturas de pantalla o cualquier información relevante contenida en el mismo a personas no autorizadas. En caso de dudas, consultas o inquietudes relacionadas con el contenido de este documento, o si identifica algún error o inconsistencia, sírvase contactar a las personas responsables indicadas en la portada. El incumplimiento de estas disposiciones podrá ser objeto de las acciones administrativas correspondientes.}
+	\thispagestyle{empty}	
+	%
+	%
+	\newpage
+	\tableofcontents
+	\thispagestyle{plain}
+	\cleardoublepage
+	\newpage
 	
-	\begin{itemize}
-		\item \inlinecode{tau.cls} — The main class file.
-		\item \inlinecode{tauenvs.sty} — A package containing custom environments.
-		\item \inlinecode{taubabel.sty} — A support package for multilingual.
-		\item \inlinecode{README.md} — With essential information.
-	\end{itemize}
-
-    Additionally, this template includes a sample document \inlinecode{main.tex}, a bibliography file \inlinecode{tau.bib}, as well as figures, tables and code examples to help you get started quickly.
-
-    \subsection{License}
-    
-        This work is the creation of Guillermo Jimenez licensed under Creative Commons CC BY 4.0. You may adapted, shared and distributed your work, ensuring that proper credit is given to the original author.
-
-\section{Document Styling}
-
-    \subsection{Document Type}
-
-        Before the main title, a brief descriptor indicates the type of document (e.g., Lab Report, Research Article, etc). This is controlled by the \inlinecode{\doctype{}} command. 
-        
-        If no such label is needed, omit the command and the title will automatically reposition itself to maintain proper vertical spacing and visual alignment.
-
-    \subsection{Abstract and Keywords}
-
-        The abstract and keywords are declared in the preamble of the document, before the beginning of the document, and are automatically positioned during the title creation process.
-
-    \subsection{Lettrine}
-
-		The \inlinecode{\taustart{}} command, provides a personalized lettrine for the beginning of the first paragraph as shown in this example.
-
-	\subsection{Table of Contents}
-
-        This class includes a customized design for the table of contents, which is disabled by default. To enable it, insert the \inlinecode{\tableofcontents} command before your first section.
-
-    \section{Cross-Reference Commands*}
-
-        Tau-class provides shorthand commands for cross-referencing figures, tables, code listings, and equations. To customize the label format, edit the \inlinecode{taubabel.sty} file. Label translations for Spanish are handled automatically.
-
-        \begin{itemize}
-            \item \inlinecode{\figref{}} — Uses the label style defined by \inlinecode{\figlabel}.
-            \item \inlinecode{\figsref{}} — Uses the label style defined by \inlinecode{\figslabel}.
-            \item \inlinecode{\tabref{}} — Uses the label style defined by \inlinecode{\tablabel}.
-            \item \inlinecode{\coderef{}}  — Uses the label style defined by \inlinecode{\captionlabelcode}.
-            \item \inlinecode{\equref{}} — Uses the label style defined by \inlinecode{\eqlabel}.
-        \end{itemize}
-        
-         These commands generate fully hyperlinked references, both the label and the number, ensuring navigation to the referenced element when clicked in the PDF.
-
-\section{Figures and Tables}
-
-    \subsection{Figures}
-		
-    	\figref{fig:figure} shows a 3D surface plot of the hyperbolic paraboloid $z=x^2-y^2$.
-    		
-    	\begin{figure}[H]
-    		\centering
-    		\includegraphics[width=0.75\columnwidth]{figures/Example.pdf}
-    		\caption{Hyperbolic paraboloid obtained from PGFPlots \cite{PFGPlots}.}
-    		\label{fig:figure}
-    	\end{figure}
-
-    \subsection{Tables}
+	%
+	% Begin of Document
 	
-        \tabref{tab:table} shows an example table of some astronomical objects. 
 
-        \begin{table}[H]
-        	\caption{Astronomical Object Data}
-        	\label{tab:table}
-        	\begin{tabular}{
-        		>{\raggedright\arraybackslash}p{0.25\columnwidth}
-        		>{\raggedright\arraybackslash}p{0.30\columnwidth}
-        		>{\raggedright\arraybackslash}p{0.31\columnwidth}
-        	}
-        	\toprule
-        	\textbf{Object} & \textbf{Type} & \textbf{Distance (Light Years)} \\
-        	\midrule
-        	Alpha Centauri & Star system & 4.37 \\
-        	Betelgeuse & Red supergiant star & 642.5 \\
-        	Andromeda & Spiral galaxy & 2.537 million \\
-        	Earth & Planet & 0 \\
-        	Sirius & Binary star system & 8.6 \\
-        	\bottomrule
-        	\end{tabular}
-        	\tabletext{Note: The table contains data of some famous celestial objects.}
-        \end{table}
-
-        The \inlinecode{\tabletext{}} command is used to add notes to tables easily. 
-
-\section{Document Data}
-
-    \subsection{Front-Matter Footer Block*}
-
-        The \inlinecode{\docinfo{}} command inserts a dedicated block at the bottom of the first column. Unlike floating elements, this block stays fixed in place — positioned visually like a footnote, although technically it is not one.
-    
-        The \inlinecode{\docinfo{}} block was created to give you greater control over supplementary document data, such as publication dates, licensing information, extended author details, and other front-matter notes. You can fully customize its content to suit your needs. If it’s not required, omit the command to remove this block entirely.
-    
-        \begin{note}
-            This feature has been adapted to work seamlessly alongside the standard \verb|\thanks{}| command, which is commonly used to indicate corresponding authors, equal contributions, or other acknowledgments.
-        \end{note}
-    
-        If \inlinecode{\thanks{}} is not used, \inlinecode{\docinfo{}} will automatically adjust its position. The implementation was designed to handle any combination of front-matter elements you might need when starting your document. In this example template, you’ll find a minimal demonstration that combines both to illustrate their interaction.
-
-    \subsection{Headers and Footers}
-
-        \subsubsection{Headers}
-
-            On all pages except the first, the document title appear in the header. Since twoside layout is enabled, its position alternates depending on whether the page is odd or even.
-
-        \subsubsection{Footers}
-
-            On odd-numbered pages, five elements display supplementary information for your document:
-    
-            \begin{itemize}
-                \item \inlinecode{\thepage} — Including the total number of pages (only for the first page).
-                \item \inlinecode{\footinfo{}} — For a short title or custom note.
-                \item \inlinecode{\theday{}} — Displays the current date.
-                \item \inlinecode{\organization{}} — For a university, institute, company, or any institutional affiliation.
-                \item \inlinecode{\leadauthor{}} — For the main author name et al.
-            \end{itemize}
-
-            On even-numbered pages, the page number appears alongside the content of \inlinecode{\footinfo{}} and, on the other side, the \inlinecode{\leadauthor{}}. 
-
-            In contrast to the header, the footer elements do not alternate their positions. The footer is explicitly configured for either odd or even pages, resulting in a fixed layout.
-            
-            In all cases, you can freely rearrange or customize the order of these elements by modifying the class file to suit your needs. If any of them are not required, simply omit the corresponding command — the remaining elements will automatically adjust their spacing to remain evenly distributed.
-
-\section{Tau Custom Packages}
-
-    \subsection{Taubabel.sty}
-		
-		This package have all the commands that automatically translate from English to Spanish when this custom package is defined. 
-		
-		By default, this document has its content in English. However, at the beginning of the document you will find a recommendation when writing in Spanish. 
-		
-		You may modify this package if you want to use other language than English or Spanish. This will make easier to translate your document without having to modify the class document.
-
-	\subsection{Tauenvs.sty}
-
-        This package provides custom environments designed to enhance the visual presentation and structure of your document. Key examples include tauenv, info, and note.
-        
-		Their style is defined by \inlinecode{tauenvstyle} — allowing you to customize their appearance according to your document’s requirements.
-
-		An example using the \inlinecode{tauenv} environment is shown below.
-		
-		\begin{tauenv}[frametitle=Custom Title]
-			This is an example of the custom title environment. To add a title type this command \verb|[frametitle=Custom Title]| next to the beginning of thie environment (as shown in this example).
-		\end{tauenv}
-
-        The \inlinecode{info} and \inlinecode{note} are environments which have a predefined title and translate their title to Spanish automatically when this language is defined.
-
-\section{Equations}
-
-	\equref{eq:equation} shows the Schrödinger equation as an example. 
-
-    \begin{equation}\label{eq:equation}
-        i\hbar \frac{\partial }{\partial t}\Psi(\mathbf{r},t) = \left[\frac{-\hbar^2}{2m}\nabla^2 + V(\mathbf{r},t) \right]\Psi(\mathbf{r},t)
-    \end{equation}
+	% Eventos EASA A32s
+	\section{Eventos Precursores EASA}
 	
-	The \inlinecode{amssymb} and \inlinecode{amsmath} packages were not required, as \href{https://ctan.org/pkg/stix2-otf/}{STIX2} font incorporates mathematical symbols for writing quality equations.
+	% RE A32s
+	\subsection{RE - Runway Excursion}
+	\vspace*{1cm}
+	%
+	\categoria{No Lift Off}
+	\subsubsection{3804 - Long Rotation Distance}
+	\begin{table}[h!]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar despegues en los que la distancia recorrida desde el inicio de la rotación hasta el \textit{liftoff} es excesivamente larga, lo cual puede indicar degradación de performance, técnica de rotación inadecuada o márgenes reducidos de pista. \\
+			\hline
+			\textbf{Qué tiene en cuenta} &
+			El evento considera únicamente despegues válidos y utiliza los siguientes parámetros:
+			\begin{itemize}
+				\item \texttt{SYS\_\_LIFT\_OFF\_VA}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{NAV\_\_GND\_DIST}
+			\end{itemize}
+			Se verifica que la aeronave se encuentre en fase de despegue (\textit{TO}) y que ocurran de forma consistente los estados asociados al inicio de la rotación y al \textit{liftoff}. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Al detectarse el inicio de la rotación, se registra la distancia recorrida sobre pista. Posteriormente, al producirse el \textit{liftoff}, se registra la distancia final y se calcula la diferencia entre ambos puntos, convirtiéndola a metros. El valor resultante es comparado contra los umbrales definidos para determinar el nivel de severidad del evento. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: distancia mayor a \SI{220}{\meter} \newline
+			\textit{Medium}: distancia mayor a \SI{300}{\meter} \newline
+			\textit{High}: distancia mayor a \SI{400}{\meter} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por despegue y cuenta con un tiempo mínimo de espera antes de poder activarse nuevamente, evitando múltiples detecciones durante la misma maniobra. \\
+			\hline
+		\end{tabular}
+	\end{table}
 	
-	\begin{note}
-		If you would like to change the values that adjust the spacing above and below the equations, change the \verb|\eqskip| value until the preferred spacing is set. The default value is set to 9pt.
-	\end{note}
-
-\section{Codes}
-
-	\subsection{Coding with Minted*}
+	\categoria{Slow Rotation}
+	\subsubsection{4005 - Excessive time between Nose Gear and Main Gear Lift-off}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar despegues en los que el tiempo transcurrido entre el \textit{nose gear liftoff} y el \textit{main gear liftoff} es excesivo, lo cual puede sugerir una rotación lenta o una transición prolongada de actitud durante el despegue. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los siguientes parametros son usados:
+			\begin{itemize} 
+				\item \texttt{GEAR\_\_WOW\_NOSE}
+				\item \texttt{GEAR\_\_WOW\_MAIN}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{SPD\_\_CAS\_F}
+			\end{itemize}
+			Adicionalmente, se filtra la evaluación a condiciones de despegue, verificando \texttt{FLIGHT\_\_PHASE} en \textit{TO} o \textit{INI\_CLIMB} y \texttt{SPD\_\_CAS\_F} superior a \SI{105} kts. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante el despegue, el evento inicia el conteo cuando se detecta la transición del tren de nariz de \textit{GROUND} a \textit{AIR}. A partir de ese instante, el contador se incrementa hasta que el tren principal cambia a \textit{AIR}, momento en el que se detiene la medición. El valor acumulado se compara contra los umbrales configurados para determinar la severidad. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: tiempo mayor a \SI{2}{\second} \newline
+			\textit{Medium}: tiempo mayor a \SI{3}{\second} \newline
+			\textit{High}: tiempo mayor a \SI{4}{\second} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por despegue y cuenta con un tiempo mínimo de espera antes de poder activarse nuevamente, evitando múltiples detecciones durante la misma maniobra. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{4009 - Long Time during Liftoff}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar despegues en los que el tiempo transcurrido desde la primera aplicación de mando de elevador hasta el \textit{liftoff} es excesivamente largo, lo cual puede indicar una rotación lenta, respuesta ineficiente de la aeronave o condiciones de performance degradadas. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Se usa el siguiente Parametro:
+			\begin{itemize}
+				\item \texttt{SYS\_\_LIFT\_OFF\_VA}
+			\end{itemize}
+			El evento se basa en la detección secuencial de los estados asociados a la rotación y al \textit{liftoff}, asegurando que la medición se realice de forma continua y sin reinicios una vez iniciada la rotación. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Una vez que la aeronave entra en estado de \textit{ROTATION}, se inicia un contador de tiempo que se incrementa mientras dicho estado se mantiene activo. Al detectarse el estado \textit{LIFT\_OFF}, el contador se detiene y el tiempo total transcurrido es evaluado contra los umbrales definidos para determinar el nivel de severidad del evento. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: tiempo mayor a \SI{3.25}{\second} \newline
+			\textit{Medium}: tiempo mayor a \SI{3.625}{\second} \newline
+			\textit{High}: tiempo mayor a \SI{4.3}{\second} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por despegue, evitando múltiples detecciones durante la misma maniobra de rotación. \\
+			\hline
+		\end{tabular}
+	\end{table}
 	
-		The \inlinecode{minted} package offers customized features for adding codes. In addition, the template is designed to work seamlessly with Fira Code, a monospaced font specially crafted for programming environments.
-
-        If your are using a desktop app as \href{https://www.texstudio.org/}{TeXstudio}, try these steps to make this package work on Windows:
-		
-		\begin{enumerate}
-			\item Install Python — A stable version (e.g., v.3.11)
-			\item Open the terminal and type \inlinecode{pip install Pygments}.
-			\item Update if a newer version is available.
-			\item Go to TeXStudio settings and change the default compiler to \inlinecode{pdflatex --shell-escape -interaction=nonstopmode \%.tex}.
-			\item Compile and wait for the result.
-		\end{enumerate}
-        
-		\vspace*{-9pt}
-        
-		\begin{tauenv}[frametitle=Caution]
-			Ensure that \textbf{pygments} is properly installed and added to your system’s PATH. Otherwise, you may encounter compilation errors. Additionally, enable shell escape when compiling, as it is required for minted to process and highlight code.
-		\end{tauenv}
-		
-		In Overleaf, this package is easier to use since it does not require any additional installations or modifications — just add the code as shown in the example. \coderef{lst:example} shows a Python example.
-		
-		\begin{code}
-			\inputminted{python}{example.py}
-            \caption{Python code example with minted.}
-			\label{lst:example}
-		\end{code}
-		
-		You can customize its design changing \inlinecode{\usemintedstyle} command. The different styles offered by the \href{https://ctan.org/pkg/minted}{minted package} can be preview through this link — \url{https://pygments.org/styles/}.
-
-    \subsection{Coding with Listings}
+	%
+	\categoria{Inappropiate Aircraft Configuration}
+	\subsubsection{4006 - Pitch Trim Displaced during takeoff}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar despegues en los que la posición del \textit{pitch trim} se modifica durante la fase de despegue, en comparación con el ajuste establecido al aplicar empuje de despegue, lo cual puede indicar una configuración inadecuada o una intervención no prevista durante la carrera. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{SFC\_\_STAB}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			La lógica se limita a la fase de despegue, tomando como referencia el valor de \textit{pitch trim} registrado en la transición desde \textit{TAXI\_OUT} a \textit{TO}. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante la fase \textit{TO}, se compara el valor instantáneo de \textit{pitch trim} con el valor almacenado al inicio del despegue. La diferencia absoluta entre ambos valores es calculada y evaluada contra los umbrales definidos para determinar el nivel de severidad del evento. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: diferencia mayor o igual a \SI{0.1}{} \newline
+			\textit{Medium}: diferencia mayor o igual a \SI{0.5}{} \newline
+			\textit{High}: diferencia mayor o igual a \SI{1.0}{} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por despegue, utilizando como referencia el ajuste de trim al inicio de la fase \textit{TO}. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{4007 - Incorrect take off configuration}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar despegues realizados con una configuración incorrecta de la aeronave, lo cual puede comprometer la performance, la capacidad de control o la seguridad durante la fase inicial del vuelo. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{SFC\_\_CONF}
+				\item \texttt{SFC\_\_STAB}
+				\item \texttt{SFC\_\_STAB\_TO}
+				\item \texttt{SFC\_\_GND\_SPOILER}
+				\item \texttt{CTL\_\_AUTOBRK\_MAX\_ARMED}
+				\item \texttt{SYS\_\_STK\_\_CAPT\_INOP}
+				\item \texttt{SYS\_\_STK\_\_FO\_INOP}
+				\item \texttt{TO\_\_DATE}
+			\end{itemize}
+			La evaluación se restringe a la fase de despegue y considera la validez de la configuración según la lógica vigente en función de la fecha de aplicación del evento. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante la fase \textit{TO}, el evento se activa cuando se detecta al menos una condición de configuración incorrecta, incluyendo selección inadecuada de flaps, \textit{pitch trim} fuera de rango, \textit{ground spoilers} no armados, \textit{autobrake} no configurado en MAX o falla de uno de los \textit{sidesticks}. Ante la detección de cualquiera de estas condiciones, el evento se genera con severidad alta. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{High}: detección de al menos una condición de configuración incorrecta durante la fase de despegue. \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por despegue y se reporta únicamente como condición binaria, sin niveles intermedios de severidad. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{4010 - Abnormal stabilizer trim change after take-off}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar cambios anómalos del \textit{stabilizer trim} durante el ascenso inicial tras el despegue, los cuales pueden indicar entradas excesivas de trimado, compensaciones no esperadas o condiciones anómalas de control longitudinal. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{ALT\_\_AAE}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{SFC\_\_STAB}
+			\end{itemize}
+			La evaluación se limita a la fase de ascenso inicial y se restringe al intervalo de altitud comprendido entre \SI{50}{} y \SI{1000}{} FT AAE, tomando como referencia el valor del \textit{stabilizer trim} ajustado al inicio del despegue. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante el ascenso inicial, se calcula la variación absoluta del \textit{stabilizer trim} respecto al valor registrado en el momento del despegue. Si dicha variación excede los umbrales configurados dentro del rango de altitud definido, el evento se activa con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: variación mayor o igual a \SI{0.8}{\degree} \newline
+			\textit{Medium}: variación mayor o igual a \SI{1.1}{\degree} \newline
+			\textit{High}: variación mayor o igual a \SI{1.4}{\degree} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa únicamente durante el ascenso inicial y se reporta una sola vez por vuelo, evitando detecciones repetitivas fuera del segmento operativo relevante. \\
+			\hline
+		\end{tabular}
+	\end{table}
 	
-		Since \inlinecode{minted} requires additional installations and can be complex in some desktop \TeX\ editors, you can use the \inlinecode{listings} package instead, which provides a simpler way to include code.
-		
-		\begin{code}
-			\lstinputlisting[language=python]{example.py}
-			\label{lst:example2}
-            \caption{Python code example with listings.}
-		\end{code}
-		
-		While \inlinecode{listings} is a simpler and widely supported package for code formatting, \inlinecode{minted} offers a more modern and powerful approach. It leverages the Pygments syntax highlighter to deliver superior coloring, language support, and styling options. One of its key advantages is the ability to easily switch between built-in color styles.
-		
-		In contrast, \inlinecode{listings} requires manual setup for colors, fonts, and formatting rules.
-		For users who prefer fine-tuned customization, the styling options for \inlinecode{listings} are organized in \inlinecode{tau.cls} file and can be modified at any time to suit individual preferences.
-
-	\subsection{Inline Code*}
+	%
+	\categoria{Excessive Engine Power}
+	\subsubsection{4011 - Takeoff power applied before runway alignment }
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar la aplicación de potencia de despegue cuando la aeronave aún no se encuentra correctamente alineada con el eje de pista, lo cual puede incrementar el riesgo de excursión lateral o pérdida de control direccional durante la carrera de despegue. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{CTL\_\_THROTT\_ANGL}
+				\item \texttt{CTL\_\_THROTT\_ANGR}
+				\item \texttt{NAV\_\_HDG\_MAG}
+				\item \texttt{TRAJ\_\_TO\_RWY\_HDG\_MAG}
+			\end{itemize}
+			La evaluación se limita a las fases previas y correspondientes al despegue, y se habilita únicamente cuando se detecta la aplicación de potencia de despegue en ambos motores. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Una vez aplicada potencia de despegue, se calcula la diferencia absoluta entre el rumbo magnético de la aeronave y el rumbo magnético del eje de pista. Si dicha diferencia angular supera los umbrales definidos, el evento se activa con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: diferencia mayor a \SI{4}{\degree} \newline
+			\textit{Medium}: diferencia mayor a \SI{5}{\degree} \newline
+			\textit{High}: diferencia mayor a \SI{6}{\degree} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por despegue, evitando múltiples detecciones durante la misma maniobra. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{5412 - Late Thrust Reduction LDG}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar aproximaciones en las que la reducción de empuje se realiza tardíamente a baja altura antes del aterrizaje, lo cual puede reflejar una gestión de energía inadecuada o una transición tardía hacia el perfil de aterrizaje. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{ALT\_\_AAE}
+				\item \texttt{CTL\_\_THROTT\_ANGL}
+				\item \texttt{CTL\_\_THROTT\_ANGR}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			Adicionalmente, la evaluación se restringe a las fases \textit{FIN\_APPROACH} y \textit{LANDING}, y se habilita únicamente cuando se identifica una variación relevante del ángulo de palancas de empuje (umbral interno de \SI{15}{}). \\
+			\hline
+			\textbf{Lógica de activación} &
+			Cuando se detecta que el ángulo de palancas de empuje supera el umbral interno, el evento evalúa la altura \texttt{ALT\_\_AAE}. Si la condición ocurre por debajo de los umbrales de altura configurados, se activa el evento con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: activación por debajo de \SI{12}{ft} AAE \newline
+			\textit{Medium}: activación por debajo de \SI{7}{ft} AAE \newline
+			\textit{High}: activación por debajo de \SI{5}{ft} AAE \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa únicamente durante la aproximación final y el aterrizaje. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{5413 - Thrust Lever greater than IDLE before TouchDown}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar aterrizajes en los que una o ambas palancas de empuje permanecen por encima de \textit{IDLE} instantes antes del \textit{touchdown}, lo cual puede indicar una gestión de energía inadecuada en la fase final de la aproximación. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{CTL\_\_THROTT\_ANGL}
+				\item \texttt{CTL\_\_THROTT\_ANGR}
+				\item \texttt{ALT\_\_AAE}
+				\item \texttt{ALT\_\_RADIO}
+			\end{itemize}
+			Adicionalmente, la lógica se restringe a las fases \textit{FIN\_APPROACH} y \textit{LANDING}, con filtros de altura barométrica y radioaltimétrica inferiores a \SI{5}{ft}. Se excluyen situaciones de \textit{go-around}. \\
+			\hline
+			\textbf{Lógica de activación} &
+			En condiciones válidas de aproximación final, el evento evalúa los ángulos de las palancas de empuje izquierda y derecha. Si cualquiera de ellas supera los umbrales configurados instantes antes del aterrizaje, se activa el evento con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: ángulo de empuje mayor a \SI{3}{} \newline
+			\textit{Medium}: ángulo de empuje mayor a \SI{5}{} \newline
+			\textit{High}: ángulo de empuje mayor a \SI{10}{} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por aterrizaje y no se activa durante maniobras de \textit{go-around}. \\
+			\hline
+		\end{tabular}
+	\end{table}
 	
-		As shown in this template, inline code has a custom style for improved visual appeal. To use it, simply add \inlinecode{\inlinecode{}} command and place your code inside the braces.
+	%
+	\categoria{Aircraft Handling}
+	\subsubsection{6112 - Braking Asymmetry during Roll Out}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar asimetrías significativas en la aplicación de frenos durante el \textit{rollout} posterior al aterrizaje, las cuales pueden incrementar el riesgo de excursión de pista o pérdida de control direccional. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{SPD\_\_CAS\_F}
+				\item \texttt{CTL\_\_BRK\_PED\_L}
+				\item \texttt{CTL\_\_BRK\_PED\_R}
+			\end{itemize}
+			Adicionalmente, la evaluación se restringe a la fase de \textit{LANDING} con velocidad indicada superior a \SI{30}{kt}. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante el \textit{rollout}, se calcula de forma continua la diferencia absoluta entre las posiciones de los pedales de freno izquierdo y derecho. Si esta diferencia se mantiene por al menos \SI{2}{\second} y supera los umbrales definidos, el evento se activa con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: diferencia mayor a \SI{16}{} \newline
+			\textit{Medium}: diferencia mayor a \SI{20}{} \newline
+			\textit{High}: diferencia mayor a \SI{26}{} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa únicamente durante el aterrizaje y considera una ventana temporal mínima de \SI{2}{\second}, evitando detecciones transitorias asociadas a correcciones puntuales de dirección. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{7021 - No Forward Pitch Command During Takeoff}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar despegues en los que, una vez aplicada potencia de despegue, no se evidencia un comando adecuado de \textit{pitch} hacia adelante durante el \textit{takeoff roll}, lo cual puede indicar una técnica de control inadecuada o una respuesta tardía del piloto. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{CTL\_\_THROTT\_ANGL}
+				\item \texttt{CTL\_\_THROTT\_ANGR}
+				\item \texttt{CTL\_\_PITCH\_CAPT}
+				\item \texttt{CTL\_\_PITCH\_FO}
+				\item \texttt{SPD\_\_CAS\_F}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{CTL\_\_PF}
+			\end{itemize}
+			La lógica se restringe a la fase de despegue y requiere que la potencia de despegue esté aplicada, con velocidad indicada suficiente para evaluar el comando de control longitudinal. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante el \textit{takeoff roll}, tras detectarse potencia de despegue aplicada, el evento evalúa la diferencia absoluta entre el comando de \textit{pitch} del piloto al mando y el del copiloto. Si dicha diferencia permanece por debajo de los umbrales definidos durante al menos tres segundos, el evento se activa y se clasifica según el nivel de severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: diferencia de comando menor a \SI{7}{\degree} durante al menos \SI{3}{\second} \newline
+			\textit{Medium}: diferencia de comando menor a \SI{5}{\degree} durante al menos \SI{3}{\second} \newline
+			\textit{High}: diferencia de comando menor a \SI{3}{\degree} durante al menos \SI{3}{\second} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por despegue y cuenta con un tiempo mínimo de espera antes de poder activarse nuevamente, evitando múltiples detecciones durante la misma maniobra. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	%
+	\categoria{Runway remaining after rejected takeoff}
+	\subsubsection{7003 - Short Remaining Distance after RTO}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar despegues rechazados (\textit{Rejected Take-Off}) en los que la distancia de pista remanente al momento de la detección es reducida, lo cual puede indicar márgenes limitados para una detención segura de la aeronave. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{NAV\_\_GND\_DIST}
+				\item \texttt{SYS\_\_RWY\_LENGTH}
+				\item \texttt{SPD\_\_GND}
+			\end{itemize}
+			La evaluación se restringe a eventos clasificados como \textit{REJECTED\_TO}, considerando únicamente la transición desde la fase de despegue. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Al detectarse un \textit{Rejected Take-Off}, se calcula el porcentaje de pista remanente desde el punto de detección hasta el final de la pista, utilizando la distancia recorrida en tierra y la longitud total de pista. El valor resultante es comparado contra los umbrales configurados, activando el evento cuando el porcentaje disponible es inferior al límite definido. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: pista remanente menor o igual al \SI{50}{\percent} de la TORA \newline
+			\textit{Medium}: pista remanente menor o igual al \SI{40}{\percent} de la TORA \newline
+			\textit{High}: pista remanente menor o igual al \SI{30}{\percent} de la TORA \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por despegue rechazado, evitando múltiples detecciones durante el mismo \textit{roll}. Está condicionado exclusivamente a la identificación explícita de un RTO. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	
+	
+	
+	% LOC A32s
+	\subsection{LOC - Loss of Control In-Flight}
+	
+	%
+	\categoria{Adverse weather - Tailwind}
+	\subsubsection{1230 - Significant Tail Wind LDG}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar aproximaciones y aterrizajes en los que se presenta una componente significativa de viento de cola a baja altura, lo cual puede incrementar la distancia de aterrizaje requerida y reducir los márgenes operacionales. \\
+			\hline
+			\textbf{Qué tiene en cuenta} &
+			\begin{itemize}
+				\item \texttt{ALT\_\_AAE}
+				\item \texttt{WIND\_\_TAIL\_WIND}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			La evaluación se limita a fases de aproximación, aproximación final, aterrizaje y go-around, y únicamente cuando la aeronave se encuentra por debajo de \SI{200}{ft} AAE. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Cuando la aeronave se encuentra en las fases consideradas y por debajo de \SI{200}{ft} AAE, el evento evalúa la magnitud del viento de cola. Si el valor medido supera los umbrales definidos, el evento se activa y se clasifica según el nivel de severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: viento de cola mayor o igual a \SI{10}{kt} \newline
+			\textit{Medium}: viento de cola mayor o igual a \SI{15}{kt} \newline
+			\textit{High}: viento de cola mayor o igual a \SI{20}{kt} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa durante las fases finales del vuelo y puede activarse una única vez por aproximación, evitando múltiples detecciones consecutivas en la misma maniobra. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{1232 - Significant Tail Wind Approach}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar aproximaciones en las que se presenta una componente significativa de viento de cola entre \SI{1000}{ft} y \SI{200}{ft} AAE, condición que puede afectar la estabilidad de la aproximación y los márgenes de energía antes del aterrizaje. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son los siguientes:
+			\begin{itemize}
+				\item \texttt{ALT\_\_AAE}
+				\item \texttt{WIND\_\_TAIL\_WIND}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			La evaluación se restringe a las fases de aproximación, aproximación final, aterrizaje y go-around, y únicamente dentro de la ventana de altitud definida. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Cuando la aeronave se encuentra entre \SI{1000}{ft} y \SI{200}{ft} AAE durante las fases consideradas, el evento evalúa la magnitud del viento de cola. Si el valor medido supera los umbrales establecidos, se genera el evento con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: viento de cola mayor a 10 KT \newline
+			\textit{Medium}: viento de cola mayor a 15 KT \newline
+			\textit{High}: viento de cola mayor a 20 KT \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa durante la aproximación y puede activarse una única vez por maniobra, evitando detecciones repetidas dentro del mismo segmento de vuelo. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{1233 - Significant Tail Wind Descend}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar descensos en los que se presenta una componente significativa de viento de cola, condición que puede afectar la gestión de energía, el perfil de descenso y la estabilidad de la aeronave antes de la aproximación. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{WIND\_\_TAIL\_WIND}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			La evaluación se limita exclusivamente a la fase de descenso. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante la fase de descenso, el evento evalúa continuamente la magnitud del viento de cola. Si el valor medido supera los umbrales definidos, se genera el evento con el nivel de severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: viento de cola mayor a 20 KT \newline
+			\textit{Medium}: viento de cola mayor a 30 KT \newline
+			\textit{High}: viento de cola mayor a 40 KT \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento puede activarse una única vez por segmento de descenso, evitando detecciones repetidas durante la misma fase de vuelo. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{7040 - Significant Tail Wind TO}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar despegues realizados con una componente significativa de viento de cola, condición que puede afectar las prestaciones de aceleración, la distancia de despegue requerida y los márgenes de seguridad. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{WIND\_\_TAIL\_WIND}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{SPD\_\_GND}
+				\item \texttt{WIND\_SPD\_ALIVE}
+				\item \texttt{GEAR\_\_WOW\_MAIN}
+			\end{itemize}
+			La evaluación se limita a la fase de despegue con la aeronave acelerando sobre la pista. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante la fase de \textit{Take-Off}, con velocidad en tierra superior al umbral definido y transición del tren principal de \textit{ground} a \textit{air}, el evento evalúa la componente de viento de cola. Si el valor supera los umbrales configurados, se genera el evento con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: viento de cola mayor a 10 KT \newline
+			\textit{Medium}: viento de cola mayor a 15 KT \newline
+			\textit{High}: viento de cola mayor a 18 KT \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por despegue, evitando múltiples detecciones durante la misma maniobra de aceleración y rotación. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	%
+	\categoria{Adverse weather - Crosswind}
+	\subsubsection{1234 - Significant Cross Wind LDG}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar aterrizajes realizados con una componente significativa de viento cruzado a baja altura, condición que puede incrementar la carga lateral, la dificultad de control direccional y el riesgo durante la fase final de aproximación y toma de contacto. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{WIND\_\_CROSS\_WIND}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{ALT\_\_AAE}
+			\end{itemize}
+			La evaluación se limita a fases de aproximación, aproximación final, aterrizaje y \textit{go-around}, por debajo de \SI{200}{ft} AAE. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Cuando la aeronave se encuentra por debajo de \SI{200}{ft} AAE durante las fases de aproximación o aterrizaje, el evento evalúa la magnitud del viento cruzado. Si el valor supera los umbrales definidos, el evento se genera con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: viento cruzado mayor o igual a \SI{15}{\knot} \newline
+			\textit{Medium}: viento cruzado mayor o igual a \SI{25}{\knot} \newline
+			\textit{High}: viento cruzado mayor o igual a \SI{35}{\knot} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por aterrizaje o intento de aterrizaje, evitando múltiples detecciones dentro de la misma aproximación. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{1235 - Significant Cross Wind Approach}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar aproximaciones en las que se presenta una componente significativa de viento cruzado entre \SI{1000}{ft} y \SI{200}{ft} AAE, condición que puede incrementar la carga de trabajo de la tripulación y afectar la estabilidad direccional durante la fase final de la aproximación. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{WIND\_\_CROSS\_WIND}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{ALT\_\_AAE}
+			\end{itemize}
+			La evaluación se limita a las fases de aproximación, aproximación final, aterrizaje y \textit{go-around}, dentro de la ventana vertical comprendida entre \SI{1000}{ft} y \SI{200}{ft} AAE. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Cuando la aeronave se encuentra dentro del rango de altitud definido y en una fase de aproximación válida, el evento evalúa la magnitud del viento cruzado. Si el valor supera los umbrales configurados, el evento se genera con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: viento cruzado mayor o igual a 15 KT \newline
+			\textit{Medium}: viento cruzado mayor o igual a 25 KT \newline
+			\textit{High}: viento cruzado mayor o igual a 35 KT \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por aproximación, evitando múltiples detecciones dentro del mismo segmento vertical de la maniobra. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{1236 - Significant Cross Wind TO}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar despegues en los que existe una componente significativa de viento cruzado durante la carrera de despegue, una vez superados los \SI{60}{kt} de velocidad sobre el suelo, condición que puede afectar el control direccional y el seguimiento del eje de pista. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{WIND\_\_CROSS\_WIND}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{SPD\_\_GND}
+				\item \texttt{WIND\_\_SPD\_ALIVE}
+			\end{itemize}
+			El evento se evalúa únicamente durante la fase de despegue, cuando la velocidad sobre el suelo es superior a \SI{60}{kt} y la señal de viento está validada. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Si la aeronave se encuentra en fase de \textit{takeoff} y cumple las condiciones de velocidad y disponibilidad de viento, el algoritmo evalúa la magnitud del viento cruzado. Al superar los umbrales definidos, el evento se genera con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: viento cruzado mayor o igual a 15 KT \newline
+			\textit{Medium}: viento cruzado mayor o igual a 25 KT \newline
+			\textit{High}: viento cruzado mayor o igual a 35 KT \\
+			\hline
+			\textbf{Notas operacionales} &
+			Este evento permite identificar despegues con viento cruzado elevado en una fase crítica, aportando información relevante para análisis de desempeño en pista y adherencia a técnicas de control direccional recomendadas. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	%
+	\categoria{Adverse weather - Headwind}
+	\subsubsection{1237 - Significant Head Wind LDG}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar aterrizajes en los que existe una componente significativa de viento de frente por debajo de \SI{200}{ft} AAE, condición que puede influir en la energía de la aproximación, la técnica de flare y la gestión de potencia durante la fase final. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parámetros usados son:
+			\begin{itemize}
+				\item \texttt{WIND\_\_HEAD\_WIND}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{ALT\_\_AAE}
+			\end{itemize}
+			El evento se evalúa únicamente durante las fases de aproximación, aproximación final, aterrizaje o motor y al aire, siempre que la altitud sea inferior a \SI{200}{ft} AAE. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Si la aeronave se encuentra en una fase asociada a la aproximación o aterrizaje y por debajo de \SI{200}{ft} AAE, el algoritmo evalúa la magnitud del viento de frente. Cuando el valor supera los umbrales definidos, el evento se genera con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: viento de frente mayor o igual a 30 KT \newline
+			\textit{Medium}: viento de frente mayor o igual a 35 KT \newline
+			\textit{High}: viento de frente mayor o igual a 45 KT \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se detecta una única vez por aproximación, evitando múltiples activaciones durante la misma maniobra. Su objetivo es apoyar el análisis de condiciones ambientales exigentes en la fase final del vuelo y su posible impacto en la técnica de aterrizaje. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{1238 - Significant Head Wind Approach}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar aproximaciones en las que existe una componente significativa de viento de frente entre \SI{1000}{ft} y \SI{200}{ft} AAE, condición que puede afectar la energía de la aproximación y la gestión de velocidad y potencia. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros son:
+			\begin{itemize}
+				\item \texttt{WIND\_\_HEAD\_WIND}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{ALT\_\_AAE}
+			\end{itemize}
+			El evento se evalúa únicamente durante las fases de aproximación, aproximación final, aterrizaje o motor y al aire, cuando la altitud se encuentra entre \SI{1000}{ft} y \SI{200}{ft} AAE. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Si la aeronave se encuentra en una fase asociada a la aproximación y dentro del rango de altitud definido, el algoritmo evalúa la magnitud del viento de frente. Cuando el valor supera los umbrales configurados, el evento se genera con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: viento de frente mayor o igual a \SI{30}{\knot} \newline
+			\textit{Medium}: viento de frente mayor o igual a \SI{35}{\knot} \newline
+			\textit{High}: viento de frente mayor o igual a \SI{45}{\knot} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se detecta una única vez por aproximación, evitando múltiples activaciones dentro de la misma maniobra. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{1239 - Significant Head Wind TO}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar despegues en los que existe una componente significativa de viento de frente una vez aplicada la potencia de despegue, condición que puede influir en la aceleración, la gestión de potencia y el control direccional durante la carrera. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros son:
+			\begin{itemize}
+				\item \texttt{WIND\_\_HEAD\_WIND}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{SPD\_\_GND}
+				\item \texttt{WIND\_SPD\_ALIVE}
+			\end{itemize}
+			La evaluación se limita a la fase de despegue (\textit{TO}), con velocidad sobre el suelo superior a \SI{60}{kt} y una vez que la señal de viento ha sido validada como activa. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Cuando la aeronave se encuentra en fase de despegue y cumple las condiciones de velocidad y disponibilidad de datos de viento, el algoritmo evalúa la magnitud del viento de frente. Si el valor supera los umbrales definidos, el evento se genera con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: viento de frente mayor o igual a 30 KT \newline
+			\textit{Medium}: viento de frente mayor o igual a 35 KT \newline
+			\textit{High}: viento de frente mayor o igual a 45 KT \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se detecta una única vez por despegue, evitando múltiples activaciones durante la misma carrera. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	%
+	\categoria{Pressurization System Malfunction}
+	\subsubsection{2601 - Excess cabin Altitude during cruise}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar condiciones de presurización anómala durante la fase de crucero, cuando la altitud de cabina excede valores operacionales establecidos, lo cual puede indicar degradación del sistema de presurización o una configuración inadecuada. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros son:
+			\begin{itemize}
+				\item \texttt{ALT\_\_CAB\_ALT}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			La evaluación se limita exclusivamente a la fase de crucero (\textit{CRUISE}), evitando detecciones durante ascenso, descenso u otras fases del vuelo. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante la fase de crucero, el algoritmo verifica si la altitud de cabina supera los umbrales configurados de manera continua durante al menos \SI{3}{\second}. Si la condición persiste, el evento se genera con la severidad correspondiente al nivel de altitud alcanzado. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: altitud de cabina mayor o igual a \SI{8500}{ft} \newline
+			\textit{Medium}: altitud de cabina mayor o igual a \SI{9000}{ft} \newline
+			\textit{High}: altitud de cabina mayor o igual a \SI{9500}{ft} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa únicamente durante la fase de crucero y requiere persistencia temporal para su activación, evitando detecciones transitorias debidas a fluctuaciones momentáneas del sistema. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{2602 - Excess cabin Altitude during climb}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar condiciones anómalas de presurización durante la fase de ascenso, cuando la altitud de cabina excede de forma significativa la altitud de referencia esperada para dicha fase del vuelo. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{ALT\_\_CAB\_ALT}
+				\item \texttt{ALT\_\_REF\_CAB\_CLIMB}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			La altitud de referencia de cabina durante el ascenso se define dinámicamente en función del aeropuerto de origen (ICAO). Para los aeropuertos listados a continuación, se utilizan valores específicos:
+			\begin{itemize}
+				\item \texttt{SPQU}: \SI{9000}{ft}, \texttt{SLLP}: \SI{13000}{ft},
+				\texttt{SPZO}: \SI{12000}{ft}, \texttt{SPJL}: \SI{12500}{ft},
+				\texttt{SKBO}: \SI{8500}{ft}, \texttt{MMMX}: \SI{8500}{ft},
+				\texttt{SLCB}: \SI{8500}{ft}, \texttt{SEQM}: \SI{8500}{ft},
+				\texttt{SKIP}: \SI{10150}{ft}.
+			\end{itemize}
+			Para cualquier otro aeropuerto no incluido en esta lista, se aplica un valor por defecto de \SI{8000}{ft}. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante la fase de ascenso, se compara la altitud de cabina con la altitud de referencia de cabina para dicha fase. Si la diferencia supera los umbrales definidos de forma continua durante al menos \SI{3}{\second}, el evento se genera con la severidad correspondiente. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Medium}: diferencia mayor o igual a \SI{500}{ft} \newline
+			\textit{High}: diferencia mayor o igual a \SI{1000}{ft} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa únicamente durante el ascenso y requiere persistencia temporal para su activación, evitando detecciones debidas a variaciones transitorias del sistema de presurización. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	%
+	\categoria{Inadequate Aircraft Handling}
+	\subsubsection{3008 - High pitch In Flight}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar situaciones en las que la actitud de cabeceo (\textit{pitch attitude}) es excesivamente alta durante el vuelo, lo cual puede indicar maniobras inusuales, técnicas de pilotaje inadecuadas o condiciones anómalas de control longitudinal. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros son:
+			\begin{itemize}
+				\item \texttt{ATT\_\_PITCH}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{SFC\_\_CONF}
+			\end{itemize}
+			El evento distingue entre configuraciones con flaps parciales (\textit{Flaps 0 to 3}) y flaps completamente extendidos (\textit{Flaps Full}), aplicando umbrales diferenciados según la configuración aerodinámica. \\
+			\hline
+			\textbf{Lógica de activación} &
+			El evento se evalúa durante las fases de \textit{CLIMB}, \textit{CRUISE}, \textit{DESCENT} y \textit{APPROACH}. En función de la configuración de flaps, se comparan los valores de \texttt{ATT\_\_PITCH} con los umbrales correspondientes. La condición debe mantenerse durante al menos \SI{3}{\second} para que el evento se active. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textbf{Flaps 0 to 3:} \newline
+			\textit{Low}: \SI{17}{\degree} \newline
+			\textit{Medium}: \SI{20}{\degree} \newline
+			\textit{High}: \SI{23}{\degree} \newline
+			\newline
+			\textbf{Flaps Full:} \newline
+			\textit{Low}: \SI{12}{\degree} \newline
+			\textit{Medium}: \SI{15}{\degree} \newline
+			\textit{High}: \SI{18}{\degree} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se activa únicamente cuando la condición persiste durante el tiempo mínimo configurado, evitando detecciones espurias debidas a transitorios breves de actitud. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{3101 - Excessive Pitch Rate In-Flight}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar condiciones en las que la razón de cabeceo (\textit{pitch rate}) es excesivamente elevada durante el vuelo, lo cual puede reflejar maniobras abruptas, control longitudinal agresivo o situaciones anómalas de estabilidad. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{ATT\_\_PITCH\_RATE}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			La evaluación se limita a fases de vuelo activas en las que se espera una dinámica longitudinal controlada y continua. \\
+			\hline
+			\textbf{Lógica de activación} &
+			El evento se evalúa durante las fases de \textit{INI\_CLIMB}, \textit{CLIMB}, \textit{CRUISE}, \textit{DESCENT} y \textit{APPROACH}. El valor absoluto de \texttt{ATT\_\_PITCH\_RATE} se compara con los umbrales configurados y, al superarlos, se genera el evento correspondiente según la severidad. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: razón de cabeceo mayor a \SI{5}{\degree\per\second} \newline
+			\textit{Medium}: razón de cabeceo mayor a \SI{8}{\degree\per\second} \newline
+			\textit{High}: razón de cabeceo mayor a \SI{10}{\degree\per\second} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa únicamente durante las fases indicadas y cuenta con un tiempo mínimo de espera antes de poder activarse nuevamente, evitando múltiples detecciones consecutivas de la misma maniobra. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{3107 - Low Pitch In Flight}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar condiciones en las que la actitud de cabeceo (\textit{pitch attitude}) es excesivamente baja durante el vuelo, lo cual puede estar asociado a maniobras pronunciadas de descenso, inputs longitudinales inapropiados o situaciones de control anómalo. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{ATT\_\_PITCH}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			La evaluación se realiza únicamente durante fases de vuelo activas en las que se espera un control longitudinal estable. \\
+			\hline
+			\textbf{Lógica de activación} &
+			El evento se evalúa durante las fases de \textit{INI\_CLIMB}, \textit{CLIMB}, \textit{CRUISE}, \textit{DESCENT} y \textit{APPROACH}. Si el valor de \texttt{ATT\_\_PITCH} permanece por debajo de los umbrales definidos durante al menos \SI{2}{\second}, se genera el evento correspondiente según el nivel de severidad alcanzado. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: actitud de cabeceo menor a \SI{-5}{\degree} \newline
+			\textit{Medium}: actitud de cabeceo menor a \SI{-7}{\degree} \newline
+			\textit{High}: actitud de cabeceo menor a \SI{-10}{\degree} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa únicamente durante las fases indicadas y requiere que la condición se mantenga durante al menos \SI{2}{\second}. Cuenta con un tiempo mínimo de espera antes de poder activarse nuevamente, evitando múltiples detecciones consecutivas de la misma condición. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{3404 - Excessive Roll Rate In-Flight}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar condiciones en las que la tasa de alabeo (\textit{roll rate}) es excesiva durante el vuelo, lo cual puede estar asociado a maniobras abruptas, inputs laterales agresivos o situaciones de control lateral inestables. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros son:
+			\begin{itemize}
+				\item \texttt{ATT\_\_ROLL\_RATE}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			La evaluación se limita a fases de vuelo en las que se espera un control lateral estabilizado. \\
+			\hline
+			\textbf{Lógica de activación} &
+			El evento se evalúa durante las fases de \textit{INI\_CLIMB}, \textit{CLIMB}, \textit{CRUISE}, \textit{DESCENT} y \textit{APPROACH}. Si el valor de \texttt{ATT\_\_ROLL\_RATE} supera los umbrales definidos, se genera el evento correspondiente según el nivel de severidad alcanzado. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: tasa de alabeo mayor a \SI{7}{\degree\per\second} \newline
+			\textit{Medium}: tasa de alabeo mayor a \SI{10}{\degree\per\second} \newline
+			\textit{High}: tasa de alabeo mayor a \SI{15}{\degree\per\second} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa únicamente durante las fases de vuelo especificadas y cuenta con un tiempo mínimo de espera antes de poder activarse nuevamente, evitando múltiples detecciones consecutivas de la misma condición. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{3405 - Excessive Bank Near Ground During Takeoff}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar ángulos de alabeo excesivos durante la carrera de despegue y la fase inicial de ascenso, cuando la aeronave se encuentra a baja altura sobre el terreno, lo cual puede incrementar el riesgo de contacto con el suelo o pérdida de control direccional. \\
+			\hline
+			\textbf{Qué tiene en cuenta} & Los parametros usados son:
+			\begin{itemize}
+				\item \texttt{ATT\_\_ROLL}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{ALT\_\_AAE}
+			\end{itemize}
+			El evento solo se evalúa cuando la aeronave se encuentra próxima al suelo. \\
+			\hline
+			\textbf{Lógica de activación} &
+			El evento se evalúa durante las fases de \textit{TO} e \textit{INI\_CLIMB}. Si la altitud sobre el aeródromo (\texttt{ALT\_\_AAE}) es inferior a \SI{30}{ft} y el ángulo de alabeo excede los umbrales definidos, se genera el evento según el nivel de severidad alcanzado. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: ángulo de alabeo mayor a \SI{3}{\degree} \newline
+			\textit{Medium}: ángulo de alabeo mayor a \SI{5}{\degree} \newline
+			\textit{High}: ángulo de alabeo mayor a \SI{6}{\degree} \\
+			\hline
+			\textbf{Notas operacionales} &
+			Este evento está diseñado para capturar desviaciones laterales significativas en fases críticas cercanas al suelo. La lógica incorpora un margen de altitud reducido para evitar activaciones fuera del entorno de mayor riesgo operacional. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	%
+	\categoria{Abnormal Flight Control Inputs}
+	\subsubsection{4605 - Full Pedal Input}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar el uso repetido de entradas de timón a gran deflexión en direcciones opuestas durante el vuelo, lo cual puede indicar correcciones laterales excesivas, posibles dificultades de control direccional o manejo inapropiado del timón. \\
+			\hline
+			\textbf{Qué tiene en cuenta} &
+			Los parámetros utilizados son:
+			\begin{itemize}
+				\item \texttt{SFC\_\_RUDDER}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			El evento contabiliza ciclos de deflexión completa del timón en direcciones opuestas dentro de una ventana temporal definida. \\
+			\hline
+			\textbf{Lógica de activación} &
+			El evento se evalúa durante las fases de \textit{TO}, \textit{INI\_CLIMB}, \textit{CLIMB}, \textit{CRUISE}, \textit{DESCENT}, \textit{APPROACH}, \textit{FIN\_APPROACH} y \textit{LANDING}. 
+			Se inicia un temporizador \texttt{DT\_SEC} cuando el timón supera una deflexión mayor a $\pm10$. 
+			Si dentro de un intervalo máximo de \SI{10}{s} se produce una deflexión completa en la dirección opuesta, se contabiliza un ciclo válido. 
+			El evento se genera cuando el número total de ciclos opuestos excede los umbrales configurados. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: 2 ciclos de timón completo en direcciones opuestas \newline
+			\textit{Medium}: 3 ciclos de timón completo en direcciones opuestas \newline
+			\textit{High}: 4 o más ciclos de timón completo en direcciones opuestas \\
+			\hline
+			\textbf{Notas operacionales} &
+			Este evento no penaliza una única aplicación de timón a gran deflexión, sino la repetición rápida de entradas opuestas, lo cual puede estar asociado a condiciones de viento cruzado, pérdida de alineación direccional o técnicas de control ineficientes. La lógica temporal evita la contabilización de movimientos aislados o espaciados. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{4609 - Speed Brakes Use During Climb}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar el uso de aerofrenos durante la fase de ascenso, una condición generalmente no prevista que puede indicar una gestión ineficiente de energía, desviaciones del perfil vertical planificado o una respuesta incorrecta a restricciones operacionales. \\
+			\hline
+			\textbf{Qué tiene en cuenta} &
+			Los parámetros utilizados son:
+			\begin{itemize}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{SPD\_BRK}
+			\end{itemize}
+			El evento evalúa exclusivamente si los speedbrakes han sido comandados durante fases específicas del ascenso. \\
+			\hline
+			\textbf{Lógica de activación} &
+			El evento se evalúa durante las fases de \textit{INI\_CLIMB} y \textit{CLIMB}. 
+			Si el parámetro \texttt{SPD\_BRK} indica que estos están en modo \textit{COMMANDED} en cualquiera de estas fases, el evento se genera de forma inmediata. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{High}: Speedbrakes comandados durante \textit{INI\_CLIMB} o \textit{CLIMB}. \\
+			\hline
+			\textbf{Notas operacionales} &
+			Este evento no utiliza umbrales numéricos ni temporales. Su activación responde a una condición binaria, ya que el uso de Speedbrakes durante el ascenso suele ser indicativo de una operacional incorrecta del Speedbrake lever o un posible exceso de velocidad. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	\subsubsection{7023 - Excessive Sidestick Inputs In Flight}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar entradas excesivas del sidestick durante el vuelo, tanto en eje de cabeceo como de alabeo, que puedan indicar sobrecontrol, maniobras bruscas o una gestión inadecuada de la carga de trabajo, con posible impacto en la estabilidad y el confort de la aeronave. \\
+			\hline
+			\textbf{Qué tiene en cuenta} &
+			Los parámetros utilizados son:
+			\begin{itemize}
+				\item \texttt{CTL\_\_PITCH\_CAPT}
+				\item \texttt{CTL\_\_PITCH\_FO}
+				\item \texttt{CTL\_\_ROLL\_CAPT}
+				\item \texttt{CTL\_\_ROLL\_FO}
+				\item \texttt{FLIGHT\_\_PHASE}
+			\end{itemize}
+			El evento evalúa las entradas de sidestick realizadas por cualquiera de los pilotos en los ejes de cabeceo o alabeo. \\
+			\hline
+			\textbf{Lógica de activación} &
+			El evento se evalúa durante las fases de \textit{INI\_CLIMB}, \textit{CLIMB}, \textit{CRUISE}, \textit{DESCENT}, \textit{APPROACH} y \textit{FIN\_APPROACH}.  
+			Se considera una entrada excesiva cuando el valor absoluto del sidestick en cabeceo o alabeo supera los \SI{10} {\degree}.  
+			Si dicha condición se mantiene durante un tiempo continuo, se genera el evento según la severidad alcanzada. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: condición mantenida durante \SI{3}{s} \newline
+			\textit{Medium}: condición mantenida durante \SI{5}{s} \newline
+			\textit{High}: condición mantenida durante \SI{8}{s} \\
+			\hline
+			\textbf{Notas operacionales} &
+			Este evento no distingue entre piloto comandante y copiloto; se activa si cualquiera de los dos realiza entradas excesivas.  
+			La lógica reinicia la evaluación cuando las deflexiones vuelven a valores normales, evitando detecciones espurias por entradas puntuales.  
+			Está orientado a identificar patrones sostenidos de sobrecontrol más que acciones transitorias aisladas. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	% CFIT A32s
+	\subsection{CFIT - Control Flight into Terrain}
+	\categoria{Low Climb Gradient }
+	\subsubsection{3110 - Low Climb Gradient}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Identificar despegues en los que el gradiente de ascenso inicial es reducido, reflejado en un tiempo excesivo para alcanzar \SI{1000}{ft} sobre la elevación del aeródromo, lo cual puede indicar un rendimiento degradado o una gestión inadecuada de la energía tras el despegue. \\
+			\hline
+			\textbf{Qué tiene en cuenta} &
+			Los parámetros utilizados son:
+			\begin{itemize}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{SYS\_\_LIFT\_OFF\_VA}
+				\item \texttt{ALT\_\_AAE}
+			\end{itemize}
+			El evento solo se evalúa después de haberse detectado el \textit{lift-off} y mientras la aeronave permanece por debajo de \SI{1000}{ft} AAE. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante las fases de \textit{INI\_CLIMB} y \textit{CLIMB}, una vez confirmado el estado de \textit{LIFT\_OFF}, se inicia un contador de tiempo mientras la altitud sobre el aeródromo (\texttt{ALT\_\_AAE}) sea inferior a \SI{1000}{ft}.  
+			El tiempo acumulado hasta alcanzar dicha altitud se compara con los umbrales definidos para determinar la severidad del evento. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: tiempo mayor a \SI{28}{\second} \newline
+			\textit{Medium}: tiempo mayor a \SI{30}{\second} \newline
+			\textit{High}: tiempo mayor a \SI{35}{\second} \\
+			\hline
+			\textbf{Notas operacionales} &
+			El evento se evalúa una única vez por despegue, iniciando el conteo únicamente tras la confirmación de \textit{lift-off}.  
+			La lógica incorpora un tiempo mínimo de espera antes de poder activarse nuevamente, evitando múltiples detecciones durante la misma maniobra de ascenso inicial. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\categoria{Inadequate response to Windshear warnings}
+	\subsubsection{6005 - Windshear Post-Response After Take-Off}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar cambios de configuración inapropiados tras una alerta de \textit{windshear} durante el despegue, específicamente la selección de flaps o tren de aterrizaje, lo cual puede comprometer el rendimiento y la seguridad durante la fase inicial de ascenso. \\
+			\hline
+			\textbf{Qué tiene en cuenta} &
+			Los parámetros utilizados son:
+			\begin{itemize}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{GPWS\_\_WINDSHEAR}
+				\item \texttt{GPWS\_\_WINDSHEAR\_CAU}
+				\item \texttt{SYS\_\_WSHEAR\_ON\_1}
+				\item \texttt{SYS\_\_WSHEAR\_ON\_2}
+				\item \texttt{SFC\_\_CONF}
+				\item \texttt{GEAR\_\_SEL}
+			\end{itemize}
+			El evento solo se evalúa cuando existe una alerta activa de \textit{windshear} tras el despegue. \\
+			\hline
+			\textbf{Lógica de activación} &
+			Durante las fases de \textit{INI\_CLIMB} y \textit{CLIMB}, se detecta una condición de \textit{windshear} si alguno de los sistemas de advertencia se encuentra activo.  
+			Si tras dicha alerta se produce un cambio en la configuración de flaps o una selección del tren de aterrizaje respecto al estado previo, el evento se activa y se clasifica según la combinación de acciones detectadas. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Medium}: cambio de flaps o selección de tren de aterrizaje \newline
+			\textit{High}: cambio de flaps y selección de tren de aterrizaje \\
+			\hline
+			\textbf{Notas operacionales} &
+			Este evento está orientado a verificar el cumplimiento de los procedimientos estándar de respuesta a \textit{windshear}, los cuales recomiendan mantener la configuración hasta salir de la condición adversa.  
+			El evento se evalúa una única vez por episodio de \textit{windshear}, evitando múltiples activaciones durante la misma maniobra. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	\subsubsection{6006 - Windshear Post-Response Before Landing}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar cambios de configuración inapropiados tras una alerta de \textit{windshear} durante la aproximación y antes del aterrizaje, específicamente modificaciones en la configuración de flaps o en la selección del tren de aterrizaje, que puedan comprometer la estabilidad y seguridad de la aproximación. \\
+			\hline
+			\textbf{Qué tiene en cuenta} &
+			Los parámetros utilizados son:
+			\begin{itemize}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{GPWS\_\_WINDSHEAR}
+				\item \texttt{GPWS\_\_WINDSHEAR\_CAU}
+				\item \texttt{SYS\_\_WSHEAR\_ON\_1}
+				\item \texttt{SYS\_\_WSHEAR\_ON\_2}
+				\item \texttt{SFC\_\_CONF}
+				\item \texttt{GEAR\_\_SEL}
+			\end{itemize}
+			El evento solo se evalúa cuando existe una alerta activa de \textit{windshear} antes del aterrizaje. \\
+			\hline
+			\textbf{Lógica de activación} &
+			El evento se evalúa durante las fases de \textit{APPROACH} y \textit{FIN\_APPROACH}.  
+			Se considera que existe una condición de \textit{windshear} si alguno de los sistemas de advertencia correspondientes se encuentra activo.  
+			Si tras dicha alerta se detecta un cambio en la configuración de flaps o una variación en la selección del tren de aterrizaje respecto al estado previo, el evento se activa y se clasifica según la combinación de acciones identificadas. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Medium}: cambio de flaps o selección de tren de aterrizaje \newline
+			\textit{High}: cambio de flaps y selección de tren de aterrizaje \\
+			\hline
+			\textbf{Notas operacionales} &
+			Este evento está orientado a supervisar la correcta aplicación de los procedimientos de respuesta a \textit{windshear} durante la aproximación, los cuales recomiendan mantener la configuración de la aeronave hasta abandonar la condición adversa.  
+			La lógica está diseñada para evitar activaciones repetidas durante un mismo episodio de \textit{windshear}. \\
+			\hline
+		\end{tabular}
+	\end{table}
+	
+	
+	
+	
+	
+	
+	
 
-\section{Bibliography}
+	\categoria{Flight Below Minimum Sector Altitude}
+	\subsubsection{6007 - Insufficient Terrain Clearance}
+	\begin{table}[H]
+		\centering
+		\renewcommand{\arraystretch}{1.3}
+		\begin{tabular}{p{5cm} p{9.5cm}}
+			\hline
+			\textbf{Objetivo del evento} &
+			Detectar situaciones de separación insuficiente con el terreno durante las fases finales del vuelo, cuando la altitud radioeléctrica es inferior a los márgenes de seguridad definidos, lo cual puede incrementar el riesgo de CFIT o aproximaciones no estabilizadas. \\
+			\hline
+			\textbf{Qué tiene en cuenta} &
+			Los parámetros utilizados son:
+			\begin{itemize}
+				\item \texttt{ALT\_\_RADIO}
+				\item \texttt{FLIGHT\_\_PHASE}
+				\item \texttt{TRAJ\_\_DIST\_POS\_TO\_LDG\_THR\_NM}
+				\item \texttt{SYS\_\_NEXT\_ICAO\_NAME}
+			\end{itemize}
+			El evento considera la distancia a la cabecera de aterrizaje y aplica umbrales específicos según el aeropuerto de destino. \\
+			\hline
+			\textbf{Lógica de activación} &
+			El evento se evalúa durante las fases de \textit{DESCENT} y \textit{APPROACH}.  
+			Si la aeronave se encuentra a más de \SI{5}{NM} más allá del umbral de aterrizaje y la altitud radioeléctrica se mantiene por debajo de los valores definidos durante al menos \SI{2}{s}, se genera el evento.  
+			Para determinados aeropuertos (\texttt{SKRG}, \texttt{SKBO}, \texttt{SEQM}), se aplican umbrales de altitud diferentes debido a consideraciones locales de terreno. \\
+			\hline
+			\textbf{Triggers configurados} &
+			\textit{Low}: \texttt{ALT\_\_RADIO} menor a \SI{1500}{ft} (o \SI{1400}{ft} para aeropuertos específicos) \newline
+			\textit{Medium}: \texttt{ALT\_\_RADIO} menor a \SI{1200}{ft} \newline
+			\textit{High}: \texttt{ALT\_\_RADIO} menor a \SI{1000}{ft} \\
+			\hline
+			\textbf{Notas operacionales} &
+			Este evento incorpora lógica dependiente del aeropuerto para reflejar adecuadamente el entorno orográfico local.  
+			La condición debe mantenerse durante un tiempo continuo para evitar activaciones por fluctuaciones puntuales de la señal de altitud radioeléctrica.  
+			El evento puede activarse más de una vez en un mismo vuelo si se cumplen nuevamente las condiciones tras el tiempo de espera configurado. \\
+			\hline
+		\end{tabular}
+	\end{table} \newpage
+	
+	% MAC A32s
+	%\subsection{MAC - Mid Air Collision}
+
+	% Eventos 7430 A32s
+	\section{Eventos Aproximaciones Desestabilizadas}
+	\subsection{Speed Deviation}
+	\subsubsection{1022 - High Speed App 0500 0200}
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar aproximaciones con exceso de velocidad, cuando la diferencia entre la velocidad calibrada (\texttt{CAS}) y la velocidad objetivo de aproximación (\texttt{VAPP}) excede un umbral durante un periodo sostenido entre \SI{500}{ft} y \SI{200}{ft} AAE (altura sobre elevación de aeródromo), con el fin de identificar condiciones potencialmente inestables en la aproximación final. \\
+		\hline
+		\endfirsthead
 		
-	Bibliography management is handled by \inlinecode{biblatex}, with the default citation and reference style set to IEEE. The \inlinecode{citestyle=numeric-comp} option is enabled, allowing multiple citations to be grouped within a single bracket (e.g., \cite{davis2023signalflow,bell2022codefont}). The citation format can be customized directly in \inlinecode{tau.cls} to suit any preferred style.
-
-\section{FAQ}
-
-    \subsection*{How do I manage my references?}
-        
-        To manage your references, I recommend using the tool \href{https://www.scribbr.es/citar/generador/folders/73QOXYsCwMRu4ifQaN65mx/lists/msTfx7GJjIAOUkufbISnA/}{scribbr}. You can simply enter the URL or create your own citation, and then export it to \LaTeX\ using the options in the three-dot menu.
-            
-        The generated citation can be copied and pasted into \inlinecode{tau.bib}, the file designated for bibliography management. You may rename this file, but if you do, remember to update the \inlinecode{\addbibresource} command in \inlinecode{tau.cls} under the biblatex section.
-    
-        \begin{note}
-            Some platforms, such as Google Scholar or scientific journals, provide citations directly in BibTeX format. Therefore, check if there is a ``how to cite this document'' section to streamline the citation process even further.
-        \end{note}
-
-        If you have any further questions, you can refer to the following page — \href{https://es.overleaf.com/learn/latex/Bibliography_management_with_biblatex}{Bibliography management with biblatex}.
-        
-    \subsection*{What should I do with the example files?}
-
-        The template includes sample content — such as an example figure, bibliography entries, and the \inlinecode{example.py} script — to demonstrate how the layout and features work. Once you start customizing the document for your own use, feel free to delete all example files and entries you don’t need.
-
-    \subsection*{How do I place equations easily?}
-
-        For equations, we have two options: inline or on its own line. For inline equations, simply place a dollar sign (\$) at the beginning and end of the equation. However, if you want the equation to be displayed on its own line, you need to use the equation environment.
-        
-        If you find it challenging to write formulas directly in \LaTeX, you can use text editors like Word. In the equations menu, you can select \LaTeX\ in the conversion section and copy and paste the equation you wrote into one of these two environments.
-
-    \subsection*{How do I change the paper size?}
-
-        By default, this class was adapted for a4paper and test it with letterpaper. The following paper sizes are available in \LaTeX:
-
-        \begin{itemize}
-            \item letterpaper (11 $\times$ 8.5 in)
-            \item legalpaper (14 $\times$ 8.5 in)
-            \item executivepaper (10.5 $\times$ 7.25 in)
-            \item a4paper (21 $\times$ 29.7 cm)
-            \item a5paper (21 $\times$ 14.8 cm)
-            \item b5paper (25 $\times$ 17.6 cm)
-       \end{itemize}
-
-\section*{Contact me}
-    
-    Have questions, suggestions, or an idea for a new feature? Found a bug or working on a project you’d like to invite me to?  
-    
-    Feel free to reach out — I’d be happy to help, collaborate, or fix the issue.  Your feedback helps me improve my templates!
-
-    \AtBeginEnvironment{tabular}{\normalsize\sffamily\selectfont}
-    \begin{center}
-        \setlength{\tabcolsep}{3pt}
-        \begin{tabular}{cl}
-            \faEnvelope & \href{mailto:memo.notess1@gmail.com}{memo.notess1@gmail.com} \\
-            \faGlobe{} & \href{https://memonotess1.wixsite.com/memonotess}{memonotess.com} \\
-            \faInstagram{} & \href{https://www.instagram.com/memo.notess/}{@memo.notess}
-        \end{tabular}
-    \end{center}
-
-\section*{Github Repository}
-
-    Visit the repository to access the source code, track ongoing development, report issues, and stay up to date with the latest changes.
-
-    \begin{center}
-        \setlength{\tabcolsep}{3pt}
-        \begin{tabular}{cl}
-             \faGithub &  \url{https://github.com/MemoJimenez/Tau-class}\\
-        \end{tabular}
-    \end{center}
-
-\section*{Supporting}
-
-    Did you like this class document? Check out rho-class, made for complex research articles.
-
-    \begin{center}
-        \setlength{\tabcolsep}{3pt}
-        \begin{tabular}{cl}
-             \faLink &  \href{https://es.overleaf.com/latex/templates/rho-class-academic-article-template/bpgjxjjqhtfy}{https://es.overleaf.com/latex/templates/rho-class}\\
-        \end{tabular}
-    \end{center}
-    
-    \subsection*{Any contributions are welcome!}
-    
-        Coffee keeps me awake and helps me create better \LaTeX\ templates. If you wish to support my work, you can do so through PayPal: 
-
-        \begin{center}
-            \setlength{\tabcolsep}{3pt}
-            \begin{tabular}{cl}
-                 \faPaypal & \textbf{\url{https://www.paypal.me/GuillermoJimeenez}}\\
-            \end{tabular}
-            \vskip9pt
-            Enjoy writing with tau-class!
-        \end{center}
-
-%----------------------------------------------------------
-
-\printbibliography
-
-%----------------------------------------------------------
-
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar aproximaciones con exceso de velocidad, cuando la diferencia entre la velocidad calibrada (\texttt{CAS}) y la velocidad objetivo de aproximación (\texttt{VAPP}) excede un umbral durante un periodo sostenido entre \SI{500}{ft} y \SI{200}{ft} AAE. \\
+		\hline
+		\endhead
+		
+		\hline
+		\endfoot
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros usados son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_VV\_LEVEL}
+			\item \texttt{SPD\_\_VAPP\_DIFF}
+			\item \texttt{TO\_DATE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+		\end{itemize}
+		El evento solo se evalúa dentro de la ventana de altitud definida y en condiciones de descenso. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa cuando la aeronave se encuentra en descenso (\texttt{ATT\_VV\_LEVEL = DOWN}). Se verifica que la diferencia \texttt{SPD\_\_VAPP\_DIFF} supere el umbral correspondiente durante al menos \SI{3}{s}. Adicionalmente, la altitud \texttt{ALT\_\_AAE\_BARO} debe encontrarse entre \SI{500}{ft} y \SI{200}{ft}.  
+		
+		La lógica incorpora una condición temporal mediante \texttt{TO\_DATE}, siendo efectiva únicamente para vuelos posteriores al \texttt{01-01-2026}. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Low}: \texttt{SPD\_\_VAPP\_DIFF} $\ge \SI{8}{kt}$ por \SI{3}{s} \newline
+		\textit{Medium}: \texttt{SPD\_\_VAPP\_DIFF} $\ge \SI{10}{kt}$ por \SI{3}{s} \newline
+		\textit{High}: \texttt{SPD\_\_VAPP\_DIFF} $\ge \SI{15}{kt}$ por \SI{3}{s} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		\begin{itemize}
+			\item El uso de \texttt{ALT\_\_AAE\_BARO} proporciona una referencia de altura operacional coherente con la percepción del piloto basada en altitud barométrica.
+			\item La condición de descenso evita activaciones fuera de contextos relevantes para la estabilidad de aproximación.
+			\item La ventana entre \SI{500}{ft} y \SI{200}{ft} focaliza el evento en el tramo más crítico de la aproximación final.
+		\end{itemize} \\
+		\hline
+		
+	\end{longtable}
+	
+	\subsubsection{1024 - High Speed App Below 0200}
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar aproximaciones con exceso de velocidad por debajo de \SI{200}{ft} AAE, cuando la diferencia entre la velocidad calibrada (\texttt{CAS}) y la velocidad objetivo de aproximación (\texttt{VAPP}) excede los umbrales definidos durante un periodo sostenido, indicando una aproximación potencialmente inestable en una fase crítica del vuelo. \\
+		\hline
+		\endfirsthead
+		
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar aproximaciones con exceso de velocidad por debajo de \SI{200}{ft} AAE, cuando la diferencia entre \texttt{CAS} y \texttt{VAPP} supera los umbrales configurados durante un tiempo sostenido. \\
+		\hline
+		\endhead
+		
+		\hline
+		\endfoot
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la detección del evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_VV\_LEVEL}
+			\item \texttt{SPD\_\_VAPP\_DIFF}
+			\item \texttt{TO\_DATE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+		\end{itemize}
+		El evento solo se evalúa en descenso y dentro del rango de altitud definido. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa cuando la aeronave se encuentra en descenso (\texttt{ATT\_\_VLEVEL = DOWN}).  
+		Se verifica que la diferencia \texttt{SPD\_\_VAPP\_DIFF} supere los umbrales configurados durante al menos \SI{2}{s}.  
+		
+		Adicionalmente, la altitud \texttt{ALT\_\_AAE\_BARO} debe encontrarse por debajo de \SI{200}{ft} y por encima de \SI{50}{ft}, limitando la detección a la fase más crítica de la aproximación final.  
+		
+		La lógica del evento es efectiva únicamente para vuelos posteriores al \texttt{01-01-2026}, según la condición definida mediante \texttt{TO\_DATE}. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Low}: \texttt{SPD\_\_VAPP\_DIFF} $\ge \SI{5}{kt}$ por \SI{2}{s} \newline
+		\textit{Medium}: \texttt{SPD\_\_VAPP\_DIFF} $\ge \SI{8}{kt}$ por \SI{2}{s} \newline
+		\textit{High}: \texttt{SPD\_\_VAPP\_DIFF} $\ge \SI{10}{kt}$ por \SI{2}{s} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		\begin{itemize}
+			\item El uso de \texttt{ALT\_\_AAE\_BARO} permite una referencia de altura alineada con la percepción operacional del piloto.
+			\item La reducción del tiempo de activación a \SI{2}{s} incrementa la sensibilidad del evento en una fase de muy baja altura.
+			\item Este evento complementa la detección de alta velocidad en aproximación por encima de \SI{200}{ft}, proporcionando continuidad en el monitoreo de estabilidad.
+		\end{itemize} \\
+		\hline
+		
+	\end{longtable}\newpage
+	
+	\subsubsection{1032 - Low Speed App 0500 0200}
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar aproximaciones con velocidad inferior a la velocidad objetivo de aproximación (\texttt{VAPP}) entre \SI{500}{ft} y \SI{200}{ft} AAE, cuando la diferencia entre la velocidad calibrada (\texttt{CAS}) y \texttt{VAPP} excede los umbrales negativos definidos durante un periodo sostenido, indicando una aproximación potencialmente inestable por baja energía. \\
+		\hline
+		\endfirsthead
+		
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar aproximaciones con baja velocidad entre \SI{500}{ft} y \SI{200}{ft} AAE, cuando \texttt{CAS} es inferior a \texttt{VAPP} más allá de los límites establecidos. \\
+		\hline
+		\endhead
+		
+		\hline
+		\endfoot
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la detección del evento son:
+		\begin{itemize}
+			\item \texttt{SPD\_\_VAPP\_DIFF}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{TO\_DATE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+		\end{itemize}
+		El evento solo se evalúa durante la aproximación final. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa exclusivamente durante la fase de \textit{Final Approach}.  
+		Se comprueba que la diferencia \texttt{SPD\_\_VAPP\_DIFF} sea inferior a los umbrales definidos durante al menos \SI{3}{s}.  
+		
+		Adicionalmente, la altitud \texttt{ALT\_\_AAE\_BARO} debe encontrarse entre \SI{500}{ft} y \SI{200}{ft}, limitando la detección a la ventana operacional previa a la estabilización final de la aproximación.  
+		
+		La lógica del evento es efectiva únicamente para vuelos posteriores al \texttt{01-01-2026}, según la condición definida mediante \texttt{TO\_DATE}. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Low}: \texttt{SPD\_\_VAPP\_DIFF} $\le \SI{-3}{kt}$ por \SI{3}{s} \newline
+		\textit{Medium}: \texttt{SPD\_\_VAPP\_DIFF} $\le \SI{-5}{kt}$ por \SI{3}{s} \newline
+		\textit{High}: \texttt{SPD\_\_VAPP\_DIFF} $\le \SI{-8}{kt}$ por \SI{3}{s} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		\begin{itemize}
+			\item Este evento permite identificar condiciones de baja energía durante la aproximación, que pueden comprometer la estabilización adecuada del perfil.
+			\item El uso de \texttt{ALT\_\_AAE\_BARO} asegura coherencia con la referencia operacional utilizada por la tripulación.
+			\item El evento complementa la detección de alta velocidad en aproximación, proporcionando una cobertura simétrica de desviaciones respecto a \texttt{VAPP}.
+		\end{itemize} \\
+		\hline
+		
+	\end{longtable}
+	
+	\subsubsection{1152 - Low Speed App Below 0200}
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar aproximaciones con velocidad inferior a la velocidad seleccionada o a la velocidad objetivo de aproximación, cuando la aeronave se encuentra por debajo de \SI{200}{ft} AAE, lo cual representa una condición de baja energía en una fase crítica cercana al aterrizaje. \\
+		\hline
+		\endfirsthead
+		
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar aproximaciones con velocidad insuficiente por debajo de \SI{200}{ft} AAE durante la aproximación final. \\
+		\hline
+		\endhead
+		
+		\hline
+		\endfoot
+		
+		\hline
+		\endlastfoot
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la detección del evento son:
+		\begin{itemize}
+			\item \texttt{SPD\_\_VAPP\_DIFF}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{TO\_DATE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+		\end{itemize}
+		El evento se evalúa únicamente durante la fase de aproximación final. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante la fase de \textit{Final Approach}.  
+		Se comprueba que la diferencia \texttt{SPD\_\_VAPP\_DIFF} sea inferior a los umbrales definidos durante al menos \SI{2}{s}.  
+		
+		Adicionalmente, la altitud \texttt{ALT\_\_AAE\_BARO} debe encontrarse entre \SI{200}{ft} y \SI{40}{ft}, limitando la detección a la parte final de la aproximación, inmediatamente previa al aterrizaje.  
+		
+		La lógica del evento es efectiva únicamente para vuelos posteriores al \texttt{01-01-2026}, según la condición establecida mediante \texttt{TO\_DATE}. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Medium}: \texttt{SPD\_\_VAPP\_DIFF} $\le \SI{-3}{kt}$ por \SI{2}{s} \newline
+		\textit{High}: \texttt{SPD\_\_VAPP\_DIFF} $\le \SI{-5}{kt}$ por \SI{2}{s} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		\begin{itemize}
+			\item Este evento está enfocado en la detección de condiciones de baja energía en la fase final de la aproximación, donde la capacidad de recuperación es limitada.
+			\item El uso de \texttt{ALT\_\_AAE\_BARO} permite una referencia coherente con la percepción operacional de la tripulación.
+			\item El evento se evalúa una única vez por aproximación, evitando múltiples detecciones durante la misma maniobra.
+		\end{itemize} \\
+		\hline
+		
+	\end{longtable} \newpage
+	
+	\subsection{Sync Rate Deviation}
+	
+	\subsubsection{1404 - High Rate Dsct 1000 0500}
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar tasas de descenso excesivas durante la aproximación, específicamente en el segmento comprendido entre \SI{1000}{ft} y \SI{500}{ft} sobre el aeródromo, ya que pueden comprometer la estabilidad de la aproximación y aumentar el riesgo de aterrizajes duros o inestables. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados por la lógica del evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_VV}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{TO\_DATE}
+			\item \texttt{SYS\_\_NEXT\_ICAO\_NAME}
+			\item \texttt{OTHER\_SPECIAL\_AIRPORTS}
+		\end{itemize}
+		El evento discrimina entre aeropuertos de alta altitud y el resto, aplicando distintos umbrales de severidad según el caso. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante la fase de aproximación. Se activa cuando la aeronave se encuentra entre \SI{1000}{ft} y \SI{500}{ft} AAE y la velocidad vertical de descenso excede los umbrales definidos durante un tiempo mínimo.
+		
+		Para aeropuertos de alta altitud (por ejemplo, SKRG, SLLP y SPJL), se utilizan umbrales específicos más restrictivos. En otros aeropuertos, se aplican valores estándar.
+		
+		La lógica incorpora contadores temporales para garantizar que la condición persista durante el tiempo requerido antes de generar el evento. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Aeropuertos de alta altitud:}
+		\begin{itemize}
+			\item \textit{Low}: tasa de descenso mayor a \SI{-1100}{ft/min} durante \SI{5}{s}
+			\item \textit{Medium}: tasa de descenso mayor a \SI{-1300}{ft/min} durante \SI{5}{s}
+			\item \textit{High}: tasa de descenso mayor a \SI{-1500}{ft/min} durante \SI{3}{s}
+		\end{itemize}
+		\textit{Otros aeropuertos:}
+		\begin{itemize}
+			\item \textit{Low}: tasa de descenso mayor a \SI{-1000}{ft/min} durante \SI{5}{s}
+			\item \textit{Medium}: tasa de descenso mayor a \SI{-1200}{ft/min} durante \SI{5}{s}
+			\item \textit{High}: tasa de descenso mayor a \SI{-1500}{ft/min} durante \SI{3}{s}
+		\end{itemize} \\
+		\hline
+		\textbf{Notas operacionales} &
+		El evento se diseña para evaluar únicamente el tramo final de la aproximación, donde una tasa de descenso excesiva tiene mayor impacto operacional. La diferenciación por altitud del aeródromo permite una detección más representativa del entorno real de operación. La lógica evita activaciones espurias mediante el uso de contadores temporales y ventanas de altitud bien definidas. \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{1405 - High Rate Dsct 0500 0200}
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar razones de descenso excesivas durante la aproximación, cuando la aeronave se encuentra entre \SI{500}{ft} y \SI{200}{ft} sobre la elevación del aeródromo, ya que tasas de descenso elevadas en esta ventana de altura incrementan significativamente el riesgo de aterrizaje duro o pérdida de estabilidad vertical. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados por el evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_VV}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{SYS\_\_NEXT\_ICAO\_NAME}
+			\item \texttt{OTHER\_SPECIAL\_AIRPORTS}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento diferencia entre aeropuertos de gran altitud y aeropuertos estándar para ajustar los umbrales de severidad. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante la fase de aproximación, cuando la aeronave se encuentra entre \SI{500}{ft} y \SI{200}{ft} AAE barométrica.
+		Se monitoriza la velocidad vertical descendente y se aplican distintos criterios según el tipo de aeropuerto:
+		\begin{itemize}
+			\item Para aeropuertos de gran altitud (por ejemplo SKBO, SKSP, SKUI, SLLP).
+			\item Para el resto de aeropuertos.
+		\end{itemize}
+		La severidad se determina en función de la magnitud de la razón de descenso y del tiempo durante el cual se mantiene la condición. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textbf{Aeropuertos de gran altitud:}
+		\begin{itemize}
+			\item \textit{Low}: razón de descenso mayor a \SI{1100}{ft/min} sostenida durante \SI{5}{s}
+			\item \textit{Medium}: razón de descenso mayor a \SI{1300}{ft/min} sostenida durante \SI{3}{s}
+			\item \textit{High}: razón de descenso mayor a \SI{1500}{ft/min} sostenida durante \SI{2}{s}
+		\end{itemize}
+		\textbf{Otros aeropuertos:}
+		\begin{itemize}
+			\item \textit{Low}: razón de descenso mayor a \SI{1000}{ft/min} sostenida durante \SI{5}{s}
+			\item \textit{Medium}: razón de descenso mayor a \SI{1200}{ft/min} sostenida durante \SI{3}{s}
+			\item \textit{High}: razón de descenso mayor a \SI{1500}{ft/min} sostenida durante \SI{2}{s}
+		\end{itemize} \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento introduce lógica diferenciada para aeropuertos de gran altitud con el fin de reflejar condiciones operacionales más exigentes. 
+		La evaluación se limita estrictamente a la ventana crítica de \SIrange{500}{200}{ft} AAE, evitando activaciones fuera del segmento final de la aproximación, donde el control preciso de la senda vertical es fundamental. \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{1406 - High Rate Dsct Below 200}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar tasas de descenso excesivas durante la fase de aproximación, cuando la aeronave se encuentra por debajo de \SI{200}{ft} sobre el aeródromo, condición que incrementa significativamente el riesgo de aproximación inestable y contacto prematuro con el terreno. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados por este evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_VV\_FPA}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		La lógica se aplica exclusivamente durante fases de aproximación, considerando únicamente alturas bajas sobre el aeródromo. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases de \textit{APPROACH} y \textit{FINAL APPROACH}. Si la aeronave se encuentra por debajo de \SI{200}{ft} AAE y por encima de \SI{30}{ft} AAE, y la velocidad vertical medida mediante \texttt{ATT\_\_VV\_FPA} excede los umbrales definidos durante al menos \SI{2}{s}, el evento se genera con la severidad correspondiente. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Low}: velocidad vertical menor o igual a \SI{-900}{ft/min} durante \SI{2}{s} \newline
+		\textit{Medium}: velocidad vertical menor o igual a \SI{-1000}{ft/min} durante \SI{2}{s} \newline
+		\textit{High}: velocidad vertical menor o igual a \SI{-1100}{ft/min} durante \SI{2}{s} \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento fue actualizado para eliminar la dependencia del peso de aterrizaje (\textit{MHG}) y utiliza únicamente la altitud barométrica sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}). La lógica incluye control temporal explícito y está orientada a capturar aproximaciones con perfiles de descenso inadecuados en el tramo final, alineándose con criterios de aproximación estabilizada. \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsection{Pitch Deviation}
+	
+	\subsubsection{3004 - High Pitch during Final Approach between 1000 0500ft}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar actitudes de cabeceo excesivamente altas durante la aproximación final, específicamente entre 1000 ft y 500 ft sobre el aeródromo, las cuales pueden indicar una técnica de aproximación inadecuada, riesgo de pérdida de energía o proximidad a condiciones de \textit{tail strike}. \\
+		\hline
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la detección del evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_PITCH}
+			\item \texttt{TO\_DATE}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{AC\_TYPE}
+		\end{itemize}
+		La lógica discrimina por tipo de aeronave, aplicando umbrales específicos para la familia A321. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases de \textit{APPROACH} y \textit{FINAL APPROACH}.  
+		Se activa cuando la actitud de cabeceo (\texttt{ATT\_\_PITCH}) excede los umbrales definidos durante al menos \SI{3}{s}, siempre que la altitud barométrica sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}) se encuentre entre \SI{1000}{ft} y \SI{500}{ft}.  
+		Los umbrales varían según el tipo de aeronave. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textbf{A321:}
+		\begin{itemize}
+			\item \textit{Low}: \(\geq \SI{6.0}{\degree}\)
+			\item \textit{Medium}: \(\geq \SI{7.5}{\degree}\)
+			\item \textit{High}: \(\geq \SI{10.0}{\degree}\)
+		\end{itemize}
+		\textbf{Otras variantes:}
+		\begin{itemize}
+			\item \textit{Low}: \(\geq \SI{8}{\degree}\)
+			\item \textit{Medium}: \(\geq \SI{10}{\degree}\)
+			\item \textit{High}: \(\geq \SI{12}{\degree}\)
+		\end{itemize} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		Este evento permite identificar tendencias de aproximación con excesivo cabeceo, que pueden estar asociadas a configuraciones tardías, velocidades bajas o técnicas incorrectas de control.  
+		La ventana vertical limitada reduce falsas activaciones fuera del segmento crítico de la aproximación estabilizada. \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{3005 - High Pitch during Final Approach, between 0500 0200}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar ángulos de cabeceo excesivos durante la aproximación final, cuando la aeronave se encuentra entre 500 ft y 200 ft sobre el aeródromo, condición que puede indicar una actitud inadecuada con riesgo de aproximación inestable o contacto prematuro con la pista. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la evaluación del evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_PITCH}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{AC\_TYPE}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento solo se evalúa durante la fase de aproximación y dentro de la ventana de altitud definida. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases \textit{APPROACH} y \textit{FINAL APPROACH}.  
+		Si el ángulo de cabeceo (\texttt{ATT\_\_PITCH}) supera los umbrales definidos durante al menos \SI{3}{s}, y la altitud barométrica sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}) se encuentra entre \SI{500}{ft} y \SI{200}{ft}, se genera el evento según el nivel de severidad correspondiente.  
+		
+		Para aeronaves A321 se aplican umbrales específicos; para el resto de flotas se utilizan umbrales estándar más conservadores. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textbf{A321:} \newline
+		\textit{Low}: \SI{6.0}{\degree} \newline
+		\textit{Medium}: \SI{7.5}{\degree} \newline
+		\textit{High}: \SI{10}{\degree} \newline
+		\newline
+		\textbf{Otras flotas:} \newline
+		\textit{Low}: \SI{8}{\degree} \newline
+		\textit{Medium}: \SI{10}{\degree} \newline
+		\textit{High}: \SI{12}{\degree} \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento forma parte del monitoreo de aproximaciones inestables en fases críticas cercanas al aterrizaje.  
+		La diferenciación por tipo de aeronave permite reflejar características operacionales específicas del A321.  
+		La evaluación se limita a una ventana de altitud reducida para evitar activaciones fuera del entorno de mayor riesgo operacional. \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{3007 - High Pitch during final approach below 0200}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar actitudes de cabeceo excesivas durante la aproximación final por debajo de \SI{200}{ft} sobre el aeródromo, condición que incrementa significativamente el riesgo de pérdida de control, hard landing o tail strike. \\
+		\hline
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_PITCH}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{AC\_TYPE}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento se evalúa únicamente durante la aproximación y se discrimina la lógica según el tipo de aeronave. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases de \textit{APPROACH} y \textit{FINAL APPROACH}.  
+		Se activa cuando el ángulo de cabeceo (\texttt{ATT\_\_PITCH}) excede los umbrales definidos durante al menos \SI{2}{s}, siempre que la altitud barométrica sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}) sea menor o igual a \SI{200}{ft}.  
+		La lógica diferencia entre aeronaves A321 y el resto de flotas, aplicando umbrales específicos. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textbf{A321:}
+		\begin{itemize}
+			\item \textit{Medium}: \(\geq \SI{6.0}{\degree}\) durante \SI{2}{s}
+			\item \textit{High}: \(\geq \SI{7.5}{\degree}\) durante \SI{2}{s}
+		\end{itemize}
+		
+		\textbf{Otras flotas:}
+		\begin{itemize}
+			\item \textit{Medium}: \(\geq \SI{8}{\degree}\) durante \SI{2}{s}
+			\item \textit{High}: \(\geq \SI{10}{\degree}\) durante \SI{2}{s}
+		\end{itemize}
+		\\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		Este evento está diseñado para capturar actitudes de cabeceo excesivas en una de las fases más críticas del vuelo.  
+		El uso de \texttt{ALT\_\_AAE\_BARO} permite una referencia operacional más consistente, alineada con la percepción del piloto.  
+		La diferenciación por tipo de aeronave asegura coherencia con las características aerodinámicas y operacionales de cada flota. \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{3102 - Low Pitch during Final Approach between 1000 0500}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar actitudes de cabeceo negativas excesivas durante la aproximación final, cuando la aeronave se encuentra entre \SI{1000}{ft} y \SI{500}{ft} sobre el aeródromo, condición que puede indicar una senda de aproximación inestable o un riesgo incrementado de aterrizaje duro. \\
+		\hline
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la evaluación del evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_PITCH}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento únicamente se evalúa durante la fase de aproximación final. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa cuando la aeronave se encuentra en las fases de \textit{APPROACH} o \textit{FINAL APPROACH}.  
+		Si la altitud barométrica sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}) se encuentra entre \SI{1000}{ft} y \SI{500}{ft}, y la actitud de cabeceo es inferior a los umbrales definidos durante al menos \SI{3}{s}, se genera el evento con el nivel de severidad correspondiente. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Low}: \texttt{ATT\_\_PITCH} $\leq$ \SI{-1.5}{\degree} durante \SI{3}{s} \newline
+		\textit{Medium}: \texttt{ATT\_\_PITCH} $\leq$ \SI{-2.5}{\degree} durante \SI{3}{s} \newline
+		\textit{High}: \texttt{ATT\_\_PITCH} $\leq$ \SI{-3.0}{\degree} durante \SI{3}{s} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		Este evento está diseñado para identificar aproximaciones con actitud de pitch excesivamente baja en una fase crítica del vuelo.  
+		La lógica incluye una ventana vertical específica para evitar activaciones fuera del entorno operativo relevante y asegurar que el evento refleje una condición real de aproximación inestable. \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{3103 - Low Pitch during Final Approach between 0500 0200}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar actitudes de pitch negativas excesivas durante la fase final de la aproximación, cuando la aeronave se encuentra entre \SI{500}{ft} y \SI{200}{ft} sobre el aeródromo, condición que puede comprometer la estabilidad de la aproximación y aumentar el riesgo operacional en una fase crítica del vuelo. \\
+		\hline
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la evaluación del evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_PITCH}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento solo se evalúa dentro de la ventana de altitud definida para la aproximación final. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa cuando la aeronave se encuentra en las fases de \textit{APPROACH} o \textit{FINAL APPROACH}.  
+		Si la altitud barométrica sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}) se encuentra entre \SI{500}{ft} y \SI{200}{ft}, y la actitud de pitch es inferior a los umbrales definidos durante al menos \SI{3}{s}, se genera el evento con el nivel de severidad correspondiente. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Low}: \texttt{ATT\_\_PITCH} $\leq$ \SI{-1.5}{\degree} durante \SI{3}{s} \newline
+		\textit{Medium}: \texttt{ATT\_\_PITCH} $\leq$ \SI{-2.5}{\degree} durante \SI{3}{s} \newline
+		\textit{High}: \texttt{ATT\_\_PITCH} $\leq$ \SI{-3.0}{\degree} durante \SI{3}{s} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		Este evento permite identificar aproximaciones con actitud de pitch excesivamente baja en una franja de altitud particularmente sensible antes del aterrizaje.  
+		La lógica de filtrado por altitud y fase de vuelo reduce activaciones espurias y asegura que el evento represente una degradación real de la estabilidad de la aproximación. \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{3105 - Low Pitch during Final Approach between 0200 0050}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar actitudes de pitch excesivamente negativas durante la fase final de la aproximación, cuando la aeronave se encuentra entre \SI{200}{ft} y \SI{50}{ft} sobre el aeródromo, condición que representa un riesgo elevado debido a la proximidad al terreno en una fase crítica previa al aterrizaje. \\
+		\hline
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la evaluación del evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_PITCH}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento solo se evalúa dentro de la ventana de altitud correspondiente a la aproximación final cercana al terreno. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa cuando la aeronave se encuentra en las fases de \textit{APPROACH} o \textit{FINAL APPROACH}.  
+		Si la altitud barométrica sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}) se encuentra entre \SI{200}{ft} y \SI{50}{ft}, y la actitud de pitch es inferior a los umbrales definidos durante al menos \SI{2}{s}, se genera el evento con el nivel de severidad correspondiente. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Medium}: \texttt{ATT\_\_PITCH} $\leq$ \SI{-1.5}{\degree} durante \SI{2}{s} \newline
+		\textit{High}: \texttt{ATT\_\_PITCH} $\leq$ \SI{-2.5}{\degree} durante \SI{2}{s} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		Este evento está diseñado para capturar desviaciones de actitud de pitch bajo muy próximas al aterrizaje, donde el margen de recuperación es limitado.  
+		La reducción del tiempo de persistencia a \SI{2}{s} y el filtrado por altitud permiten una detección sensible sin generar activaciones fuera del entorno de mayor riesgo operacional. \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsection{Roll Deviation}
+	
+	\subsubsection{3408 - High Roll 1000 0500}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar ángulos de roll excesivos durante la aproximación, cuando la aeronave se encuentra entre 1000 ft y 500 ft sobre la elevación del aeródromo (AAE), ya que este tipo de maniobras puede comprometer la estabilidad de la trayectoria y aumentar el riesgo operacional, especialmente en aproximaciones no estabilizadas o circular approach. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados por este evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_ROLL}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{NAV\_\_CIRCLING\_APPROACH}
+			\item \texttt{DESTINATION\_RWY}
+			\item \texttt{TO\_DATE}
+			\item \texttt{OTHER\_SPECIAL\_AIRPORTS}
+		\end{itemize}
+		El evento distingue entre straight approach y circular approach, así como aeropuertos considerados especiales. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante la fase de aproximación (\textit{APPROACH} y \textit{FINAL APPROACH}).  
+		Se activa cuando el valor absoluto del ángulo de roll excede los umbrales definidos durante al menos \SI{3}{s}, siempre que la altitud barométrica sobre el aeródromo se encuentre dentro de la ventana vertical correspondiente.  
+		La lógica diferencia entre:
+		\begin{itemize}
+			\item Straight Approach.
+			\item Circular Approach.
+			\item Aeropuertos especiales, para los cuales se aplican criterios más restrictivos.
+		\end{itemize}
+		\\
+		\hline
+		\textbf{Triggers configurados} &
+		\textbf{Straight Approach:}
+		\begin{itemize}
+			\item \textit{Low}: roll $\geq$ \SI{5}{\degree}
+			\item \textit{Medium}: roll $\geq$ \SI{7}{\degree}
+			\item \textit{High}: roll $\geq$ \SI{10}{\degree}
+		\end{itemize}
+		\textbf{Circular Approach:}
+		\begin{itemize}
+			\item \textit{Low}: roll $\geq$ \SI{20}{\degree}
+			\item \textit{Medium}: roll $\geq$ \SI{30}{\degree}
+			\item \textit{High}: roll $\geq$ \SI{35}{\degree}
+		\end{itemize}
+		Los umbrales se aplican únicamente cuando \texttt{ALT\_\_AAE\_BARO} se encuentra entre \SI{1000}{ft} (o \SI{850}{ft} en circular approach) y \SI{500}{ft}. \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento busca capturar maniobras laterales agresivas en una de las fases más críticas del vuelo.  
+		La diferenciación entre straight approach y circular approach reconoce las mayores demandas de roll propias de una circular approach, mientras que la exclusión de ciertos aeropuertos especiales evita falsas activaciones en entornos con procedimientos no estándar. \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{3410 - High Roll 0500 0200}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar ángulos de roll excesivos durante la aproximación final, cuando la aeronave se encuentra entre 500 ft (400 ft en caso de circular approach) y 200 ft sobre el aeródromo, condición que incrementa significativamente el riesgo de pérdida de control lateral o aproximación no estabilizada. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la evaluación del evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_ROLL}
+			\item \texttt{TO\_DATE}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{NAV\_\_CIRCLING\_APPROACH}
+			\item \texttt{OTHER\_SPECIAL\_AIRPORTS}
+		\end{itemize}
+		El evento considera de forma diferenciada entre straight approaches y circular approaches, aplicando umbrales distintos según el tipo de maniobra. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases de \textit{APPROACH} y \textit{FINAL APPROACH}.  
+		Si el ángulo absoluto de alabeo excede los umbrales definidos durante al menos \SI{3}{s}, y la altitud barométrica sobre el aeródromo se encuentra entre 200 ft y 500 ft (o 400 ft en caso de circular approach), se genera el evento conforme al nivel de severidad alcanzado. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Straight Approach:}
+		\begin{itemize}
+			\item \textit{Low}: roll $\geq \SI{10}{\degree}$
+			\item \textit{Medium}: roll $\geq \SI{13}{\degree}$
+			\item \textit{High}: roll $\geq \SI{15}{\degree}$
+		\end{itemize}
+		\textit{Circular Approach:}
+		\begin{itemize}
+			\item \textit{Low}: alabeo $\geq \SI{10}{\degree}$
+			\item \textit{Medium}: alabeo $\geq \SI{13}{\degree}$
+			\item \textit{High}: alabeo $\geq \SI{15}{\degree}$
+		\end{itemize} \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento incorpora lógica específica para circular approaches, reconociendo la mayor demanda de maniobra lateral asociada a este tipo de aproximación. La evaluación por ventanas de altitud reduce activaciones fuera del entorno crítico de la aproximación final. \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsubsection{3440 - High Roll Below 0200}
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar ángulos de roll excesivos durante la aproximación final, cuando la aeronave se encuentra por debajo de \SI{200}{ft} sobre el aeródromo, condición que incrementa significativamente el riesgo de pérdida de control o contacto con el terreno. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la evaluación de este evento son:
+		\begin{itemize}
+			\item \texttt{ATT\_\_ROLL}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{OTHER\_SPECIAL\_AIRPORTS}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento se evalúa únicamente durante la aproximación final y aplica exclusivamente cuando la altitud barométrica sobre el aeródromo es inferior a \SI{200}{ft}. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases de \textit{APPROACH} y \textit{FINAL APPROACH}.  
+		Si el valor absoluto del ángulo de roll (\texttt{ATT\_\_ROLL}) excede los umbrales configurados durante al menos \SI{2}{s}, y la altitud \texttt{ALT\_\_AAE\_BARO} es menor a \SI{200}{ft}, se genera el evento con el nivel de severidad correspondiente.
+		
+		La lógica incorpora una fecha de activación (\texttt{TO\_DATE}) a partir del 1 de enero de 2026 y elimina la dependencia de lógica basada en MHTG. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Medium}: roll angle $\geq$ \SI{5}{\degree} durante \SI{2}{s} \newline
+		\textit{High}: roll angle $\geq$ \SI{7}{\degree} durante \SI{2}{s} \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento está diseñado para capturar maniobras laterales excesivas muy próximas al suelo, donde el margen de recuperación es mínimo.  
+		El uso del valor absoluto del roll permite detectar desviaciones tanto hacia la izquierda como hacia la derecha, manteniendo una lógica simétrica y consistente. \\
+		\hline
+	\end{longtable}
+	
+	\subsection{Glide Deviation}
+	
+	\subsubsection{3702 - ILS Glide Dev Below GS 1000 0500}
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar desviaciones negativas excesivas de la senda de planeo ILS durante la aproximación, cuando la aeronave se encuentra entre 1000 ft y 500 ft AAE, condición que puede comprometer la estabilidad de la aproximación y aumentar el riesgo de aproximación baja. \\
+		\hline
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la detección del evento son:
+		\begin{itemize}
+			\item \texttt{ILS\_\_GLIDE\_DEV}
+			\item \texttt{ILS\_\_MODE}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento solo se evalúa cuando el sistema ILS está activo y la aeronave se encuentra en fase de aproximación. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases de \textit{APPROACH} y \textit{FINAL APPROACH}.  
+		Si la desviación del glide slope (\texttt{ILS\_\_GLIDE\_DEV}) es inferior o igual a los umbrales definidos durante al menos \SI{2}{s}, y la altitud barométrica sobre el aeródromo se encuentra entre \SI{1000}{ft} y \SI{500}{ft}, se genera el evento según el nivel de severidad alcanzado. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Low}: deviation $\leq -0.3$ dots durante \SI{2}{s} \newline
+		\textit{Medium}: deviation $\leq -0.5$ dots durante \SI{2}{s} \newline
+		\textit{High}: deviation $\leq -1.0$ dots durante \SI{2}{s} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		Este evento está diseñado para identificar aproximaciones con tendencia a quedar por debajo del glide slope del ILS.  
+		El uso de altitud barométrica (\texttt{ALT\_\_AAE\_BARO}) permite una referencia coherente con los criterios operacionales, y la lógica temporal evita activaciones erróneas debidas a oscilaciones momentáneas del localizador vertical. \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsubsection{3703 -- ILS Glide Dev Above GS 1000 0500}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar desviaciones positivas excesivas del glide slope durante la aproximación final, cuando la aeronave se encuentra entre 1000 y 500 ft sobre la elevación del aeródromo, lo que puede indicar una trayectoria de aproximación desestabilizada. \\
+		\hline
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados por el evento son:
+		\begin{itemize}
+			\item \texttt{ILS\_\_GLIDE\_DEV}
+			\item \texttt{ILS\_\_MODE}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento solo se evalúa cuando el sistema ILS está activo y la aeronave se encuentra en fase de aproximación. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases \textit{APPROACH} y \textit{FINAL APPROACH}.  
+		Si la desviación del glide slope (\texttt{ILS\_\_GLIDE\_DEV}) es positiva y supera los umbrales definidos durante al menos \SI{2}{s}, y la altitud barométrica sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}) se encuentra entre \SI{1000}{ft} y \SI{500}{ft}, se genera el evento según el nivel de severidad alcanzado. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Low}: deviation $\geq \SI{0.3}{}$ dot durante \SI{2}{s} \newline
+		\textit{Medium}: deviation $\geq \SI{0.5}{}$ dot durante \SI{2}{s} \newline
+		\textit{High}: deviation $\geq \SI{1.0}{}$ dot durante \SI{2}{s} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		Este evento permite identificar tendencias de aproximación por encima del glide slope en un segmento crítico de la aproximación final.  
+		La limitación vertical entre 1000 y 500 ft AAE evita activaciones fuera del entorno de estabilización definido, y la lógica temporal reduce falsas activaciones debidas a oscilaciones transitorias. \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsubsection{3704 - ILS Glide Dev below GS 0500 0200}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar desviaciones negativas excesivas del Glide Slope durante la aproximación final, cuando la aeronave se encuentra entre 500 ft y 200 ft sobre la elevación del aeródromo (AAE), lo cual puede incrementar el riesgo de una senda de aproximación demasiado baja. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados son:
+		\begin{itemize}
+			\item \texttt{ILS\_GLIDE\_DEV}
+			\item \texttt{ILS\_MODE}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento solo se evalúa durante fases de aproximación con señal ILS válida y dentro de la ventana de altitud definida. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases \textit{APPROACH} y \textit{FINAL APPROACH}.  
+		Si la desviación del glide slope (\texttt{ILS\_GLIDE\_DEV}) es menor o igual a los umbrales definidos durante al menos \SI{2}{s}, y la altitud barométrica sobre el aeródromo se encuentra entre \SI{500}{ft} y \SI{200}{ft}, se genera el evento según el nivel de severidad alcanzado. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Low}: deviation $\leq -0.3$ \newline
+		\textit{Medium}: deviation $\leq -0.5$ \newline
+		\textit{High}: deviation $\leq -1.0$ \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento está diseñado para identificar aproximaciones con trayectoria significativamente por debajo del glide slope en una fase crítica cercana al aterrizaje.  
+		La lógica utiliza \texttt{ALT\_AAE\_BARO} en lugar de zonas fijas de aproximación y aplica un criterio temporal mínimo para reducir activaciones erróneas. \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsubsection{3705 - ILS Glide Dev above GS 0500 0200}
+	\renewcommand{\arraystretch}{1.3}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar una desviación positiva excesiva del glide slope, durante la aproximación, en el segmento comprendido entre \SI{1000}{ft} y \SI{500}{ft} AAE (barométrico), con el fin de identificar aproximaciones por encima del glide slope que puedan comprometer la estabilidad vertical. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros usados son:
+		\begin{itemize}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ILS\_\_MODE}
+			\item \texttt{ILS\_\_GLIDE\_\_DEV}
+			\item \texttt{ALT\_\_AAE\_\_BARO}
+			\item \texttt{TO\_\_DATE}
+		\end{itemize}
+		Se evalúa únicamente en la ventana de altitud \SIrange{1000}{500}{ft} AAE (barométrico) y durante fases de aproximación. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa cuando \texttt{FLIGHT\_\_PHASE} corresponde a \textit{APPROACH} o \textit{FIN\_APPROACH}.  
+		Si la desviación de GS (\texttt{ILS\_\_GLIDE\_\_DEV}) es mayor o igual a los umbrales definidos durante al menos \SI{2}{s}, y simultáneamente la altitud \texttt{ALT\_\_AAE\_\_BARO} cumple \(\texttt{ALT\_\_AAE\_\_BARO} \le 1000\) y \(\texttt{ALT\_\_AAE\_\_BARO} > 500\), se genera el evento con el nivel de severidad correspondiente.  
+		
+		La lógica incluye control por fecha (\texttt{TO\_\_DATE}) con efectividad a partir del \textit{01-Jan-2026}. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Low}: \(\texttt{ILS\_\_GLIDE\_\_DEV} \ge 0.3\) por \SI{2}{s} \newline
+		\textit{Medium}: \(\texttt{ILS\_\_GLIDE\_\_DEV} \ge 0.5\) por \SI{2}{s} \newline
+		\textit{High}: \(\texttt{ILS\_\_GLIDE\_\_DEV} \ge 1.0\) por \SI{2}{s} \\
+		\hline
+		\textbf{Notas operacionales} &
+		\begin{itemize}
+			\item \textit{Wait at least} \SI{60}{s} antes de permitir una nueva activación.
+	
+		\end{itemize} \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsection{Localizer Deviation}
+	
+	\subsubsection{3706 - ILS Loc Dev 1000 0500}
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar desviaciones excesivas del localizador ILS durante la aproximación, cuando la aeronave se encuentra entre 1000 y 500 ft sobre la elevación del aeródromo (AAE), lo cual puede comprometer la alineación lateral con la pista. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados para la detección del evento son:
+		\begin{itemize}
+			\item \texttt{ILS\_LOC\_DEV}
+			\item \texttt{ILS\_MODE}
+			\item \texttt{FLIGHT\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento solo se evalúa durante aproximaciones ILS válidas y dentro de la ventana de altitud definida. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases de \textit{APPROACH} y \textit{FINAL APPROACH}.  
+		Si la desviación del localizador (\texttt{ILS\_LOC\_DEV}) es mayor o igual a los umbrales definidos durante al menos 3 segundos, y la altitud barométrica sobre el aeródromo se encuentra entre \SI{1000}{ft} y \SI{500}{ft}, se genera el evento según el nivel de severidad correspondiente. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Low}: desviación del localizador $\geq 0.3$ \newline
+		\textit{Medium}: desviación del localizador $\geq 0.5$ \newline
+		\textit{High}: desviación del localizador $\geq 1.0$ \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento permite identificar aproximaciones con alineación lateral deficiente en una fase crítica del vuelo.  
+		La lógica excluye el uso del parámetro \texttt{ALT\_\_AAE\_APPROACH\_ZONE}, reemplazándolo por \texttt{ALT\_\_AAE\_BARO}, y aplica lógica temporal actualizada con vigencia a partir del 1 de enero de 2026. \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsubsection{3708 - ILS Loc Dev 0500 0200}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar desviaciones laterales excesivas respecto al localizador ILS durante la aproximación final, cuando la aeronave se encuentra entre 500 y 200 ft AAE, condición crítica para el alineamiento con la pista. \\
+		\hline
+		
+		\textbf{Qué tiene en cuenta} &
+		El evento utiliza los siguientes parámetros:
+		\begin{itemize}
+			\item \texttt{ILS\_LOC\_DEV}
+			\item \texttt{ILS\_MODE}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		La lógica solo se evalúa durante la fase de aproximación y aproximación final, y cuando el sistema ILS se encuentra activo. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa cuando la aeronave se encuentra en fase \textit{APPROACH} o \textit{FINAL APPROACH}.  
+		Si la desviación del localizador (\texttt{ILS\_LOC\_DEV}) excede los umbrales definidos durante al menos 3 segundos, y la altitud sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}) se encuentra entre 500 ft y 200 ft, se genera el evento según el nivel de severidad alcanzado. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Low}: desviación mayor o igual a 0.3 dot durante 3 s \newline
+		\textit{Medium}: desviación mayor o igual a 0.5 dot durante 3 s \newline
+		\textit{High}: desviación mayor o igual a 1.0 dot durante 3 s \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		Este evento permite identificar pérdidas de alineamiento lateral con el localizador ILS en una ventana de altitud crítica previa al aterrizaje.  
+		La inclusión del parámetro \texttt{ALT\_\_AAE\_BARO} garantiza una evaluación coherente con la referencia barométrica operativa.  
+		La lógica incluye control de fecha para asegurar la aplicación de la política vigente a partir del 1 de enero de 2026. \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsection{Trajectory Deviation}
+	
+	\subsubsection{3715 - Track Deviation In Approach Below 0400}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar desviaciones excesivas de la trayectoria lateral durante la aproximación final por debajo de \SI{400}{ft} AAE, las cuales pueden indicar inestabilidad direccional significativa en una fase crítica del vuelo. \\
+		\hline
+		
+		\textbf{Qué tiene en cuenta} &
+		El evento utiliza los siguientes parámetros:
+		\begin{itemize}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{NAV\_\_HDG\_MAG}
+			\item \texttt{TO\_DATE}
+			\item \texttt{NAV\_\_HDG\_LINEAR}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{OTHER\_SPECIAL\_AIRPORTS}
+		\end{itemize}
+		Se evalúa únicamente durante la fase de aproximación final. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante la fase \textit{FINAL APPROACH}.  
+		Cuando la aeronave se encuentra entre \SI{400}{ft} y \SI{50}{ft} AAE, se calcula el cambio absoluto de la trayectoria (\textit{track}) como la diferencia entre el valor máximo y mínimo de \texttt{NAV\_\_HDG\_LINEAR} dentro de la ventana analizada.
+		
+		Si la desviación supera los umbrales definidos, el evento se genera según el nivel de severidad correspondiente.  
+		Una vez disparado, el evento no vuelve a evaluarse hasta que se abandona la fase de aproximación final. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Low}: desviación de trayectoria $\geq \SI{10}{\degree}$ \newline
+		\textit{Medium}: desviación de trayectoria $\geq \SI{12}{\degree}$ \newline
+		\textit{High}: desviación de trayectoria $\geq \SI{15}{\degree}$ \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		Este evento está diseñado para capturar desviaciones laterales bruscas cerca del suelo, donde el margen para correcciones es limitado.  
+		La lógica evita múltiples activaciones durante una misma aproximación y excluye parámetros obsoletos como \texttt{MHTG}.  
+		Su objetivo principal es apoyar el análisis de aproximaciones inestables desde el punto de vista direccional. \\
+		\hline
+		
+	\end{longtable}
+	
+	\subsection{Configuration Deviation}
+	
+	\subsubsection{4002 - Late Setting Landing Conf}
+	
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar configuraciones tardías de aterrizaje durante la aproximación, cuando los slats y/o flaps son seleccionados a una altitud inferior a la esperada según el tipo de aproximación, lo cual puede incrementar la carga de trabajo y el riesgo operacional en fases críticas del vuelo. \\
+		\hline
+		
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados son:
+		\begin{itemize}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{NAV\_\_CIRCLING\_\_APPROACH}
+			\item \texttt{SFC\_\_CONF}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{TO\_DATE}
+			\item \texttt{ALT\_\_AAE}
+		\end{itemize}
+		El evento diferencia entre straight approaches y circular approaches, aplicando umbrales de altitud distintos según el caso. \\
+		\hline
+		
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases de \textit{APPROACH} y \textit{FINAL APPROACH}.  
+		Se monitoriza el momento en el que se inicia el cambio de configuración de aterrizaje (slats y/o flaps), verificando si dicha selección ocurre por debajo de la altitud definida para cada tipo de aproximación.  
+		La lógica considera la continuidad del cambio de configuración y descarta reinicios asociados a maniobras de \textit{go-around}. \\
+		\hline
+		
+		\textbf{Triggers configurados} &
+		\textit{Low}:  
+		\begin{itemize}
+			\item Straight Approach: configuración iniciada a \SI{1100}{ft} AAE o por debajo
+			\item Circular Approach: configuración iniciada a \SI{1100}{ft} AAE o por debajo
+		\end{itemize}
+		
+		\textit{Medium}:  
+		\begin{itemize}
+			\item Straight Approach: configuración iniciada a \SI{1000}{ft} AAE o por debajo
+			\item Circular Approach: configuración iniciada a \SI{1000}{ft} AAE o por debajo
+		\end{itemize}
+		
+		\textit{High}:  
+		\begin{itemize}
+			\item Straight Approach: configuración iniciada a \SI{900}{ft} AAE o por debajo
+			\item Circular Approach: configuración iniciada a \SI{900}{ft} AAE o por debajo
+		\end{itemize} \\
+		\hline
+		
+		\textbf{Notas operacionales} &
+		Este evento permite identificar prácticas de configuración tardía que pueden comprometer la estabilización de la aproximación.  
+		La diferenciación entre straight approaches y circular approaches garantiza coherencia con los perfiles operacionales esperados.  
+		La lógica ha sido actualizada para utilizar \texttt{ALT\_\_AAE\_BARO} y eliminar dependencias previas de parámetros obsoletos, asegurando consistencia en escenarios multi-aeropuerto y cambios de pista. \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{4404 - Landing Gear Extension at Low Altitude}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar la extensión del tren de aterrizaje a una altitud inferior a la esperada durante la aproximación final, lo cual puede indicar una configuración tardía o no estabilizada de la aeronave. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		Los parámetros utilizados son:
+		\begin{itemize}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{GEAR\_SEL}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{NAV\_CIRCLING\_APPROACH}
+			\item \texttt{TO\_DATE}
+		\end{itemize}
+		El evento se evalúa únicamente durante la fase de aproximación y aproximación final. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se activa cuando el tren de aterrizaje es seleccionado (\texttt{GEAR\_SEL}) por debajo de una altitud definida sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}), durante las fases de \textit{APPROACH} o \textit{FINAL APPROACH}.  
+		La lógica distingue entre straight approaches y circular approaches, aplicando umbrales de altitud diferentes según el tipo de aproximación. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Straight Approaches:} \newline
+		\quad Low: tren abajo a \SI{1500}{ft} AAE \newline
+		\quad Medium: tren abajo a \SI{1200}{ft} AAE \newline
+		\quad High: tren abajo a \SI{1000}{ft} AAE \newline
+		\newline
+		\textit{Circular Approaches:} \newline
+		\quad Low: tren abajo a \SI{1300}{ft} AAE \newline
+		\quad Medium: tren abajo a \SI{1100}{ft} AAE \newline
+		\quad High: tren abajo a \SI{900}{ft} AAE \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento permite identificar configuraciones tardías del tren de aterrizaje, especialmente relevantes en aproximaciones no estabilizadas. La diferenciación entre aproximación recta y circular busca reflejar perfiles operacionales realistas y márgenes verticales distintos según el tipo de maniobra. \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsubsection{4602 - Use of speed brakes below 1000 ft}
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar el uso de \textit{speed brakes} (spoilers) durante la aproximación cuando la aeronave se encuentra por debajo de un umbral de altura sobre el aeródromo, ya que su despliegue a baja altitud puede degradar la estabilidad de la aproximación y aumentar la carga de trabajo. \\
+		\hline
+		\textbf{Qué tiene en cuenta} & Los parámetros usados son:
+		\begin{itemize}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{SPD\_\_BRK}
+			\item \texttt{ALT\_\_AAE\_BARO}
+		\end{itemize}
+		El evento se evalúa únicamente si el \textit{speed brake lever} está en condición \texttt{COMMANDED} durante fases de aproximación. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante \textit{APPROACH} y \textit{FIN\_APPROACH}. Si \texttt{SPD\_\_BRK = COMMANDED}, el evento se activa verificando si \texttt{ALT\_\_AAE\_BARO} está por debajo de los umbrales configurados. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Low}: \texttt{ALT\_\_AAE\_BARO} $<$ \SI{1200}{ft} \newline
+		\textit{Medium}: \texttt{ALT\_\_AAE\_BARO} $<$ \SI{1100}{ft} \newline
+		\textit{High}: \texttt{ALT\_\_AAE\_BARO} $<$ \SI{1000}{ft} \\
+		\hline
+		\textbf{Notas operacionales} &
+		\begin{itemize}
+			\item El evento aplica únicamente cuando los \textit{speed brakes} están comandados; no evalúa retracciones o transitorios si la condición \texttt{COMMANDED} no está presente.
+			\item La lógica utiliza \texttt{ALT\_\_AAE\_BARO} (en lugar de \texttt{ALT\_\_AAE}) conforme a la actualización indicada para 2026.
+			\item Se recomienda revisar el contexto operacional (turbulencia, correcciones energéticas, procedimientos) antes de concluir inestabilidad, ya que puede existir uso intencional de \textit{speed brakes} por gestión de energía.
+		\end{itemize} \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsubsection{4603 - Ground Spoiler Lever Not Armed Final Approach}
+	\renewcommand{\arraystretch}{1.3}
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar aproximaciones en las que la palanca de \textit{ground spoilers} no se encuentra armada por debajo de una altura crítica sobre el aeródromo, lo que puede comprometer la capacidad de desaceleración tras el aterrizaje y aumentar la distancia de frenado. \\
+		\hline
+		\textbf{Qué tiene en cuenta} & Los parámetros usados son:
+		\begin{itemize}
+			\item \texttt{FLIGHT\_\_PHASE}
+			\item \texttt{SFC\_\_GND\_SPOILER}
+			\item \texttt{ALT\_\_AAE\_BARO}
+			\item \texttt{GEAR\_\_WOW\_MAIN}
+		\end{itemize}
+		El evento evalúa exclusivamente la condición de \textit{ground spoilers not armed} durante la aproximación final. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa durante las fases \textit{APPROACH} y \textit{FIN\_APPROACH}. Si el estado del parámetro \texttt{SFC\_\_GND\_SPOILER} es distinto de \texttt{NOT\_ARMED}, se genera el evento en función de la altitud sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}) alcanzada en ese momento. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Low}: \texttt{ALT\_\_AAE\_BARO} $<$ \SI{1200}{ft} \newline
+		\textit{Medium}: \texttt{ALT\_\_AAE\_BARO} $<$ \SI{1100}{ft} \newline
+		\textit{High}: \texttt{ALT\_\_AAE\_BARO} $<$ \SI{1000}{ft} \\
+		\hline
+		\textbf{Notas operacionales} &
+		\begin{itemize}
+			\item El evento está diseñado para capturar omisiones en el armado de \textit{ground spoilers} en una fase crítica de la aproximación.
+			\item La lógica utiliza \texttt{ALT\_\_AAE\_BARO} conforme a la actualización de referencia para 2026.
+			\item Debe considerarse el contexto operativo, ya que en determinadas aproximaciones no estabilizadas o maniobras anómalas el armado puede producirse deliberadamente de forma tardía.
+		\end{itemize} \\
+		\hline
+	\end{longtable} \newpage
+	
+	\subsection{General}
+	
+	\subsubsection{7430 - Unstabilized Approach}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar aproximaciones inestabilizadas registradas durante la fase de aproximación, consolidando múltiples eventos precursores en un único evento maestro que refleje el nivel global de severidad alcanzado. \\
+		\hline
+		\textbf{Qué tiene en cuenta} &
+		El evento evalúa un conjunto de eventos individuales relacionados con la activación de este evento.
+		Todos estos eventos deben haber sido previamente detectados y clasificados con severidad. \\
+		\hline
+		\textbf{Lógica de activación} &
+		Durante las fases de \textit{APPROACH} y \textit{DESCENT}, el sistema monitoriza la ocurrencia de los eventos precursores.  
+		Al finalizar la aproximación (o al iniciarse un \textit{GO AROUND}), se evalúan los eventos registrados dentro del intervalo temporal de la aproximación.  
+		Si al menos uno de los eventos presenta severidad \textit{Low}, \textit{Medium} o \textit{High}, el evento \textbf{Unstabilized Approach} se activa con la severidad máxima detectada. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Low}: al menos un evento precursor con severidad baja registrado durante la aproximación. \newline
+		\textit{Medium}: al menos un evento precursor con severidad media registrado durante la aproximación. \newline
+		\textit{High}: al menos un evento precursor con severidad alta registrado durante la aproximación. \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento no evalúa parámetros aeronáuticos directamente, sino que actúa como un agregador lógico de eventos ya existentes.  
+		Su objetivo es proporcionar una visión consolidada del estado de estabilidad de la aproximación, alineada con criterios operacionales y de análisis FDM, facilitando el seguimiento de aproximaciones inestabilizadas a nivel global. \\
+		\hline
+	\end{longtable}
+	
+	\subsubsection{9000 - System Altitude's Parameters Difference}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del evento} &
+		Detectar discrepancias significativas entre los parámetros de altitud del sistema \texttt{ALT\_\_AAE} y \texttt{ALT\_\_AAE\_BARO} a baja altura, las cuales pueden indicar inconsistencias en la referencia de altitud utilizada por los sistemas de a bordo. \\
+		
+		\textbf{Qué tiene en cuenta} &
+		El evento compara directamente los siguientes parámetros:
+		\begin{itemize}
+			\item \texttt{ALT\_\_AAE}
+			\item \texttt{ALT\_\_AAE\_DIFF}
+		\end{itemize}
+		La evaluación se limita a situaciones en las que la aeronave se encuentra a baja altitud. \\
+		\hline
+		\textbf{Lógica de activación} &
+		El evento se evalúa cuando la altitud sobre el aeródromo es inferior a \SI{1200}{ft}.  
+		Si la diferencia entre los parámetros de altitud (\texttt{ALT\_\_AAE\_DIFF}) es superior a \SI{70}{ft}, se genera el evento con severidad informativa. \\
+		\hline
+		\textbf{Triggers configurados} &
+		\textit{Info}: diferencia entre \texttt{ALT\_\_AAE} y \texttt{ALT\_\_AAE\_BARO} mayor a \SI{70}{ft} por debajo de \SI{1200}{ft} AAE. \newline
+		\textit{Low / Medium / High}: no configurados para este evento. \\
+		\hline
+		\textbf{Notas operacionales} &
+		Este evento tiene carácter diagnóstico y no punitivo.  
+		Su finalidad es identificar posibles desviaciones sistemáticas o transitorias entre referencias de altitud barométrica y lógica interna, especialmente relevantes durante fases cercanas al terreno. \\
+		\hline
+	\end{longtable}
+	
+	
+	%
+	\section{Parámetros}
+	\subsection{AAE Alternative}
+	\subsubsection{ALT\_\_AAE\_Diff}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\hline
+		\textbf{Objetivo del parámetro} &
+		Calcular y exponer la diferencia absoluta entre dos referencias de altura sobre el aeródromo (AAE): \texttt{ALT\_\_AAE} y \texttt{ALT\_\_AAE\_BARO}. Adicionalmente, almacenar el mayor valor observado de dicha diferencia (máximo) dentro del segmento operativo evaluado. \\
+		\hline
+		\textbf{Parámetros de entrada} &
+		\begin{itemize}
+			\item \texttt{ALT\_\_AAE\_BARO}: Altura AAE calculada usando altitud barométrica (referencia operacional).
+			\item \texttt{ALT\_\_AAE}: Altura AAE del sistema (fuente alternativa a comparar).
+			\item \texttt{FLIGHT\_\_PHASE}: Fase de vuelo para acotar cuándo se evalúa la lógica.
+		\end{itemize}
+		\\
+		
+		\textbf{Variables / salidas} &
+		\begin{itemize}
+			\item \texttt{AAF\_Diff} (output): Variable de salida que almacena el \textbf{máximo} de la diferencia absoluta observada durante el periodo evaluado.
+			\item \texttt{ALT\_\_AAE\_DIFF} (output): Variable de salida que publica la \textbf{diferencia absoluta instantánea} entre \texttt{ALT\_\_AAE\_BARO} y \texttt{ALT\_\_AAE} en cada iteración.
+		\end{itemize}
+		\\ \hline
+		
+		\textbf{Inicialización (Before loop)} &
+		Se inicializan dos variables:
+		\begin{itemize}
+			\item \texttt{double Diff = double.NaN;} para disponer de un contenedor temporal donde se calcula la diferencia absoluta en el loop.
+			\item \texttt{AAF\_Diff = 0;} para iniciar el acumulador del máximo observado desde cero.
+		\end{itemize}
+		\\ \hline
+		
+		\textbf{Lógica del loop (condiciones)} &
+		La evaluación se limita a:
+		\begin{itemize}
+			\item \textbf{Fase}: \texttt{APPROACH} o \texttt{FIN\_APPROACH}.
+			\item \textbf{Ventana de altitud}: solo se calcula \texttt{Diff} si \texttt{ALT\_\_AAE <= 1200}.
+		\end{itemize}
+		Dentro de estas condiciones, se calcula:
+		\[
+		\texttt{Diff} = \left| \texttt{ALT\_\_AAE} - \texttt{ALT\_\_AAE\_BARO} \right|
+		\]
+		\\ \hline
+		
+		\textbf{Lógica del loop (acumulación y outputs)} &
+		\begin{itemize}
+			\item \textbf{Máximo observado}: si \texttt{Diff > AAF\_Diff}, entonces \texttt{AAF\_Diff = Diff}. Esto conserva el mayor valor detectado durante el periodo evaluado.
+			\item \textbf{Salida instantánea}: en cada iteración se actualiza \texttt{ALT\_\_AAE\_DIFF.Value} con
+			\[
+			\left| \texttt{ALT\_\_AAE\_BARO} - \texttt{ALT\_\_AAE} \right|
+			\]
+		\end{itemize}
+		\\
+		
+		\textbf{Notas operacionales} &
+		\begin{itemize}
+			\item \texttt{ALT\_\_AAE\_DIFF} permite observar el sesgo instantáneo entre ambas referencias de AAE.
+			\item \texttt{AAF\_Diff} sirve como indicador agregado (peak/max) de discrepancia dentro de la fase de aproximación evaluada.
+			\item La restricción \texttt{ALT\_\_AAE <= 1200} limita el análisis a un rango donde la comparación suele ser más relevante operacionalmente.
+		\end{itemize}
+		\\ \hline
+	\end{longtable}
+	
+	\subsubsection{ALT\_\_AAE\_BARO}
+	
+	\begin{longtable}{p{5cm} p{9.5cm}}
+		\renewcommand{\arraystretch}{1.3}
+		\textbf{Objetivo del parámetro} &
+		Calcular una altura sobre el aeródromo (\texttt{ALT\_\_AAE\_BARO}) de carácter operacional, basada en la altitud barométrica (\texttt{ALT\_BARO}) y en elevaciones de referencia de pista, seleccionando dinámicamente la referencia más adecuada (destino o aproximación) y garantizando coherencia con la altura AAE del sistema. \\
+		\\ \hline
+		
+		\textbf{Parámetros de entrada} &
+		\begin{itemize}
+			\item \texttt{ALT\_BARO}: Altitud barométrica instantánea de la aeronave.
+			\item \texttt{ALT\_\_AAE}: Altura AAE calculada por el sistema.
+			\item \texttt{FLIGHT\_\_PHASE}: Fase de vuelo para limitar el uso del parámetro.
+			\item \texttt{TRAJ\_RWY\_ELEV}: Elevación de pista asociada a trayectorias detectadas.
+			\item \texttt{SYS\_NEXT\_ICAO\_NAME}: Aeropuerto destino previsto.
+		\end{itemize}
+		\\
+		
+		\textbf{Variables / salidas} &
+		\begin{itemize}
+			\item \texttt{ALT\_\_AAE\_BARO} (output): Altura AAE barométrica calculada.
+			\item \texttt{SYS\_DEST\_ELEV}: Elevación de pista asociada al aeropuerto de destino.
+			\item \texttt{SYS\_APP\_ELEV}: Elevación de pista asociada a la aproximación previa a un \textit{go-around}.
+		\end{itemize}
+		\\ \hline
+		
+		\textbf{Inicialización (Before loop)} &
+		\begin{itemize}
+			\item Se inicializan \texttt{SYS\_DEST\_ELEV} y \texttt{SYS\_APP\_ELEV} como \texttt{NaN}.
+			\item Se obtiene el TID del inicio de \textit{TAXI\_IN} para capturar la elevación real de pista de destino cuando esté disponible.
+			\item Se activa el flag \texttt{useDest} como valor por defecto.
+		\end{itemize}
+		\\ \hline
+		
+		\textbf{Condiciones de evaluación} &
+		La lógica solo se evalúa cuando:
+		\begin{itemize}
+			\item La fase de vuelo corresponde a \textit{APPROACH}, \textit{FINAL APPROACH} o \textit{GO\_AROUND}.
+			\item La aeronave se encuentra por debajo de \SI{5000}{ft} AAE.
+		\end{itemize}
+		\\ \hline
+		
+		\textbf{Selección de elevación de referencia} &
+		\begin{itemize}
+			\item Si existe información válida de elevación de pista (\texttt{TRAJ\_RWY\_ELEV}), se buscan:
+			\begin{itemize}
+				\item Elevación asociada al próximo \textit{go-around} (\texttt{SYS\_APP\_ELEV}).
+				\item Elevación asociada al destino (\texttt{SYS\_DEST\_ELEV}).
+			\end{itemize}
+			\item Si solo una referencia está disponible, se utiliza directamente.
+			\item Si ambas están disponibles, se selecciona la más cercana en el tiempo (comparando segundos hasta \textit{TAXI\_IN} y hasta el próximo \textit{GO\_AROUND}).
+		\end{itemize}
+		\\
+		
+		\textbf{Cálculo principal} &
+		Una vez definida la elevación de referencia (\texttt{refElev}), se calcula:
+		\[
+		\texttt{ALT\_\_AAE\_BARO} = \texttt{ALT\_BARO} - \texttt{refElev}
+		\]
+		\\ \hline
+		
+		\textbf{Protecciones y salvaguardas} &
+		\begin{itemize}
+			\item Si \texttt{ALT\_\_AAE < 50}, se fuerza \texttt{ALT\_\_AAE\_BARO = ALT\_\_AAE} para evitar inconsistencias cerca del suelo.
+			\item Se calcula la diferencia absoluta entre \texttt{ALT\_\_AAE} y \texttt{ALT\_\_AAE\_BARO}; si excede \SI{300}{ft}, se descarta el valor barométrico y se utiliza \texttt{ALT\_\_AAE}.
+			\item Si no hay elevaciones válidas disponibles, \texttt{ALT\_\_AAE\_BARO} se iguala directamente a \texttt{ALT\_\_AAE}.
+		\end{itemize}
+		\\ \hline
+		
+		\textbf{Comportamiento fuera de condiciones} &
+		Cuando no se cumplen las fases de vuelo o la ventana de altitud, el parámetro se invalida asignando:
+		\[
+		\texttt{ALT\_\_AAE\_BARO = NaN}
+		\]
+		\\
+		
+		\textbf{Notas operacionales} &
+		\begin{itemize}
+			\item Este parámetro busca aproximarse a la altura que un piloto interpreta operacionalmente usando altitud barométrica y elevación de pista.
+			\item La lógica está diseñada para ser robusta frente a cambios de aeropuerto, múltiples aproximaciones y \textit{go-arounds}.
+			\item \texttt{ALT\_\_AAE\_BARO} sirve como referencia común para múltiples eventos de aproximación estabilizada.
+		\end{itemize}
+		\\ \hline
+	\end{longtable}
+	
+	
 \end{document}
