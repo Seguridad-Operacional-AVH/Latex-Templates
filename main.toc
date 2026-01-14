@@ -59,7 +59,7 @@
 \contentsline {subsubsection}{\numberline {2.1.2}1024 - High Speed App Below 0200}{42}{subsubsection.2.1.2}%
 \contentsline {subsubsection}{\numberline {2.1.3}1032 - Low Speed App 0500 0200}{44}{subsubsection.2.1.3}%
 \contentsline {subsubsection}{\numberline {2.1.4}1152 - Low Speed App Below 0200}{45}{subsubsection.2.1.4}%
-\contentsline {subsection}{\numberline {2.2}Sync Rate Deviation}{47}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Sink Rate Deviation}{47}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1}1404 - High Rate Dsct 1000 0500}{47}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}1405 - High Rate Dsct 0500 0200}{48}{subsubsection.2.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.3}1406 - High Rate Dsct Below 200}{50}{subsubsection.2.2.3}%
