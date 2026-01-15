@@ -1,4 +1,4 @@
-This is LuaHBTeX, Version 1.24.0 (MiKTeX 25.12) (format=lualatex 2026.1.10)  14 JAN 2026 18:48
+This is LuaHBTeX, Version 1.24.0 (MiKTeX 25.12) (format=lualatex 2026.1.10)  15 JAN 2026 16:39
  restricted system commands enabled.
 **main.tex
 (./main.tex
@@ -993,7 +993,7 @@ LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
 (Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 54.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 54.
-<Logo_CompletoVertical_Rojo.png, id=395, 924.5742pt x 1016.598pt>
+<Logo_CompletoVertical_Rojo.png, id=403, 924.5742pt x 1016.598pt>
 File: Logo_CompletoVertical_Rojo.png Graphic file (type png)
 <use Logo_CompletoVertical_Rojo.png>
 Package luatex.def Info: Logo_CompletoVertical_Rojo.png  used on input line 60.
@@ -1051,33 +1051,33 @@ Underfull \hbox (badness 1077) in paragraph at lines 324--325
  []
 
 [11] [12]
-Underfull \hbox (badness 1418) in paragraph at lines 381--382
+Underfull \hbox (badness 1418) in paragraph at lines 380--381
 []|\TU/RedHatDisplay(0)/m/n/10.95 Iden-ti-ficar asimetrías sig-ni-fica-ti-vas 
 en la apli-cación de
  []
 
 [13]
-Underfull \hbox (badness 1874) in paragraph at lines 430--433
+Underfull \hbox (badness 1874) in paragraph at lines 429--432
 []|\TU/RedHatDisplay(0)/m/it/10.95 Low\TU/RedHatDisplay(0)/m/n/10.95 : difer-en-
 cia de co-mando menor a $\OT1/cmr/m/n/10.95 7$$[]$ \TU/RedHatDisplay(0)/m/n/10.
 95 du-rante al
  []
 
 
-Underfull \hbox (badness 1552) in paragraph at lines 430--433
+Underfull \hbox (badness 1552) in paragraph at lines 429--432
 \TU/RedHatDisplay(0)/m/it/10.95 High\TU/RedHatDisplay(0)/m/n/10.95 : difer-en-ci
 a de co-mando menor a $\OT1/cmr/m/n/10.95 3$$[]$ \TU/RedHatDisplay(0)/m/n/10.95
  du-rante al
  []
 
 [14] [15]
-Underfull \hbox (badness 5189) in paragraph at lines 499--500
+Underfull \hbox (badness 5189) in paragraph at lines 498--499
 \TU/RedHatDisplay(0)/m/n/10.95 i-mación fi-nal, ater-rizaje y go-around, y úni
 -ca-mente
  []
 
 [16] [17] [18] [19]
-Underfull \hbox (badness 1521) in paragraph at lines 615--616
+Underfull \hbox (badness 1521) in paragraph at lines 614--615
 []|\TU/RedHatDisplay(0)/m/n/10.95 Iden-ti-ficar ater-riza-jes re-al-iza-dos con una com-po-nente
  []
 
@@ -1091,60 +1091,60 @@ Package siunitx Warning: Unit macro \knot has been deprecated in this release.
 (siunitx)                \DeclareSIUnit\knot{kn}
 
 [20] [21] [22]
-Underfull \hbox (badness 1137) in paragraph at lines 717--718
+Underfull \hbox (badness 1137) in paragraph at lines 716--717
 \TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa úni-ca-mente du-rante las 
 fases de
  []
 
 
-Underfull \hbox (badness 1270) in paragraph at lines 720--721
+Underfull \hbox (badness 1270) in paragraph at lines 719--720
 \TU/RedHatDisplay(0)/m/n/10.95 el al-go-ritmo evalúa la mag-ni-tud del viento 
 de frente.
  []
 
 [23]
-Underfull \hbox (badness 1137) in paragraph at lines 747--748
+Underfull \hbox (badness 1137) in paragraph at lines 746--747
 \TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa úni-ca-mente du-rante las 
 fases de
  []
 
 [24] [25]
-Underfull \hbox (badness 3364) in paragraph at lines 810--811
+Underfull \hbox (badness 3364) in paragraph at lines 809--810
 \TU/RedHatDisplay(0)/m/n/10.95 La eval-u-ación se limita ex-clu-si-va-mente a 
 la fase de
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 810--811
+Underfull \hbox (badness 2401) in paragraph at lines 809--810
 \TU/RedHatDisplay(0)/m/n/10.95 crucero (\TU/RedHatDisplay(0)/m/it/10.95 CRUISE\
 TU/RedHatDisplay(0)/m/n/10.95 ), evi-tando de-tec-ciones du-rante as-
  []
 
 
-Underfull \hbox (badness 3568) in paragraph at lines 821--822
+Underfull \hbox (badness 3568) in paragraph at lines 820--821
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa úni-ca-mente du-rante la
  fase de
  []
 
 [26] [27]
-Underfull \hbox (badness 10000) in paragraph at lines 887--896
+Underfull \hbox (badness 10000) in paragraph at lines 886--895
 
  []
 
 [28]
-Underfull \hbox (badness 1917) in paragraph at lines 919--920
+Underfull \hbox (badness 1917) in paragraph at lines 918--919
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa du-rante las fases de \T
 U/RedHatDisplay(0)/m/it/10.95 INI_CLIMB\TU/RedHatDisplay(0)/m/n/10.95 ,
  []
 
 [29]
-Underfull \hbox (badness 1917) in paragraph at lines 948--949
+Underfull \hbox (badness 1917) in paragraph at lines 947--948
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa du-rante las fases de \T
 U/RedHatDisplay(0)/m/it/10.95 INI_CLIMB\TU/RedHatDisplay(0)/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 1259) in paragraph at lines 948--949
+Underfull \hbox (badness 1259) in paragraph at lines 947--948
 \TU/RedHatDisplay(0)/m/it/10.95 CLIMB\TU/RedHatDisplay(0)/m/n/10.95 , \TU/RedHa
 tDisplay(0)/m/it/10.95 CRUISE\TU/RedHatDisplay(0)/m/n/10.95 , \TU/RedHatDisplay
 (0)/m/it/10.95 DE-SCENT \TU/RedHatDisplay(0)/m/n/10.95 y \TU/RedHatDisplay(0)/m
@@ -1152,19 +1152,19 @@ tDisplay(0)/m/it/10.95 CRUISE\TU/RedHatDisplay(0)/m/n/10.95 , \TU/RedHatDisplay
  []
 
 [30]
-Underfull \hbox (badness 1917) in paragraph at lines 977--978
+Underfull \hbox (badness 1917) in paragraph at lines 976--977
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa du-rante las fases de \T
 U/RedHatDisplay(0)/m/it/10.95 INI_CLIMB\TU/RedHatDisplay(0)/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 1137) in paragraph at lines 985--986
+Underfull \hbox (badness 1137) in paragraph at lines 984--985
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa úni-ca-mente du-rante la
 s fases de
  []
 
 [31] [32]
-Underfull \hbox (badness 10000) in paragraph at lines 1040--1044
+Underfull \hbox (badness 10000) in paragraph at lines 1039--1043
 \TU/RedHatDisplay(0)/m/it/10.95 CLIMB\TU/RedHatDisplay(0)/m/n/10.95 , \TU/RedHa
 tDisplay(0)/m/it/10.95 CRUISE\TU/RedHatDisplay(0)/m/n/10.95 , \TU/RedHatDisplay
 (0)/m/it/10.95 DE-SCENT\TU/RedHatDisplay(0)/m/n/10.95 , \TU/RedHatDisplay(0)/m/
@@ -1173,31 +1173,31 @@ it/10.95 AP-PROACH\TU/RedHatDisplay(0)/m/n/10.95 , \TU/RedHatDisplay(0)/m/it/10
  []
 
 
-Underfull \hbox (badness 1939) in paragraph at lines 1040--1044
+Underfull \hbox (badness 1939) in paragraph at lines 1039--1043
 \TU/RedHatDisplay(0)/m/n/10.95 cuando el timón su-pera una de-flex-ión mayor 
 a $\OMS/cmsy/m/n/10.95 \OT1/cmr/m/n/10.95 10$\TU/RedHatDisplay(0)/m/n/10.95 .
  []
 
 
-Underfull \hbox (badness 3679) in paragraph at lines 1040--1044
+Underfull \hbox (badness 3679) in paragraph at lines 1039--1043
 \TU/RedHatDisplay(0)/m/n/10.95 una de-flex-ión com-pleta en la di-rec-ción op-
 uesta, se
  []
 
 [33] [34]
-Underfull \hbox (badness 3482) in paragraph at lines 1091--1092
+Underfull \hbox (badness 3482) in paragraph at lines 1090--1091
 []|\TU/RedHatDisplay(0)/m/n/10.95 De-tec-tar en-tradas ex-ce-si-vas del side-sti
 ck du-rante el
  []
 
 
-Underfull \hbox (badness 1917) in paragraph at lines 1105--1108
+Underfull \hbox (badness 1917) in paragraph at lines 1104--1107
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa du-rante las fases de \T
 U/RedHatDisplay(0)/m/it/10.95 INI_CLIMB\TU/RedHatDisplay(0)/m/n/10.95 ,
  []
 
 
-Underfull \hbox (badness 6961) in paragraph at lines 1105--1108
+Underfull \hbox (badness 6961) in paragraph at lines 1104--1107
 \TU/RedHatDisplay(0)/m/it/10.95 CLIMB\TU/RedHatDisplay(0)/m/n/10.95 , \TU/RedHa
 tDisplay(0)/m/it/10.95 CRUISE\TU/RedHatDisplay(0)/m/n/10.95 , \TU/RedHatDisplay
 (0)/m/it/10.95 DE-SCENT\TU/RedHatDisplay(0)/m/n/10.95 , \TU/RedHatDisplay(0)/m/
@@ -1206,150 +1206,150 @@ it/10.95 AP-PROACH \TU/RedHatDisplay(0)/m/n/10.95 y \TU/RedHatDisplay(0)/m/it/1
  []
 
 [35] [36]
-Underfull \hbox (badness 1122) in paragraph at lines 1168--1169
+Underfull \hbox (badness 1122) in paragraph at lines 1167--1168
 \TU/RedHatDisplay(0)/m/n/10.95 alerta de \TU/RedHatDisplay(0)/m/it/10.95 wind-s-
 hear \TU/RedHatDisplay(0)/m/n/10.95 du-rante el de-spegue, es-pecí-fi-ca-
  []
 
 [37] [38]
-Underfull \hbox (badness 1189) in paragraph at lines 1274--1277
+Underfull \hbox (badness 1189) in paragraph at lines 1273--1276
 []|\TU/RedHatDisplay(0)/m/n/10.95 Este evento in-cor-pora lóg-ica de-pen-di-ent
 e del aerop-
  []
 
 [39] [40]
-Underfull \hbox (badness 10000) in paragraph at lines 1293--1294
+Underfull \hbox (badness 10000) in paragraph at lines 1292--1293
 []|\TU/RedHatDisplay(0)/m/n/10.95 De-tec-tar aprox-i-ma-ciones con ex-ceso de ve
 -loci-dad,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1299--1300
+Underfull \hbox (badness 10000) in paragraph at lines 1298--1299
 []|\TU/RedHatDisplay(0)/m/n/10.95 De-tec-tar aprox-i-ma-ciones con ex-ceso de ve
 -loci-dad,
  []
 
 
-Underfull \hbox (badness 4168) in paragraph at lines 1335--1336
+Underfull \hbox (badness 4168) in paragraph at lines 1334--1335
 \TU/RedHatDisplay(0)/m/n/10.95 de con-tex-tos rel-e-vantes para la es-ta-bil-i-d
 ad de
  []
 
 ignored error Infinite glue shrinkage found in box being split [41]
-Underfull \hbox (badness 1796) in paragraph at lines 1354--1355
+Underfull \hbox (badness 1796) in paragraph at lines 1353--1354
 \TU/RedHatDisplay(0)/m/n/10.95 y \TU/lmtt/m/n/10.95 VAPP \TU/RedHatDisplay(0)/m
 /n/10.95 su-pera los um-brales con-fig-u-ra-dos du-rante un
  []
 
 ignored error Infinite glue shrinkage found in box being split [42] [43]
-Underfull \hbox (badness 2753) in paragraph at lines 1406--1407
+Underfull \hbox (badness 2753) in paragraph at lines 1405--1406
 \TU/RedHatDisplay(0)/m/n/10.95 loci-dad ob-je-tivo de aprox-i-mación (\TU/lmtt
 /m/n/10.95 VAPP\TU/RedHatDisplay(0)/m/n/10.95 ) en-tre $\OT1/cmr/m/n/10.95 500$
 $[]$
  []
 
 
-Underfull \hbox (badness 1478) in paragraph at lines 1406--1407
+Underfull \hbox (badness 1478) in paragraph at lines 1405--1406
 \TU/RedHatDisplay(0)/m/n/10.95 y $\OT1/cmr/m/n/10.95 200$$[]$ \TU/RedHatDisplay
 (0)/m/n/10.95 AAE, cuando la difer-en-cia en-tre la ve-loci-dad
  []
 
 
-Underfull \hbox (badness 4316) in paragraph at lines 1434--1436
+Underfull \hbox (badness 4316) in paragraph at lines 1433--1435
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa ex-clu-si-va-mente du-ran
 te la fase
  []
 
 
-Underfull \hbox (badness 1442) in paragraph at lines 1434--1436
+Underfull \hbox (badness 1442) in paragraph at lines 1433--1435
 \TU/RedHatDisplay(0)/m/n/10.95 de \TU/RedHatDisplay(0)/m/it/10.95 Fi-nal Ap-proa
 ch\TU/RedHatDisplay(0)/m/n/10.95 . Se com-prueba que la difer-en-cia
  []
 
 ignored error Infinite glue shrinkage found in box being split [44]
-Underfull \hbox (badness 2134) in paragraph at lines 1507--1508
+Underfull \hbox (badness 2134) in paragraph at lines 1506--1507
 []\TU/RedHatDisplay(0)/m/n/10.95 Este evento está en-fo-cado en la de-tec-ci
 ón de
  []
 
 ignored error Infinite glue shrinkage found in box being split [45] [46]
-Underfull \hbox (badness 1033) in paragraph at lines 1540--1541
+Underfull \hbox (badness 1033) in paragraph at lines 1539--1540
 []\TU/RedHatDisplay(0)/m/n/10.95 Para aerop-uer-tos de alta al-ti-tud (por ejem-
 plo, SKRG,
  []
 
 ignored error Infinite glue shrinkage found in box being split [47]
-Underfull \hbox (badness 4608) in paragraph at lines 1569--1570
+Underfull \hbox (badness 4608) in paragraph at lines 1568--1569
 []|\TU/RedHatDisplay(0)/m/n/10.95 De-tec-tar ra-zones de de-scenso ex-ce-si-vas du-rante la
  []
 
 
-Underfull \hbox (badness 1077) in paragraph at lines 1583--1585
+Underfull \hbox (badness 1077) in paragraph at lines 1582--1584
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa du-rante la fase de aprox
 -i-mación,
  []
 
 
-Underfull \hbox (badness 3460) in paragraph at lines 1586--1587
+Underfull \hbox (badness 3460) in paragraph at lines 1585--1586
 []\TU/RedHatDisplay(0)/m/n/10.95 Para aerop-uer-tos de gran al-ti-tud (por ejem-
 plo
  []
 
 
-Underfull \hbox (badness 3838) in paragraph at lines 1594--1595
+Underfull \hbox (badness 3838) in paragraph at lines 1593--1594
 []\TU/RedHatDisplay(0)/m/it/10.95 Low\TU/RedHatDisplay(0)/m/n/10.95 : razón de de-scenso mayor a $\OT1/cmr/m/n/10.95 1100$$[]/[]$
  []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 1596--1597
+Underfull \hbox (badness 3168) in paragraph at lines 1595--1596
 []\TU/RedHatDisplay(0)/m/it/10.95 High\TU/RedHatDisplay(0)/m/n/10.95 : razón de
  de-scenso mayor a $\OT1/cmr/m/n/10.95 1500$$[]/[]$
  []
 
 
-Underfull \hbox (badness 3838) in paragraph at lines 1600--1601
+Underfull \hbox (badness 3838) in paragraph at lines 1599--1600
 []\TU/RedHatDisplay(0)/m/it/10.95 Low\TU/RedHatDisplay(0)/m/n/10.95 : razón de de-scenso mayor a $\OT1/cmr/m/n/10.95 1000$$[]/[]$
  []
 
 
-Underfull \hbox (badness 3168) in paragraph at lines 1602--1603
+Underfull \hbox (badness 3168) in paragraph at lines 1601--1602
 []\TU/RedHatDisplay(0)/m/it/10.95 High\TU/RedHatDisplay(0)/m/n/10.95 : razón de
  de-scenso mayor a $\OT1/cmr/m/n/10.95 1500$$[]/[]$
  []
 
 ignored error Infinite glue shrinkage found in box being split [48]
 ignored error Infinite glue shrinkage found in box being split [49]
-Underfull \hbox (badness 2547) in paragraph at lines 1626--1627
+Underfull \hbox (badness 2547) in paragraph at lines 1625--1626
 \TU/RedHatDisplay(0)/m/n/10.95 La lóg-ica se aplica ex-clu-si-va-mente du-rante
  fases de
  []
 
 
-Underfull \hbox (badness 2269) in paragraph at lines 1626--1627
+Underfull \hbox (badness 2269) in paragraph at lines 1625--1626
 \TU/RedHatDisplay(0)/m/n/10.95 aprox-i-mación, con-siderando úni-ca-mente al-t
 uras ba-jas
  []
 
 ignored error Infinite glue shrinkage found in box being split [50] [51]
 ignored error Infinite glue shrinkage found in box being split [52]
-Underfull \hbox (badness 10000) in paragraph at lines 1714--1723
+Underfull \hbox (badness 10000) in paragraph at lines 1713--1722
 
  []
 
 
-Underfull \hbox (badness 2181) in paragraph at lines 1725--1728
+Underfull \hbox (badness 2181) in paragraph at lines 1724--1727
 \TU/RedHatDisplay(0)/m/n/10.95 para evi-tar ac-ti-va-ciones fuera del en-torno 
 de mayor
  []
 
 ignored error Infinite glue shrinkage found in box being split [53]
-Underfull \hbox (badness 3250) in paragraph at lines 1736--1737
+Underfull \hbox (badness 3250) in paragraph at lines 1735--1736
 []|\TU/RedHatDisplay(0)/m/n/10.95 De-tec-tar ac-ti-tudes de cabeceo ex-ce-si-vas
  du-rante la
  []
 
 ignored error Infinite glue shrinkage found in box being split [54]
-Underfull \hbox (badness 1430) in paragraph at lines 1810--1812
+Underfull \hbox (badness 1430) in paragraph at lines 1809--1811
 []|\TU/RedHatDisplay(0)/m/n/10.95 Este evento está dis-eñado para iden-ti-fica
 r aprox-i-ma-
  []
@@ -1357,341 +1357,341 @@ r aprox-i-ma-
 ignored error Infinite glue shrinkage found in box being split [55]
 ignored error Infinite glue shrinkage found in box being split [56]
 ignored error Infinite glue shrinkage found in box being split [57] [58]
-Underfull \hbox (badness 1546) in paragraph at lines 1892--1893
+Underfull \hbox (badness 1546) in paragraph at lines 1891--1892
 []|\TU/RedHatDisplay(0)/m/n/10.95 De-tec-tar án-gu-los de roll ex-ce-sivos du-r
 ante la aprox-i-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1931--1932
+Underfull \hbox (badness 10000) in paragraph at lines 1930--1931
 \TU/RedHatDisplay(0)/m/n/10.95 Los um-brales se apli-can úni-ca-mente cuando
  []
 
 
-Underfull \hbox (badness 5475) in paragraph at lines 1931--1932
+Underfull \hbox (badness 5475) in paragraph at lines 1930--1931
 \TU/lmtt/m/n/10.95 ALT__AAE_BARO \TU/RedHatDisplay(0)/m/n/10.95 se en-cuen-tra 
 en-tre $\OT1/cmr/m/n/10.95 1000$$[]$ \TU/RedHatDisplay(0)/m/n/10.95 (o $\OT1/cm
 r/m/n/10.95 850$$[]$
  []
 
 ignored error Infinite glue shrinkage found in box being split [59]
-Underfull \hbox (badness 1546) in paragraph at lines 1943--1944
+Underfull \hbox (badness 1546) in paragraph at lines 1942--1943
 []|\TU/RedHatDisplay(0)/m/n/10.95 De-tec-tar án-gu-los de roll ex-ce-sivos du-r
 ante la aprox-i-
  []
 
 ignored error Infinite glue shrinkage found in box being split [60] [61]
-Underfull \hbox (badness 1546) in paragraph at lines 1986--1987
+Underfull \hbox (badness 1546) in paragraph at lines 1985--1986
 []|\TU/RedHatDisplay(0)/m/n/10.95 De-tec-tar án-gu-los de roll ex-ce-sivos du-r
 ante la aprox-i-
  []
 
 
-Underfull \hbox (badness 1769) in paragraph at lines 1989--1990
+Underfull \hbox (badness 1769) in paragraph at lines 1988--1989
 []|\TU/RedHatDisplay(0)/m/n/10.95 Los parámet-ros uti-liza-dos para la eval-u-a
 ción de este
  []
 
 
-Underfull \hbox (badness 6252) in paragraph at lines 1997--1998
+Underfull \hbox (badness 6252) in paragraph at lines 1996--1997
 \TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa úni-ca-mente du-rante la ap
 rox-i-
  []
 
 
-Underfull \hbox (badness 1158) in paragraph at lines 2039--2041
+Underfull \hbox (badness 1158) in paragraph at lines 2038--2040
 \TU/RedHatDisplay(0)/m/n/10.95 y \TU/RedHatDisplay(0)/m/it/10.95 FI-NAL AP-PROAC
 H\TU/RedHatDisplay(0)/m/n/10.95 . Si la desviación del glide slope
  []
 
 
-Underfull \hbox (badness 3482) in paragraph at lines 2039--2041
+Underfull \hbox (badness 3482) in paragraph at lines 2038--2040
 \TU/RedHatDisplay(0)/m/n/10.95 (\TU/lmtt/m/n/10.95 ILS__GLIDE_DEV\TU/RedHatDisp
 lay(0)/m/n/10.95 ) es in-fe-rior o igual a los um-brales
  []
 
 
-Underfull \hbox (badness 1430) in paragraph at lines 2050--2052
+Underfull \hbox (badness 1430) in paragraph at lines 2049--2051
 []|\TU/RedHatDisplay(0)/m/n/10.95 Este evento está dis-eñado para iden-ti-fica
 r aprox-i-ma-
  []
 
 [62] [63]
-Underfull \hbox (badness 2080) in paragraph at lines 2076--2078
+Underfull \hbox (badness 2080) in paragraph at lines 2075--2077
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa du-rante las fases \TU/R
 edHatDisplay(0)/m/it/10.95 AP-PROACH \TU/RedHatDisplay(0)/m/n/10.95 y
  []
 
 
-Underfull \hbox (badness 4479) in paragraph at lines 2076--2078
+Underfull \hbox (badness 4479) in paragraph at lines 2075--2077
 \TU/RedHatDisplay(0)/m/it/10.95 FI-NAL AP-PROACH\TU/RedHatDisplay(0)/m/n/10.95 
 . Si la desviación del glide slope
  []
 
 
-Underfull \hbox (badness 3302) in paragraph at lines 2076--2078
+Underfull \hbox (badness 3302) in paragraph at lines 2075--2077
 \TU/RedHatDisplay(0)/m/n/10.95 (\TU/lmtt/m/n/10.95 ILS__GLIDE_DEV\TU/RedHatDisp
 lay(0)/m/n/10.95 ) es pos-i-tiva y su-pera los um-brales
  []
 
 [64]
-Underfull \hbox (badness 4543) in paragraph at lines 2096--2097
+Underfull \hbox (badness 4543) in paragraph at lines 2095--2096
 []|\TU/RedHatDisplay(0)/m/n/10.95 De-tec-tar desvia-ciones neg-a-ti-vas ex-ce-si
 -vas del Glide
  []
 
 
-Underfull \hbox (badness 2080) in paragraph at lines 2110--2112
+Underfull \hbox (badness 2080) in paragraph at lines 2109--2111
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa du-rante las fases \TU/R
 edHatDisplay(0)/m/it/10.95 AP-PROACH \TU/RedHatDisplay(0)/m/n/10.95 y
  []
 
 
-Underfull \hbox (badness 4479) in paragraph at lines 2110--2112
+Underfull \hbox (badness 4479) in paragraph at lines 2109--2111
 \TU/RedHatDisplay(0)/m/it/10.95 FI-NAL AP-PROACH\TU/RedHatDisplay(0)/m/n/10.95 
 . Si la desviación del glide slope
  []
 
 
-Underfull \hbox (badness 7722) in paragraph at lines 2110--2112
+Underfull \hbox (badness 7722) in paragraph at lines 2109--2111
 \TU/RedHatDisplay(0)/m/n/10.95 (\TU/lmtt/m/n/10.95 ILS_GLIDE_DEV\TU/RedHatDispl
 ay(0)/m/n/10.95 ) es menor o igual a los um-brales
  []
 
 
-Underfull \hbox (badness 1430) in paragraph at lines 2119--2121
+Underfull \hbox (badness 1430) in paragraph at lines 2118--2120
 []|\TU/RedHatDisplay(0)/m/n/10.95 Este evento está dis-eñado para iden-ti-fica
 r aprox-i-ma-
  []
 
 [65]
-Underfull \hbox (badness 1087) in paragraph at lines 2144--2146
+Underfull \hbox (badness 1087) in paragraph at lines 2143--2145
 \TU/RedHatDisplay(0)/m/n/10.95 a \TU/RedHatDisplay(0)/m/it/10.95 AP-PROACH \TU/
 RedHatDisplay(0)/m/n/10.95 o \TU/RedHatDisplay(0)/m/it/10.95 FIN_AP-PROACH\TU/R
 edHatDisplay(0)/m/n/10.95 . Si la desviación de
  []
 
 [66]
-Underfull \hbox (badness 1783) in paragraph at lines 2184--2186
+Underfull \hbox (badness 1783) in paragraph at lines 2183--2185
 \TU/RedHatDisplay(0)/m/n/10.95 y \TU/RedHatDisplay(0)/m/it/10.95 FI-NAL AP-PROAC
 H\TU/RedHatDisplay(0)/m/n/10.95 . Si la desviación del lo-cal-izador
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2193--2195
+Underfull \hbox (badness 10000) in paragraph at lines 2192--2194
 []|\TU/RedHatDisplay(0)/m/n/10.95 Este evento per-mite iden-ti-ficar aprox-i-ma-
 ciones
  []
 
 
-Underfull \hbox (badness 5050) in paragraph at lines 2193--2195
+Underfull \hbox (badness 5050) in paragraph at lines 2192--2194
 \TU/RedHatDisplay(0)/m/n/10.95 con alin-eación lat-eral de-fi-ciente en una fas
 e crítica
  []
 
 
-Underfull \hbox (badness 3612) in paragraph at lines 2193--2195
+Underfull \hbox (badness 3612) in paragraph at lines 2192--2194
 \TU/RedHatDisplay(0)/m/n/10.95 del vuelo. La lóg-ica ex-cluye el uso del par
 ámetro
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2193--2195
+Underfull \hbox (badness 10000) in paragraph at lines 2192--2194
 \TU/lmtt/m/n/10.95 ALT__AAE_APPROACH_ZONE\TU/RedHatDisplay(0)/m/n/10.95 , reem-p
 lazán-dolo por
  []
 
 
-Underfull \hbox (badness 4634) in paragraph at lines 2193--2195
+Underfull \hbox (badness 4634) in paragraph at lines 2192--2194
 \TU/lmtt/m/n/10.95 ALT__AAE_BARO\TU/RedHatDisplay(0)/m/n/10.95 , y aplica lóg-i
 ca tem-po-ral ac-tu-al-izada
  []
 
 [67]
-Underfull \hbox (badness 2073) in paragraph at lines 2219--2221
+Underfull \hbox (badness 2073) in paragraph at lines 2218--2220
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa cuando la aeron-ave se en
 -cuen-
  []
 
 
-Underfull \hbox (badness 3514) in paragraph at lines 2219--2221
+Underfull \hbox (badness 3514) in paragraph at lines 2218--2220
 \TU/RedHatDisplay(0)/m/n/10.95 tra en fase \TU/RedHatDisplay(0)/m/it/10.95 AP-PR
 OACH \TU/RedHatDisplay(0)/m/n/10.95 o \TU/RedHatDisplay(0)/m/it/10.95 FI-NAL AP-
 PROACH\TU/RedHatDisplay(0)/m/n/10.95 . Si la
  []
 
 [68]
-Underfull \hbox (badness 1325) in paragraph at lines 2332--2335
+Underfull \hbox (badness 1325) in paragraph at lines 2331--2334
 []|\TU/RedHatDisplay(0)/m/n/10.95 Este evento per-mite iden-ti-ficar prác-ti-ca
 s de con-fig-u-
  []
 
 [69]
 ignored error Infinite glue shrinkage found in box being split [70]
-Underfull \hbox (badness 1087) in paragraph at lines 2357--2359
+Underfull \hbox (badness 1087) in paragraph at lines 2356--2358
 \TU/RedHatDisplay(0)/m/n/10.95 en-tre straight ap-proaches y cir-cu-lar ap-proac
 hes, apli-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2361--2370
+Underfull \hbox (badness 10000) in paragraph at lines 2360--2369
 
  []
 
 
-Underfull \hbox (badness 6510) in paragraph at lines 2372--2373
+Underfull \hbox (badness 6510) in paragraph at lines 2371--2372
 \TU/RedHatDisplay(0)/m/n/10.95 del tren de ater-rizaje, es-pe-cial-mente rel-e-v
 antes en
  []
 
 ignored error Infinite glue shrinkage found in box being split [71] [72]
-Underfull \hbox (badness 3039) in paragraph at lines 2392--2393
+Underfull \hbox (badness 3039) in paragraph at lines 2391--2392
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa du-rante \TU/RedHatDispl
 ay(0)/m/it/10.95 AP-PROACH \TU/RedHatDisplay(0)/m/n/10.95 y \TU/RedHatDisplay(0
 )/m/it/10.95 FIN_AP-
  []
 
 
-Underfull \hbox (badness 2990) in paragraph at lines 2401--2402
+Underfull \hbox (badness 2990) in paragraph at lines 2400--2401
 []\TU/RedHatDisplay(0)/m/n/10.95 El evento aplica úni-ca-mente cuando los \TU/
 RedHatDisplay(0)/m/it/10.95 speed
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2402--2403
+Underfull \hbox (badness 10000) in paragraph at lines 2401--2402
 []\TU/RedHatDisplay(0)/m/n/10.95 La lóg-ica uti-liza \TU/lmtt/m/n/10.95 ALT__AA
 E_BARO \TU/RedHatDisplay(0)/m/n/10.95 (en lu-gar de
  []
 
 
-Underfull \hbox (badness 2529) in paragraph at lines 2402--2403
+Underfull \hbox (badness 2529) in paragraph at lines 2401--2402
 \TU/lmtt/m/n/10.95 ALT__AAE\TU/RedHatDisplay(0)/m/n/10.95 ) con-forme a la ac-tu
 -al-ización in-di-cada
  []
 
 [73]
-Underfull \hbox (badness 7186) in paragraph at lines 2425--2426
+Underfull \hbox (badness 7186) in paragraph at lines 2424--2425
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento se evalúa du-rante las fases \TU/R
 edHatDisplay(0)/m/it/10.95 AP-PROACH
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2425--2426
+Underfull \hbox (badness 10000) in paragraph at lines 2424--2425
 \TU/RedHatDisplay(0)/m/n/10.95 y \TU/RedHatDisplay(0)/m/it/10.95 FIN_AP-PROACH\
 TU/RedHatDisplay(0)/m/n/10.95 . Si el es-tado del parámetro
  []
 
 [74]
-Underfull \hbox (badness 1097) in paragraph at lines 2451--2453
+Underfull \hbox (badness 1097) in paragraph at lines 2450--2452
 []|\TU/RedHatDisplay(0)/m/n/10.95 El evento evalúa un con-junto de even-tos in-
 di-vid-uales
  []
 
 ignored error Infinite glue shrinkage found in box being split [75]
-Underfull \hbox (badness 10000) in paragraph at lines 2533--2533
+Underfull \hbox (badness 10000) in paragraph at lines 2532--2532
 []|\TU/RedHatDisplay(0)/b/n/10.95 Lóg-ica del loop (condi-
  []
 
 
-Underfull \hbox (badness 7064) in paragraph at lines 2537--2538
+Underfull \hbox (badness 7064) in paragraph at lines 2536--2537
 []\TU/RedHatDisplay(0)/b/n/10.95 Ven-tana de al-ti-tud\TU/RedHatDisplay(0)/m/n/
 10.95 : solo se cal-cula \TU/lmtt/m/n/10.95 Diff \TU/RedHatDisplay(0)/m/n/10.95
  si
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2545--2545
+Underfull \hbox (badness 10000) in paragraph at lines 2544--2544
 []|\TU/RedHatDisplay(0)/b/n/10.95 Lóg-ica del loop (acu-mu-
  []
 
 
-Underfull \hbox (badness 3471) in paragraph at lines 2547--2548
+Underfull \hbox (badness 3471) in paragraph at lines 2546--2547
 []\TU/RedHatDisplay(0)/b/n/10.95 Máx-imo ob-ser-vado\TU/RedHatDisplay(0)/m/n/1
 0.95 : si \TU/lmtt/m/n/10.95 Diff > AAF_Diff\TU/RedHatDisplay(0)/m/n/10.95 , en-
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2558--2559
+Underfull \hbox (badness 10000) in paragraph at lines 2557--2558
 []\TU/lmtt/m/n/10.95 AAF_Diff \TU/RedHatDisplay(0)/m/n/10.95 sirve como in-di-ca
 dor agre-gado
  []
 
 
-Underfull \hbox (badness 4621) in paragraph at lines 2558--2559
+Underfull \hbox (badness 4621) in paragraph at lines 2557--2558
 \TU/RedHatDisplay(0)/m/n/10.95 (peak/max) de dis-crep-an-cia den-tro de la fase
  []
 
 ignored error Infinite glue shrinkage found in box being split [76]
 ignored error Infinite glue shrinkage found in box being split [77]
-Underfull \hbox (badness 1688) in paragraph at lines 2574--2575
+Underfull \hbox (badness 1688) in paragraph at lines 2573--2574
 []\TU/lmtt/m/n/10.95 ALT_BARO\TU/RedHatDisplay(0)/m/n/10.95 : Al-ti-tud barom
 étrica in-stan-tánea de la
  []
 
 
-Underfull \hbox (badness 6316) in paragraph at lines 2577--2578
+Underfull \hbox (badness 6316) in paragraph at lines 2576--2577
 []\TU/lmtt/m/n/10.95 TRAJ_RWY_ELEV\TU/RedHatDisplay(0)/m/n/10.95 : El-e-vación de pista aso-ci-ada a
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2578--2579
+Underfull \hbox (badness 10000) in paragraph at lines 2577--2578
 []\TU/lmtt/m/n/10.95 SYS_NEXT_ICAO_NAME\TU/RedHatDisplay(0)/m/n/10.95 : Aerop-ue
 rto des-tino pre-
  []
 
 
-Underfull \hbox (badness 4699) in paragraph at lines 2585--2586
+Underfull \hbox (badness 4699) in paragraph at lines 2584--2585
 []\TU/lmtt/m/n/10.95 SYS_DEST_ELEV\TU/RedHatDisplay(0)/m/n/10.95 : El-e-vación de pista aso-ci-ada al
  []
 
 
-Underfull \hbox (badness 1939) in paragraph at lines 2586--2587
+Underfull \hbox (badness 1939) in paragraph at lines 2585--2586
 []\TU/lmtt/m/n/10.95 SYS_APP_ELEV\TU/RedHatDisplay(0)/m/n/10.95 : El-e-vación 
 de pista aso-ci-ada a la
  []
 
 
-Underfull \hbox (badness 2521) in paragraph at lines 2606--2606
+Underfull \hbox (badness 2521) in paragraph at lines 2605--2605
 []|\TU/RedHatDisplay(0)/b/n/10.95 Se-lec-ción de el-e-vación de
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2610--2611
+Underfull \hbox (badness 10000) in paragraph at lines 2609--2610
 []\TU/RedHatDisplay(0)/m/n/10.95 El-e-vación aso-ci-ada al próx-imo \TU/RedHa
 tDisplay(0)/m/it/10.95 go-around
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2611--2612
+Underfull \hbox (badness 10000) in paragraph at lines 2610--2611
 []\TU/RedHatDisplay(0)/m/n/10.95 El-e-vación aso-ci-ada al des-tino
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2625--2625
+Underfull \hbox (badness 10000) in paragraph at lines 2624--2624
 []|\TU/RedHatDisplay(0)/b/n/10.95 Pro-tec-ciones y sal-va-
  []
 
 
-Underfull \hbox (badness 5592) in paragraph at lines 2627--2628
+Underfull \hbox (badness 5592) in paragraph at lines 2626--2627
 []\TU/RedHatDisplay(0)/m/n/10.95 Si \TU/lmtt/m/n/10.95 ALT__AAE < 50\TU/RedHatD
 isplay(0)/m/n/10.95 , se fuerza \TU/lmtt/m/n/10.95 ALT__AAE_BARO =
  []
 
 
-Underfull \hbox (badness 5985) in paragraph at lines 2627--2628
+Underfull \hbox (badness 5985) in paragraph at lines 2626--2627
 \TU/lmtt/m/n/10.95 ALT__AAE \TU/RedHatDisplay(0)/m/n/10.95 para evi-tar in-con-s
 is-ten-cias cerca del
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 2629--2630
+Underfull \hbox (badness 10000) in paragraph at lines 2628--2629
 []\TU/RedHatDisplay(0)/m/n/10.95 Si no hay el-e-va-ciones vál-i-das disponibles
 ,
  []
 
 
-Underfull \hbox (badness 2781) in paragraph at lines 2633--2633
+Underfull \hbox (badness 2781) in paragraph at lines 2632--2632
 []|\TU/RedHatDisplay(0)/b/n/10.95 Com-por-tamiento fuera de
  []
 
@@ -1703,20 +1703,20 @@ LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-24>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 82E84A637D6E47D65DE9F878309D2710;24933.
+(rerunfilecheck)             Checksum: 2ADF5CC40D1E801C237F39D08545493F;25170.
 Package logreq Info: Writing requests to 'main.run.xml'.
 
 \openout1 = main.run.xml
 )
 
 Here is how much of LuaTeX's memory you used:
- 24979 strings out of 476081
+ 24983 strings out of 476081
  125165,1648299 words of node,token memory allocated
  627 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 4 glue, 4 kern, 1 glyph, 12 attribute, 73 glue_spec
 , 12 attribute_list, 1 write nodes
    avail lists: 2:1044,3:444,4:348,5:1362,6:141,7:7573,8:20,9:768,10:19,11:516
- 46839 multiletter control sequences out of 65536+600000
+ 46841 multiletter control sequences out of 65536+600000
  78 fonts using 5125407 bytes
  72i,13n,92p,717b,1069s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/users/jpmartinez/appdata/local/programs/miktex/fonts/opentype/public/lm/lmmo
@@ -1728,9 +1728,9 @@ onts/type1/public/amsfonts/cm/cmmi10.pfb><C:/Users/jpmartinez/AppData/Local/Prog
 rams/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/jpmartinez/AppDat
 a/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/jpma
 rtinez/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on main.pdf (80 pages, 415083 bytes).
+Output written on main.pdf (80 pages, 416358 bytes).
 
-PDF statistics: 918 PDF objects out of 1000 (max. 8388607)
- 212 named destinations out of 1000 (max. 1048576)
- 785 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 928 PDF objects out of 1000 (max. 8388607)
+ 214 named destinations out of 1000 (max. 1048576)
+ 801 words of extra memory for PDF output out of 10000 (max. 100000000)
 

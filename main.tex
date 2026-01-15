@@ -19,7 +19,7 @@
 
 % Rename "Contents" to Spanish
 \renewcommand{\contentsname}{Tabla de Contenidos}
-\newcommand{\docversion}{1.0}
+\newcommand{\docversion}{1.1}
 \newcommand{\docdate}{\today}
 \newcommand{\fleet}{A32s}
 \usepackage{fontspec}
@@ -321,15 +321,14 @@ BoldItalicFont = *-BoldItalic
 				\item \texttt{CTL\_\_THROTT\_ANGR}
 				\item \texttt{FLIGHT\_\_PHASE}
 			\end{itemize}
-			Adicionalmente, la evaluación se restringe a las fases \textit{FIN\_APPROACH} y \textit{LANDING}, y se habilita únicamente cuando se identifica una variación relevante del ángulo de palancas de empuje (umbral interno de \SI{15}{}). \\
+			Adicionalmente, la evaluación se restringe a las fases \textit{FIN\_APPROACH} y \textit{LANDING}, y se habilita únicamente cuando se identifica una variación relevante por debajo del establecido para los Thrust Levers de \SI{15}{\degree}). \\
 			\hline
 			\textbf{Lógica de activación} &
 			Cuando se detecta que el ángulo de palancas de empuje supera el umbral interno, el evento evalúa la altura \texttt{ALT\_\_AAE}. Si la condición ocurre por debajo de los umbrales de altura configurados, se activa el evento con la severidad correspondiente. \\
 			\hline
 			\textbf{Triggers configurados} &
 			\textit{Low}: activación por debajo de \SI{12}{ft} AAE \newline
-			\textit{Medium}: activación por debajo de \SI{7}{ft} AAE \newline
-			\textit{High}: activación por debajo de \SI{5}{ft} AAE \\
+			\textit{Medium}: activación por debajo de \SI{7}{ft} AAE \newline \\
 			\hline
 			\textbf{Notas operacionales} &
 			El evento se evalúa únicamente durante la aproximación final y el aterrizaje. \\
@@ -2646,5 +2645,7 @@ BoldItalicFont = *-BoldItalic
 		\\ \hline
 	\end{longtable}
 	
-	
+	\section{Log de Cambios}
+	\subsection{Version 1.1}
+	Se elimina el High Trigger del evento 5412 - Late Thrust Reduction LDG. 
 \end{document}
