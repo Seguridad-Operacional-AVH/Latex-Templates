@@ -316,19 +316,19 @@ BoldItalicFont = *-BoldItalic
 			\hline
 			\textbf{Qué tiene en cuenta} & Los parametros usados son:
 			\begin{itemize}
-				\item \texttt{ALT\_\_AAE}
+				\item \texttt{ALT\_\_RADIO}
 				\item \texttt{CTL\_\_THROTT\_ANGL}
 				\item \texttt{CTL\_\_THROTT\_ANGR}
 				\item \texttt{FLIGHT\_\_PHASE}
 			\end{itemize}
-			Adicionalmente, la evaluación se restringe a las fases \textit{FIN\_APPROACH} y \textit{LANDING}, y se habilita únicamente cuando se identifica una variación relevante por debajo del establecido para los Thrust Levers de \SI{15}{\degree}). \\
+			Adicionalmente, la evaluación se restringe a las fases \textit{FIN\_APPROACH} y \textit{LANDING}, y se habilita únicamente cuando se identifica una variación relevante por debajo del establecido para los Thrust Levers de \SI{25}{\degree}. \\
 			\hline
 			\textbf{Lógica de activación} &
 			Cuando se detecta que el ángulo de palancas de empuje supera el umbral interno, el evento evalúa la altura \texttt{ALT\_\_AAE}. Si la condición ocurre por debajo de los umbrales de altura configurados, se activa el evento con la severidad correspondiente. \\
 			\hline
 			\textbf{Triggers configurados} &
-			\textit{Low}: activación por debajo de \SI{12}{ft} AAE \newline
-			\textit{Medium}: activación por debajo de \SI{7}{ft} AAE \newline \\
+			\textit{Low}: activación por debajo de \SI{12}{ft} Radio \newline
+			\textit{Medium}: activación por debajo de \SI{7}{ft} Radio \newline \\
 			\hline
 			\textbf{Notas operacionales} &
 			El evento se evalúa únicamente durante la aproximación final y el aterrizaje. \\
@@ -2647,5 +2647,10 @@ BoldItalicFont = *-BoldItalic
 	
 	\section{Log de Cambios}
 	\subsection{Version 1.1}
-	Se elimina el High Trigger del evento 5412 - Late Thrust Reduction LDG. 
+	Para el evento 5412 - Late Thrust Reduction LDG se modifica: 
+	\begin{itemize}
+		\item Se elimina el High Trigger.
+		\item Se reemplaza ALT\_\_AAE por ALT\_\_RADIO.
+		\item Se cambia el valor angular de los Thrust Levers de 15 a 25. 
+	\end{itemize}
 \end{document}
